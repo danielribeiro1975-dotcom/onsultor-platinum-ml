@@ -1,0 +1,56 @@
+# ── Configuração Netlify — Consultor Platinum ML ──
+[build]
+  publish = "."
+  functions = "netlify/functions"
+
+# Redirects — app e páginas protegidas
+[[redirects]]
+  from = "/painel"
+  to = "/app.html"
+  status = 200
+
+[[redirects]]
+  from = "/entrar"
+  to = "/login.html"
+  status = 200
+
+# Headers de segurança globais
+[[headers]]
+  for = "/*"
+  [headers.values]
+    X-Frame-Options = "SAMEORIGIN"
+    X-Content-Type-Options = "nosniff"
+    Referrer-Policy = "strict-origin-when-cross-origin"
+    Permissions-Policy = "camera=(self), microphone=(), geolocation=()"
+    X-XSS-Protection = "1; mode=block"
+    Strict-Transport-Security = "max-age=63072000; includeSubDomains; preload"
+
+# Cache para assets estáticos
+[[headers]]
+  for = "/og-image.jpg"
+  [headers.values]
+    Cache-Control = "public, max-age=86400"
+
+[[headers]]
+  for = "/logo.png"
+  [headers.values]
+    Cache-Control = "public, max-age=604800"
+
+# Sem cache para páginas autenticadas
+[[headers]]
+  for = "/app.html"
+  [headers.values]
+    Cache-Control = "no-cache, no-store, must-revalidate"
+
+[[headers]]
+  for = "/onboarding.html"
+  [headers.values]
+    Cache-Control = "no-cache, no-store, must-revalidate"
+
+# CORS para Netlify Functions
+[[headers]]
+  for = "/.netlify/functions/*"
+  [headers.values]
+    Access-Control-Allow-Origin = "*"
+    Access-Control-Allow-Headers = "Content-Type, Authorization"
+    Access-Control-Allow-Methods = "GET, POST, OPTIONS"

@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<script>
+/* Safe storage shim */
+(function(){try{var t='__cp_test__';window.localStorage.setItem(t,'1');window.localStorage.removeItem(t);}catch(e){var mem={};try{Object.defineProperty(window,'localStorage',{value:{getItem:function(k){return mem.hasOwnProperty(k)?mem[k]:null;},setItem:function(k,v){mem[k]=String(v);},removeItem:function(k){delete mem[k];},clear:function(){mem={};}},configurable:true});}catch(_){}}})();
+</script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex">
+<title>Acesso suspenso — Consultor Platinum ML</title>
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+
+<!-- ══ FIREBASE AUTH SDK ══════════════════════════════ -->
+<script src="https://www.gstatic.com/firebasejs/9.22.2/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/9.22.2/firebase-auth-compat.js"></script>
+<script>
+  const firebaseConfig = {
+    apiKey:            "AIzaSyBQO4D_j8qeuE-M94FUgpqpG9rvyYUlM-M",
+    authDomain:        "seller-guardian.firebaseapp.com",
+    projectId:         "seller-guardian",
+    storageBucket:     "seller-guardian.firebasestorage.app",
+    messagingSenderId: "485816142226",
+    appId:             "1:485816142226:web:c042b5f008b91cf51c994b"
+  };
+  firebase.initializeApp(firebaseConfig);
+  const auth = firebase.auth();
+</script>
+<!-- ══ FIM FIREBASE ════════════════════════════════════ -->
+
+<style>
+*{margin:0;padding:0;box-sizing:border-box;}
+:root{--bg:#0a1628;--surface:#0f1f3d;--border:#1a2f52;--gold:#FFD700;--text:#e2e8f0;--muted:#64748b;--red:#ef4444;--green:#22c55e;}
+body{background:var(--bg);color:var(--text);font-family:'Sora',sans-serif;min-height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:24px;background-image:radial-gradient(ellipse at 50% 0%,rgba(239,68,68,0.06) 0%,transparent 60%);}
+.logo{font-size:1.05rem;font-weight:800;background:linear-gradient(135deg,#f4f6fa,#aeb8c8 45%,#e8edf4 55%,#8995a8);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;letter-spacing:-0.02em;margin-bottom:28px;text-align:center;}
+.logo span{color:#fff;}
+.card{background:var(--surface);border:1px solid var(--border);padding:40px 36px;width:100%;max-width:460px;border-radius:14px;text-align:center;position:relative;}
+.card::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,transparent,var(--red),transparent);border-radius:14px 14px 0 0;}
+.icon{font-size:2.4rem;margin-bottom:14px;}
+h1{font-size:1.35rem;font-weight:800;color:#fff;margin-bottom:10px;}
+p{font-size:0.9rem;color:var(--muted);line-height:1.6;margin-bottom:22px;}
+.btn{display:block;width:100%;padding:14px;border-radius:8px;font-family:'Sora',sans-serif;font-size:0.9rem;font-weight:700;cursor:pointer;border:none;text-decoration:none;margin-bottom:12px;transition:opacity .2s;}
+.btn:hover{opacity:.88;}
+.btn-gold{background:var(--gold);color:#0a1628;}
+.btn-wpp{background:rgba(34,197,94,.12);color:var(--green);border:1px solid rgba(34,197,94,.35);}
+.btn-ghost{background:transparent;color:var(--muted);border:1px solid var(--border);font-weight:600;font-size:0.82rem;}
+.note{font-size:0.74rem;color:#475569;margin-top:8px;}
+</style>
+</head>
+<body>
+<div class="logo">CONSULTOR <span>PLATINUM</span> ML</div>
+<div class="card">
+  <div class="icon">🔒</div>
+  <h1>Seu acesso está suspenso</h1>
+  <p>Identificamos uma pendência na sua assinatura. Assim que o pagamento for regularizado, seu painel é liberado automaticamente — sem precisar fazer nada aqui.</p>
+
+  <a href="https://www.mercadopago.com.br/subscriptions" target="_blank" rel="noopener" class="btn btn-gold">💳 Regularizar minha assinatura</a>
+  <a id="wppBtn" href="#" target="_blank" rel="noopener" class="btn btn-wpp">💬 Falar com o suporte</a>
+  <button class="btn btn-ghost" onclick="sair()">Sair</button>
+
+  <p class="note">Já regularizou? Pode levar alguns minutos. Tente entrar novamente em instantes.</p>
+</div>
+
+<script>
+// Link do suporte (WhatsApp)
+document.getElementById('wppBtn').href =
+  'https://wa.me/5541985369390?text=' +
+  encodeURIComponent('Olá! Minha assinatura do Consultor Platinum ML está com acesso suspenso. Pode me ajudar a regularizar?');
+
+function sair(){
+  try { auth.signOut(); } catch(_){}
+  localStorage.removeItem('cp_user');
+  window.location.href = 'login.html';
+}
+</script>
+</body>
+</html>

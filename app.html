@@ -1,0 +1,1544 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<script>
+/* Safe storage shim — evita crash em modo privado/cookies bloqueados */
+(function(){
+  try {
+    var t='__cp_test__'; window.localStorage.setItem(t,'1'); window.localStorage.removeItem(t);
+  } catch(e){
+    var mem={};
+    try {
+      Object.defineProperty(window,'localStorage',{value:{
+        getItem:function(k){return mem.hasOwnProperty(k)?mem[k]:null;},
+        setItem:function(k,v){mem[k]=String(v);},
+        removeItem:function(k){delete mem[k];},
+        clear:function(){mem={};}
+      },configurable:true});
+    } catch(_){}
+  }
+})();
+</script>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Painel — Consultor Platinum ML</title>
+<link rel="icon" type="image/png" href="data:image/png;base64,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">
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@300;400;500;600;700;800&family=Bebas+Neue&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box;}
+:root{
+  --bg:#0a1628;--surface:#0f1f3d;--border:#1a2f52;
+  --gold:#FFD700;--text:#e2e8f0;--muted:#64748b;
+  --green:#22c55e;--amber:#f59e0b;--red:#ef4444;--blue:#3b82f6;
+}
+body{background:var(--bg);color:var(--text);font-family:'Sora',sans-serif;height:100vh;overflow:hidden;display:flex;flex-direction:column;}
+
+/* TOP BAR */
+.topbar{
+  height:52px;background:var(--surface);border-bottom:1px solid var(--border);
+  display:flex;align-items:center;justify-content:space-between;
+  padding:0 18px;flex-shrink:0;z-index:50;
+}
+.logo{font-size:0.95rem;font-weight:800;background:linear-gradient(135deg,#f4f6fa 0%,#aeb8c8 45%,#e8edf4 55%,#8995a8 100%);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;letter-spacing:-0.02em;}
+.logo span{color:#fff;}
+
+.topbar-center{display:flex;align-items:center;gap:8px;}
+.seller-chip{
+  display:flex;align-items:center;gap:6px;
+  background:rgba(255,215,0,0.06);
+  border:1px solid rgba(255,215,0,0.15);
+  padding:5px 12px;border-radius:999px;
+  font-size:0.72rem;
+}
+.seller-chip .dot{width:6px;height:6px;border-radius:50%;background:var(--green);animation:pulse 2s infinite;}
+@keyframes pulse{0%,100%{opacity:1}50%{opacity:0.3}}
+
+.topbar-right{display:flex;align-items:center;gap:10px;}
+.icon-btn{
+  width:34px;height:34px;border-radius:8px;
+  border:1px solid var(--border);background:transparent;
+  display:flex;align-items:center;justify-content:center;
+  font-size:1rem;cursor:pointer;color:var(--muted);
+  transition:all 0.15s;position:relative;
+}
+.icon-btn:hover{border-color:rgba(255,215,0,0.3);color:var(--gold);}
+
+/* Botão PDF */
+.btn-pdf{
+  display:flex;align-items:center;gap:6px;
+  background:rgba(255,215,0,0.08);
+  border:1px solid rgba(255,215,0,0.25);
+  color:var(--gold);padding:7px 14px;border-radius:8px;
+  font-size:0.72rem;font-weight:700;font-family:'Sora',sans-serif;
+  cursor:pointer;transition:all 0.2s;letter-spacing:0.3px;
+}
+.btn-pdf:hover{background:rgba(255,215,0,0.16);transform:translateY(-1px);}
+.notif-badge{
+  position:absolute;top:-4px;right:-4px;
+  width:16px;height:16px;border-radius:50%;
+  background:var(--red);color:#fff;
+  font-size:0.55rem;font-weight:700;
+  display:flex;align-items:center;justify-content:center;
+}
+.avatar{
+  width:32px;height:32px;border-radius:8px;
+  background:rgba(255,215,0,0.15);border:1px solid rgba(255,215,0,0.3);
+  display:flex;align-items:center;justify-content:center;
+  font-size:0.9rem;cursor:pointer;font-weight:700;color:var(--gold);
+  font-size:0.75rem;
+}
+
+/* MAIN LAYOUT */
+.main{flex:1;display:grid;grid-template-columns:52px 1fr 320px;overflow:hidden;}
+
+/* SIDEBAR */
+.sidebar{
+  border-right:1px solid var(--border);
+  display:flex;flex-direction:column;align-items:center;
+  padding:12px 0;gap:4px;overflow:hidden;
+}
+.sitem{
+  width:40px;height:40px;border-radius:10px;
+  display:flex;align-items:center;justify-content:center;
+  font-size:1.1rem;cursor:pointer;color:var(--muted);
+  transition:all 0.15s;position:relative;
+}
+.sitem:hover{background:rgba(255,255,255,0.05);color:#fff;}
+.sitem.active{background:rgba(255,215,0,0.1);color:var(--gold);}
+.sitem .sbadge{
+  position:absolute;top:4px;right:4px;
+  width:14px;height:14px;border-radius:50%;
+  background:var(--red);color:#fff;
+  font-size:0.5rem;font-weight:700;
+  display:flex;align-items:center;justify-content:center;
+}
+.sitem-tooltip{
+  position:absolute;left:52px;background:#1e3a5f;
+  color:#fff;font-size:0.68rem;padding:4px 10px;border-radius:4px;
+  white-space:nowrap;pointer-events:none;opacity:0;transition:opacity 0.15s;z-index:100;
+}
+.sitem:hover .sitem-tooltip{opacity:1;}
+.sidebar-sep{width:28px;height:1px;background:var(--border);margin:4px 0;}
+
+/* PAINEL CENTRAL */
+.center{overflow-y:auto;padding:16px;display:flex;flex-direction:column;gap:14px;}
+.center::-webkit-scrollbar{width:3px;}
+.center::-webkit-scrollbar-thumb{background:var(--border);}
+
+/* Saudação */
+.greeting{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:10px;}
+.greeting-text h2{font-size:1rem;font-weight:700;color:#fff;}
+.greeting-text p{font-size:0.72rem;color:var(--muted);margin-top:2px;}
+.sync-btn{
+  display:flex;align-items:center;gap:6px;
+  background:transparent;border:1px solid var(--border);
+  color:var(--muted);padding:6px 12px;border-radius:6px;
+  font-size:0.7rem;font-weight:600;font-family:'Sora',sans-serif;
+  cursor:pointer;transition:all 0.2s;
+}
+.sync-btn:hover{border-color:rgba(255,215,0,0.3);color:var(--gold);}
+
+/* Score + KPIs */
+.score-row{display:grid;grid-template-columns:140px 1fr;gap:10px;}
+.score-card{
+  background:var(--surface);border:1px solid var(--border);
+  border-radius:10px;padding:16px;
+  display:flex;flex-direction:column;align-items:center;justify-content:center;gap:8px;
+  text-align:center;
+}
+.score-ring{position:relative;display:flex;align-items:center;justify-content:center;}
+.score-val{position:absolute;text-align:center;}
+.score-num{font-family:'Bebas Neue',sans-serif;font-size:2rem;line-height:1;}
+.score-num.g{color:var(--green);}
+.score-num.a{color:var(--amber);}
+.score-num.r{color:var(--red);}
+.score-lbl{font-size:0.58rem;color:var(--muted);text-transform:uppercase;letter-spacing:1px;}
+.score-status{font-size:0.68rem;color:var(--amber);font-weight:600;}
+
+.kpi-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:6px;}
+.kpi{background:var(--surface);border:1px solid var(--border);border-radius:8px;padding:12px;transition:all 0.2s;}
+.kpi:hover{border-color:rgba(255,215,0,0.2);}
+.kpi-l{font-size:0.6rem;text-transform:uppercase;letter-spacing:1px;color:var(--muted);margin-bottom:4px;}
+.kpi-v{font-size:1.3rem;font-weight:800;color:#fff;line-height:1;font-variant-numeric:tabular-nums;}
+.kpi-v.g{color:var(--green);}
+.kpi-v.a{color:var(--amber);}
+.kpi-v.r{color:var(--red);}
+.kpi-s{font-size:0.6rem;color:var(--muted);margin-top:3px;}
+
+/* Alertas */
+.section-head{display:flex;align-items:center;justify-content:space-between;margin-bottom:8px;}
+.section-head h3{font-size:0.78rem;font-weight:700;color:#fff;text-transform:uppercase;letter-spacing:1px;}
+.badges{display:flex;gap:5px;}
+.pill{font-size:0.6rem;font-weight:700;padding:2px 8px;border-radius:999px;}
+.pill.r{background:rgba(239,68,68,0.15);color:var(--red);border:1px solid rgba(239,68,68,0.25);}
+.pill.a{background:rgba(245,158,11,0.15);color:var(--amber);border:1px solid rgba(245,158,11,0.25);}
+.pill.g{background:rgba(34,197,94,0.12);color:var(--green);border:1px solid rgba(34,197,94,0.2);}
+
+.alert-card{
+  background:var(--surface);border:1px solid rgba(255,255,255,0.06);
+  border-radius:8px;overflow:hidden;
+  margin-bottom:6px;transition:all 0.25s;
+}
+.alert-card:hover{border-color:rgba(255,215,0,0.2);}
+.alert-card.flash{animation:flashCard 0.6s ease;}
+@keyframes flashCard{0%,100%{box-shadow:none}50%{box-shadow:0 0 0 2px var(--gold);}}
+
+.ac-head{
+  display:flex;align-items:center;gap:8px;
+  padding:10px 14px;border-bottom:1px solid rgba(255,255,255,0.04);
+  cursor:pointer;
+}
+.ac-nivel{display:flex;align-items:center;gap:5px;font-size:0.6rem;font-weight:700;text-transform:uppercase;letter-spacing:1px;}
+.ac-nivel .nd{width:6px;height:6px;border-radius:50%;animation:pulse 2s infinite;}
+.ac-nivel.r{color:var(--red);} .ac-nivel.r .nd{background:var(--red);}
+.ac-nivel.a{color:var(--amber);} .ac-nivel.a .nd{background:var(--amber);}
+.ac-nivel.g{color:var(--green);} .ac-nivel.g .nd{background:var(--green);}
+.ac-title{font-size:0.8rem;font-weight:700;color:#fff;flex:1;}
+.ac-tag{font-size:0.58rem;background:rgba(255,215,0,0.08);color:var(--gold);border:1px solid rgba(255,215,0,0.15);padding:2px 7px;border-radius:999px;white-space:nowrap;}
+.ac-chevron{color:var(--muted);font-size:0.75rem;transition:transform 0.2s;flex-shrink:0;}
+.ac-chevron.open{transform:rotate(180deg);}
+
+.ac-body{display:none;padding:12px 14px;border-top:1px solid rgba(255,255,255,0.04);}
+.ac-body.open{display:block;}
+.ac-desc{font-size:0.75rem;color:#888;line-height:1.6;margin-bottom:10px;}
+.ac-actions{display:flex;flex-direction:column;gap:5px;margin-bottom:10px;}
+.ac-action{
+  display:flex;align-items:flex-start;gap:8px;
+  font-size:0.72rem;color:#aaa;padding:8px 10px;
+  background:rgba(255,255,255,0.02);border:1px solid rgba(255,255,255,0.04);
+  border-radius:6px;cursor:pointer;transition:all 0.15s;line-height:1.4;
+}
+.ac-action:hover{border-color:rgba(255,215,0,0.3);color:#fff;background:rgba(255,215,0,0.03);}
+.ac-action.done{color:#4ade80;background:rgba(34,197,94,0.05);border-color:rgba(34,197,94,0.2);text-decoration:line-through;opacity:0.7;}
+.ac-n{width:18px;height:18px;border-radius:50%;background:rgba(255,215,0,0.1);color:var(--gold);font-size:0.6rem;font-weight:700;display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:1px;}
+.ac-action.done .ac-n{background:rgba(34,197,94,0.15);color:var(--green);}
+.btn-perg{
+  width:100%;background:rgba(255,215,0,0.08);border:1px solid rgba(255,215,0,0.2);
+  color:var(--gold);padding:8px;border-radius:6px;font-size:0.7rem;font-weight:700;
+  cursor:pointer;font-family:'Sora',sans-serif;transition:all 0.2s;
+}
+.btn-perg:hover{background:rgba(255,215,0,0.16);}
+
+/* CHAT */
+.chat-panel{border-left:1px solid var(--border);display:flex;flex-direction:column;overflow:hidden;background:#080f1a;}
+.chat-head{
+  padding:12px 14px;border-bottom:1px solid var(--border);
+  display:flex;align-items:center;gap:10px;flex-shrink:0;
+}
+.ia-av{
+  width:34px;height:34px;border-radius:9px;
+  background:rgba(255,215,0,0.12);border:1px solid rgba(255,215,0,0.25);
+  display:flex;align-items:center;justify-content:center;font-size:1rem;
+}
+.ia-name{font-size:0.78rem;font-weight:700;color:#fff;}
+.ia-online{font-size:0.62rem;color:var(--green);display:flex;align-items:center;gap:4px;}
+.online-dot{width:6px;height:6px;border-radius:50%;background:var(--green);animation:pulse 2s infinite;}
+
+.chat-msgs{flex:1;overflow-y:auto;padding:12px;display:flex;flex-direction:column;gap:10px;scroll-behavior:smooth;}
+.chat-msgs::-webkit-scrollbar{width:2px;}
+.chat-msgs::-webkit-scrollbar-thumb{background:var(--border);}
+
+.msg{max-width:90%;display:flex;flex-direction:column;gap:3px;}
+.msg-ia{align-self:flex-start;}
+.msg-usr{align-self:flex-end;}
+.bubble{padding:9px 13px;border-radius:10px;font-size:0.75rem;line-height:1.6;}
+.msg-ia .bubble{background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.07);color:#ccc;border-bottom-left-radius:3px;}
+.msg-usr .bubble{background:rgba(255,215,0,0.1);border:1px solid rgba(255,215,0,0.2);color:#fff;border-bottom-right-radius:3px;}
+.bubble b{color:var(--gold);font-weight:600;}
+.bubble .hl{display:inline;background:rgba(239,68,68,0.15);color:#fca5a5;padding:1px 5px;border-radius:3px;font-weight:600;}
+.bubble .ok{display:inline;background:rgba(34,197,94,0.12);color:#86efac;padding:1px 5px;border-radius:3px;font-weight:600;}
+
+.inline-sol{background:rgba(255,215,0,0.05);border:1px solid rgba(255,215,0,0.18);border-radius:8px;padding:10px;margin-top:7px;}
+.is-title{font-size:0.7rem;font-weight:700;color:var(--gold);margin-bottom:6px;}
+.is-item{font-size:0.68rem;color:#bbb;padding:4px 0;border-bottom:1px solid rgba(255,255,255,0.04);display:flex;gap:6px;line-height:1.4;}
+.is-item:last-child{border-bottom:none;}
+.is-item span:first-child{color:var(--gold);flex-shrink:0;}
+.btn-ver{margin-top:8px;width:100%;background:var(--gold);color:#0a1628;border:none;padding:7px;border-radius:6px;font-size:0.68rem;font-weight:700;cursor:pointer;font-family:'Sora',sans-serif;transition:all 0.2s;}
+.btn-ver:hover{background:#ffdc6b;}
+
+.msg-time{font-size:0.58rem;color:#333;padding:0 3px;}
+
+.typing-wrap{align-self:flex-start;}
+.typing-bub{background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.07);border-radius:10px;border-bottom-left-radius:3px;padding:10px 14px;display:flex;gap:4px;align-items:center;}
+.tdot{width:5px;height:5px;border-radius:50%;background:var(--muted);animation:td 1.2s infinite;}
+.tdot:nth-child(2){animation-delay:0.2s;}
+.tdot:nth-child(3){animation-delay:0.4s;}
+@keyframes td{0%,60%,100%{transform:translateY(0);opacity:0.3}30%{transform:translateY(-5px);opacity:1}}
+
+.quick-btns{padding:8px 10px;border-top:1px solid rgba(255,255,255,0.05);display:flex;gap:5px;overflow-x:auto;flex-shrink:0;}
+.quick-btns::-webkit-scrollbar{display:none;}
+.qb-platinum.locked,.qb-enterprise.locked{opacity:.35;cursor:not-allowed;position:relative;}
+.qb-platinum.locked::after{content:'💎';font-size:.6rem;position:absolute;top:-4px;right:-4px;}
+.qb-enterprise.locked::after{content:'🏆';font-size:.6rem;position:absolute;top:-4px;right:-4px;}
+.qb{white-space:nowrap;font-size:0.62rem;padding:5px 9px;border-radius:999px;border:1px solid rgba(255,255,255,0.08);background:transparent;color:#666;cursor:pointer;font-family:'Sora',sans-serif;transition:all 0.15s;}
+.qb:hover{border-color:var(--gold);color:var(--gold);background:rgba(255,215,0,0.06);}
+
+.chat-input-row{display:flex;gap:6px;padding:10px;border-top:1px solid rgba(255,255,255,0.05);flex-shrink:0;}
+.chat-inp{flex:1;background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.07);border-radius:8px;padding:9px 12px;color:#fff;font-family:'Sora',sans-serif;font-size:0.75rem;outline:none;transition:border-color 0.2s;}
+.chat-inp:focus{border-color:rgba(255,215,0,0.4);}
+.chat-inp::placeholder{color:#333;}
+.send-btn{width:36px;height:36px;border-radius:8px;background:var(--gold);border:none;cursor:pointer;display:flex;align-items:center;justify-content:center;font-size:0.9rem;transition:all 0.2s;flex-shrink:0;}
+.send-btn:hover{background:#ffdc6b;transform:scale(1.05);}
+.send-btn:disabled{opacity:0.4;cursor:not-allowed;transform:none;}
+
+/* Mobile drawer para chat */
+.chat-toggle{display:none;position:fixed;bottom:80px;right:16px;width:52px;height:52px;border-radius:50%;background:var(--gold);color:#0a1628;border:none;font-size:1.4rem;cursor:pointer;z-index:200;box-shadow:0 4px 20px rgba(255,215,0,0.4);align-items:center;justify-content:center;}
+.chat-badge{position:absolute;top:-4px;right:-4px;width:18px;height:18px;border-radius:50%;background:var(--red);color:#fff;font-size:0.6rem;font-weight:700;display:flex;align-items:center;justify-content:center;}
+
+@media(max-width:768px){
+  .main{grid-template-columns:1fr;}
+  .sidebar{display:none;}
+  .chat-panel{position:fixed;bottom:0;left:0;right:0;height:70vh;z-index:150;transform:translateY(100%);transition:transform 0.3s ease;border-radius:16px 16px 0 0;}
+  .chat-panel.open{transform:translateY(0);}
+  .chat-toggle{display:flex;}
+  .center{height:calc(100vh - 52px);overflow-y:auto;}
+}
+/* ═══ CENTRAL DE AJUDA ═══ */
+.ajuda-overlay{position:fixed;inset:0;background:rgba(0,0,0,.6);backdrop-filter:blur(4px);z-index:400;display:none;align-items:center;justify-content:center;padding:20px;}
+.ajuda-overlay.open{display:flex;}
+.ajuda-modal{background:#0e1420;border:1px solid rgba(255,255,255,.1);border-radius:14px;width:100%;max-width:560px;max-height:85vh;display:flex;flex-direction:column;overflow:hidden;box-shadow:0 30px 80px rgba(0,0,0,.6);}
+.ajuda-head{display:flex;justify-content:space-between;align-items:flex-start;padding:20px 22px;border-bottom:1px solid rgba(255,255,255,.08);}
+.ajuda-title{font-size:1.1rem;font-weight:800;color:#fff;}
+.ajuda-sub{font-size:.72rem;color:#7a8aa0;margin-top:3px;}
+.ajuda-close{background:none;border:none;color:#7a8aa0;font-size:1.1rem;cursor:pointer;padding:4px;}
+.ajuda-close:hover{color:#fff;}
+.ajuda-search{padding:16px 22px;border-bottom:1px solid rgba(255,255,255,.06);}
+.ajuda-search input{width:100%;background:#0a0f18;border:1px solid rgba(255,255,255,.12);border-radius:8px;padding:11px 14px;color:#fff;font-size:.85rem;outline:none;font-family:inherit;}
+.ajuda-search input:focus{border-color:var(--gold);}
+.ajuda-body{overflow-y:auto;padding:8px 22px 16px;flex:1;}
+.ajuda-cat{font-size:.65rem;font-weight:800;text-transform:uppercase;letter-spacing:1px;color:var(--gold);margin:18px 0 8px;}
+.ajuda-item{border-bottom:1px solid rgba(255,255,255,.05);}
+.ajuda-q{width:100%;background:none;border:none;color:#dfe6f0;font-size:.85rem;font-weight:600;text-align:left;padding:13px 0;cursor:pointer;display:flex;justify-content:space-between;align-items:center;gap:10px;font-family:inherit;}
+.ajuda-q:hover{color:#fff;}
+.ajuda-q span{color:var(--gold);font-size:1.1rem;flex-shrink:0;}
+.ajuda-a{max-height:0;overflow:hidden;transition:max-height .3s,padding .3s;font-size:.8rem;color:#9fb0c6;line-height:1.6;}
+.ajuda-a.open{max-height:300px;padding:0 0 14px;}
+.ajuda-empty{text-align:center;color:#7a8aa0;font-size:.85rem;padding:40px 0;}
+.ajuda-footer{padding:16px 22px;border-top:1px solid rgba(255,255,255,.08);background:#0a0f18;}
+.ajuda-ia-cta{display:flex;align-items:center;justify-content:space-between;gap:14px;font-size:.78rem;color:#9fb0c6;}
+.ajuda-ia-btn{background:var(--gold);color:#0a1628;border:none;border-radius:8px;padding:9px 14px;font-weight:800;font-size:.78rem;cursor:pointer;white-space:nowrap;font-family:inherit;}
+.ajuda-ia-btn:hover{background:#fff;}
+@media(max-width:560px){.ajuda-ia-cta{flex-direction:column;align-items:stretch;}}
+</style>
+  <!-- ══ FIREBASE AUTH SDK ══════════════════════════════ -->
+  <script src="https://www.gstatic.com/firebasejs/10.12.0/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/10.12.0/firebase-auth-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/10.12.0/firebase-firestore-compat.js"></script>
+  <script>
+    const firebaseConfig = {
+      apiKey:            "AIzaSyBQO4D_j8qeuE-M94FUgpqpG9rvyYUlM-M",
+      authDomain:        "seller-guardian.firebaseapp.com",
+      projectId:         "seller-guardian",
+      storageBucket:     "seller-guardian.firebasestorage.app",
+      messagingSenderId: "485816142226",
+      appId:             "1:485816142226:web:c042b5f008b91cf51c994b"
+    };
+    firebase.initializeApp(firebaseConfig);
+    const auth = firebase.auth();
+    const db   = firebase.firestore();
+  </script>
+  <!-- ══ FIM FIREBASE ════════════════════════════════════ -->
+</head>
+<body>
+
+<!-- TOP BAR -->
+<div class="topbar">
+  <div class="logo"><span style="display:inline-flex;align-items:center;"><svg viewBox="0 0 240 240" width="26" height="26" fill="none" xmlns="http://www.w3.org/2000/svg" style="vertical-align:middle;margin-right:7px;">
+  <defs><linearGradient id="cpI" x1="0" y1="0" x2="0.7" y2="1"><stop offset="0%" stop-color="#ffffff"/><stop offset="42%" stop-color="#aeb8c8"/><stop offset="55%" stop-color="#f2f5f9"/><stop offset="100%" stop-color="#6b7585"/></linearGradient></defs>
+  <path d="M150 70 A58 58 0 1 0 150 170" fill="none" stroke="url(#cpI)" stroke-width="20" stroke-linecap="round"/>
+  <path d="M120 64 L120 176" fill="none" stroke="url(#cpI)" stroke-width="20" stroke-linecap="round"/>
+  <path d="M120 64 L150 64 A32 32 0 0 1 150 128 L120 128" fill="none" stroke="url(#cpI)" stroke-width="20" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M100 156 L100 88 M100 88 L84 106 M100 88 L116 106" fill="none" stroke="url(#cpI)" stroke-width="15" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M158 66 l3.5 8 8.5.8 -6.3 5.7 1.7 8.4 -7.4-4.2 -7.4 4.2 1.7-8.4 -6.3-5.7 8.5-.8z" fill="#fff"/>
+</svg></span>Consultor<span>Platinum</span></div>
+  <div class="topbar-center">
+    <div class="seller-chip">
+      <div class="dot"></div>
+      <span id="sellerName" style="color:#fff;font-weight:600;font-size:0.72rem">loja-exemplo</span>
+      <span style="color:var(--muted)">· ML</span>
+    </div>
+  </div>
+  <div class="topbar-right">
+    <span id="planoBadge" style="font-size:0.6rem;font-weight:800;padding:3px 10px;border-radius:999px;letter-spacing:.5px;background:rgba(34,197,94,0.1);color:#22c55e;border:1px solid rgba(34,197,94,0.25);display:none;">🌱 Starter</span>
+    <button class="btn-pdf" onclick="gerarPDF()" title="Baixar relatório em PDF">
+      📄 Relatório PDF
+    </button>
+    <button class="icon-btn" title="Notificações">
+      🔔
+      <div class="notif-badge" id="notifBadge">3</div>
+    </button>
+    <div class="avatar" id="avatarBtn" title="Sair">
+      <span id="avatarInitial">?</span>
+    </div>
+  </div>
+</div>
+
+<!-- MAIN -->
+<div class="main">
+
+  <!-- SIDEBAR ICONS -->
+  <div class="sidebar">
+    <div class="sitem active" title="Dashboard" onclick="window.scrollTo({top:0,behavior:'smooth'})">📊<div class="sitem-tooltip">Dashboard</div></div>
+    <div class="sitem" title="Consultor IA" onclick="document.querySelector('.chat-panel').classList.toggle('open')">🤖<div class="sbadge">!</div><div class="sitem-tooltip">Consultor IA</div></div>
+    <div class="sidebar-sep"></div>
+    <div class="sitem" title="Anúncios" onclick="perguntarTema('Como estão meus anúncios? O que devo melhorar pra vender mais?')">📦<div class="sitem-tooltip">Anúncios</div></div>
+    <div class="sitem" title="Pedidos" onclick="perguntarTema('Tenho pedidos pendentes de envio? O que priorizar agora?')">🛒<div class="sbadge" id="badgePedidos">5</div><div class="sitem-tooltip">Pedidos</div></div>
+    <div class="sitem" title="Reputação" onclick="perguntarTema('Como está minha reputação e termômetro? O que fazer pra melhorar?')">⭐<div class="sitem-tooltip">Reputação</div></div>
+    <div class="sitem" title="ML Ads" onclick="toast('📈 Análise de ML Ads chega em breve — requer o módulo Mercado Ads.')">📈<div class="sitem-tooltip">ML Ads</div></div>
+    <div class="sidebar-sep"></div>
+    <div class="sitem" title="Central de Ajuda" onclick="abrirAjuda()">❓<div class="sitem-tooltip">Central de Ajuda</div></div>
+    <div class="sitem" title="Configurações" onclick="toast('⚙️ Preferências da conta chegam em breve.')">⚙️<div class="sitem-tooltip">Configurações</div></div>
+    <div class="sitem" title="Sair" onclick="sair()" style="margin-top:auto">🚪<div class="sitem-tooltip">Sair</div></div>
+  </div>
+
+  <!-- CENTRO -->
+  <div class="center">
+
+    <!-- Saudação -->
+    <div class="greeting">
+      <div class="greeting-text">
+        <h2 id="greetTitle">Bom dia! Sua conta tem alertas hoje.</h2>
+        <p>Atualizado há 2 min · <span style="color:var(--gold)">7 alertas ativos</span> · <span style="color:#a78bfa;">2 enterprise</span></p>
+      </div>
+      <button class="sync-btn" onclick="syncNow()">⟳ Sincronizar</button>
+    </div>
+
+    <!-- Score + KPIs -->
+    <div class="score-row">
+      <div class="score-card">
+        <div class="score-ring">
+          <svg width="90" height="90" style="transform:rotate(-90deg)">
+            <circle cx="45" cy="45" r="36" fill="none" stroke="var(--border)" stroke-width="8"/>
+            <circle cx="45" cy="45" r="36" fill="none" stroke="var(--amber)" stroke-width="8"
+              stroke-dasharray="226" stroke-dashoffset="79" stroke-linecap="round"
+              style="transition:stroke-dashoffset 1s ease"/>
+          </svg>
+          <div class="score-val">
+            <div class="score-num a">65</div>
+            <div class="score-lbl">Score</div>
+          </div>
+        </div>
+        <div class="score-status">⚠️ Atenção</div>
+      </div>
+      <div class="kpi-grid">
+        <div class="kpi">
+          <div class="kpi-l">Pedidos pagos</div>
+          <div class="kpi-v" id="mPedidos">23</div>
+          <div class="kpi-s">Últimas 48h</div>
+        </div>
+        <div class="kpi">
+          <div class="kpi-l">Aguard. envio</div>
+          <div class="kpi-v r" id="mAguardando">5</div>
+          <div class="kpi-s">⚠️ Urgente</div>
+        </div>
+        <div class="kpi">
+          <div class="kpi-l">Buy Box</div>
+          <div class="kpi-v a" id="mBuyBox">61%</div>
+          <div class="kpi-s">Meta: >80%</div>
+        </div>
+        <div class="kpi">
+          <div class="kpi-l">ACOS</div>
+          <div class="kpi-v r" id="mAcos">34%</div>
+          <div class="kpi-s">Meta: <10%</div>
+        </div>
+        <div class="kpi" style="border-left:1px solid rgba(167,139,250,0.2);grid-column:1/-1;background:rgba(167,139,250,0.04);">
+          <div class="kpi-l" style="color:#a78bfa;">💰 Reembolsos Ocultos Detectados</div>
+          <div class="kpi-v" style="color:#a78bfa;font-size:1rem;">R$ 4.320</div>
+          <div class="kpi-s" style="color:#a78bfa;">⚡ Contestação disponível — clique no alerta Enterprise</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ALERTAS -->
+    <div>
+      <div class="section-head">
+        <h3>Alertas Ativos</h3>
+        <div class="badges">
+          <span class="pill r">3 críticos</span>
+          <span class="pill a">4 atenções</span>
+          <span class="pill" style="background:rgba(167,139,250,0.12);color:#a78bfa;border:1px solid rgba(167,139,250,0.25);">2 enterprise</span>
+        </div>
+      </div>
+
+      <!-- Alerta 1 -->
+      <div class="alert-card" id="ac1">
+        <div class="ac-head" onclick="toggleCard('ac1')">
+          <div class="ac-nivel r"><div class="nd"></div>CRÍTICO</div>
+          <div class="ac-title">🌡️ Termômetro em risco</div>
+          <span class="ac-tag">Reputação</span>
+          <span class="ac-chevron">▾</span>
+        </div>
+        <div class="ac-body">
+          <div class="ac-desc">3 mediações abertas há +24h. Taxa de reclamações: <b style="color:#fca5a5">2.4%</b> (limite 2%). Penalidade automática do ML em 48h.</div>
+          <div class="ac-actions">
+            <div class="ac-action" onclick="marcar(this)"><div class="ac-n">1</div><span>Responda as 3 mediações abertas antes das 18h — ofereça solução direta (reenvio ou reembolso)</span></div>
+            <div class="ac-action" onclick="marcar(this)"><div class="ac-n">2</div><span>Pause temporariamente os anúncios com mais devoluções para conter o impacto</span></div>
+          </div>
+          <button class="btn-perg" onclick="perguntarIA('Como resolver mediações abertas e proteger meu termômetro?')">💬 Perguntar ao Consultor</button>
+        </div>
+      </div>
+
+      <!-- Alerta 2 -->
+      <div class="alert-card" id="ac2" data-plano-min="platinum">
+        <div class="ac-head" onclick="toggleCard('ac2')">
+          <div class="ac-nivel r"><div class="nd"></div>CRÍTICO</div>
+          <div class="ac-title">📉 ACOS 34% — Ads no prejuízo</div>
+          <span class="ac-tag">ML Ads</span>
+          <span class="ac-chevron">▾</span>
+        </div>
+        <div class="ac-body">
+          <div class="ac-desc">Você gastou <b style="color:#fca5a5">R$482</b> em ads esta semana. Para cada R$100 vendido, R$34 foram para o ML. Sua margem real está negativa.</div>
+          <div class="ac-actions">
+            <div class="ac-action" onclick="marcar(this)"><div class="ac-n">1</div><span>Reduza o lance máximo de todas as campanhas em 25% agora mesmo</span></div>
+            <div class="ac-action" onclick="marcar(this)"><div class="ac-n">2</div><span>Pause os 3 produtos com ACOS acima de 50% — estão consumindo budget sem converter</span></div>
+            <div class="ac-action" onclick="marcar(this)"><div class="ac-n">3</div><span>Concentre o budget nos 2 produtos com ACOS abaixo de 15%</span></div>
+          </div>
+          <button class="btn-perg" onclick="perguntarIA('Como baixar meu ACOS de 34% de forma rápida?')">💬 Perguntar ao Consultor</button>
+        </div>
+      </div>
+
+      <!-- Alerta 3 -->
+      <div class="alert-card" id="ac3">
+        <div class="ac-head" onclick="toggleCard('ac3')">
+          <div class="ac-nivel a"><div class="nd"></div>ATENÇÃO</div>
+          <div class="ac-title">📦 5 pedidos aguardando envio</div>
+          <span class="ac-tag">Logística</span>
+          <span class="ac-chevron">▾</span>
+        </div>
+        <div class="ac-body">
+          <div class="ac-desc">2 pedidos vencem <b style="color:#fde68a">hoje às 23h59</b>. Cada atraso impacta diretamente o termômetro já em zona de risco.</div>
+          <div class="ac-actions">
+            <div class="ac-action" onclick="marcar(this)"><div class="ac-n">1</div><span>Priorize os pedidos #98231 e #98204 — imprima a etiqueta agora, eles vencem hoje</span></div>
+            <div class="ac-action" onclick="marcar(this)"><div class="ac-n">2</div><span>Os outros 3 vencem amanhã — despache até as 14h para garantir a coleta</span></div>
+          </div>
+          <button class="btn-perg" onclick="perguntarIA('Como evitar atrasos de envio no futuro?')">💬 Perguntar ao Consultor</button>
+        </div>
+      </div>
+
+      <!-- Alerta 4 — ESTOQUE ZUMBI FULL (Platinum+) -->
+      <div class="alert-card" id="ac4" data-plano-min="platinum">
+        <div class="ac-head" onclick="toggleCard('ac4')">
+          <div class="ac-nivel a"><div class="nd"></div>ATENÇÃO</div>
+          <div class="ac-title">📦 Estoque Zumbi — 3 SKUs perto da tarifa de 60 dias</div>
+          <span class="ac-tag">Full ML</span>
+          <span class="ac-chevron">▾</span>
+        </div>
+        <div class="ac-body">
+          <div class="ac-desc">Os SKUs <b style="color:#fde68a">Kit-Ferr-082</b>, <b style="color:#fde68a">Cabo-USB-Pro</b> e <b style="color:#fde68a">Suporte-Cel-V3</b> completam 60 dias no Full em <b style="color:#fca5a5">8 dias</b>. A tarifa de armazenamento prolongado vai ativar e corroer sua margem.</div>
+          <div class="ac-actions">
+            <div class="ac-action" onclick="marcar(this)"><div class="ac-n">1</div><span>Ative o "Acelera Full" do ML para esses SKUs — o ML co-financia um desconto para desova rápida</span></div>
+            <div class="ac-action" onclick="marcar(this)"><div class="ac-n">2</div><span>Crie um kit combo com o produto líder da sua loja para reativar o giro</span></div>
+            <div class="ac-action" onclick="marcar(this)"><div class="ac-n">3</div><span>Se não vender em 5 dias, solicite retirada antes da tarifa ativar</span></div>
+          </div>
+          <button class="btn-perg" onclick="perguntarIA('Como evitar a tarifa de armazenamento prolongado no Full?')">💬 Perguntar ao Consultor</button>
+        </div>
+      </div>
+
+      <!-- Alerta 5 — SIMPLES NACIONAL (Platinum+) -->
+      <div class="alert-card" id="ac5" data-plano-min="platinum">
+        <div class="ac-head" onclick="toggleCard('ac5')">
+          <div class="ac-nivel a"><div class="nd"></div>ATENÇÃO</div>
+          <div class="ac-title">🏦 Simples Nacional — 78% do teto utilizado</div>
+          <span class="ac-tag">Fiscal</span>
+          <span class="ac-chevron">▾</span>
+        </div>
+        <div class="ac-body">
+          <div class="ac-desc">Seu faturamento acumulado nos últimos 12 meses é <b style="color:#fde68a">R$ 3.744.000</b> (78% do teto de R$4,8M). No ritmo atual, você atinge o limite em <b style="color:#fca5a5">~68 dias</b>. A transição para Lucro Presumido pode impactar sua margem em até 8%.</div>
+          <div class="ac-actions">
+            <div class="ac-action" onclick="marcar(this)"><div class="ac-n">1</div><span>Agende reunião com seu contador agora para simular o impacto da transição antes de estouro</span></div>
+            <div class="ac-action" onclick="marcar(this)"><div class="ac-n">2</div><span>Revise a precificação dos SKUs de menor margem para absorver a nova alíquota</span></div>
+          </div>
+          <button class="btn-perg" onclick="perguntarIA('O que acontece quando estourar o teto do Simples Nacional?')">💬 Perguntar ao Consultor</button>
+        </div>
+      </div>
+
+      <!-- Alerta 6 — REEMBOLSOS OCULTOS (Enterprise) -->
+      <div class="alert-card" id="ac6" data-plano-min="enterprise" style="border-left:2px solid #a78bfa;">
+        <div class="ac-head" onclick="toggleCard('ac6')">
+          <div class="ac-nivel r"><div class="nd" style="background:#a78bfa;"></div><span style="color:#a78bfa;">ENTERPRISE</span></div>
+          <div class="ac-title">💰 R$ 4.320 em reembolsos não creditados detectados</div>
+          <span class="ac-tag" style="color:#a78bfa;border-color:rgba(167,139,250,0.3);">Auditoria</span>
+          <span class="ac-chevron">▾</span>
+        </div>
+        <div class="ac-body">
+          <div class="ac-desc">O sistema cruzou envios extraviados e devoluções com o extrato do Mercado Pago. Encontrou <b style="color:#a78bfa;">7 transações</b> em que o ML deveria ter creditado ao vendedor, mas não creditou. Total: <b style="color:#a78bfa;">R$ 4.320,00</b> retidos indevidamente.</div>
+          <div class="ac-actions">
+            <div class="ac-action" onclick="marcar(this)"><div class="ac-n">1</div><span>Relatório com logs e evidências gerado — enviar para o suporte Mercado Livre via chamado técnico</span></div>
+            <div class="ac-action" onclick="marcar(this)"><div class="ac-n">2</div><span>Consultor Platinum abre contestação em lote com relatório irrefutável pela API</span></div>
+          </div>
+          <button class="btn-perg" onclick="perguntarIA('Como contestar reembolsos não pagos pelo Mercado Livre?')">💬 Perguntar ao Consultor</button>
+        </div>
+      </div>
+
+      <!-- Alerta 7 — FLUXO DE CAIXA (Enterprise) -->
+      <div class="alert-card" id="ac7" data-plano-min="enterprise" style="border-left:2px solid #a78bfa;">
+        <div class="ac-head" onclick="toggleCard('ac7')">
+          <div class="ac-nivel a"><div class="nd" style="background:#a78bfa;"></div><span style="color:#a78bfa;">ENTERPRISE</span></div>
+          <div class="ac-title">💸 Risco de caixa — fornecedor vence antes da liberação MP</div>
+          <span class="ac-tag" style="color:#a78bfa;border-color:rgba(167,139,250,0.3);">Financeiro</span>
+          <span class="ac-chevron">▾</span>
+        </div>
+        <div class="ac-body">
+          <div class="ac-desc">Você tem <b style="color:#a78bfa;">R$ 142.000</b> retidos no Mercado Pago com liberação em 14 dias. Seu fornecedor principal vence em <b style="color:#fca5a5">8 dias</b>. Diferença crítica de 6 dias — risco de descapitalização ou cancelamento de pedido.</div>
+          <div class="ac-actions">
+            <div class="ac-action" onclick="marcar(this)"><div class="ac-n">1</div><span>Solicite antecipação de recebíveis via Mercado Crédito — taxa menor que banco tradicional</span></div>
+            <div class="ac-action" onclick="marcar(this)"><div class="ac-n">2</div><span>Negocie prazo extra de 7 dias com o fornecedor mostrando o calendário de liberação do MP</span></div>
+          </div>
+          <button class="btn-perg" onclick="perguntarIA('Como gerenciar o fluxo de caixa com retenção do Mercado Pago?')">💬 Perguntar ao Consultor</button>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- CHAT PANEL -->
+  <div class="chat-panel" id="chatPanel">
+    <div class="chat-head">
+      <div class="ia-av">🤖</div>
+      <div>
+        <div class="ia-name">Consultor Platinum IA</div>
+        <div class="ia-online"><div class="online-dot"></div>Online · responde em segundos</div>
+      </div>
+    </div>
+
+    <div class="chat-msgs" id="chatMsgs">
+      <div class="msg msg-ia">
+        <div class="bubble">Olá! Analisei sua conta e encontrei <span class="hl">2 alertas críticos</span> que precisam de ação hoje. Clique nos cards ao lado ou me pergunte qualquer coisa. 👈</div>
+        <div class="msg-time">Agora</div>
+      </div>
+    </div>
+
+    <div class="quick-btns" id="quickBtns">
+      <button class="qb" onclick="perguntarIA('O que é mais urgente agora?')">🔴 Urgente?</button>
+      <button class="qb" onclick="perguntarIA('Meu termômetro está em risco?')">🌡️ Termômetro</button>
+      <button class="qb" onclick="perguntarIA('Por que perdi Buy Box?')">🥊 Buy Box</button>
+      <button class="qb" onclick="perguntarIA('Tenho pedidos com risco de atraso?')">📦 Pedidos</button>
+      <!-- Platinum+ -->
+      <button class="qb qb-platinum" data-plano-min="platinum" onclick="perguntarIA('Como reduzir meu ROAS e melhorar as campanhas de Ads?')">📉 ML Ads</button>
+      <button class="qb qb-platinum" data-plano-min="platinum" onclick="perguntarIA('Como evitar a tarifa de armazenamento prolongado no Full?')">⚡ Full Zumbi</button>
+      <!-- Enterprise -->
+      <button class="qb qb-enterprise" data-plano-min="enterprise" onclick="perguntarIA('Tenho reembolsos não pagos pelo Mercado Livre?')">💰 Reembolsos</button>
+      <button class="qb qb-enterprise" data-plano-min="enterprise" onclick="perguntarIA('Como está meu fluxo de caixa vs retenção do Mercado Pago?')">💸 Fluxo Caixa</button>
+    </div>
+
+    <div class="chat-input-row">
+      <input class="chat-inp" id="chatInp" placeholder="Pergunte sobre sua conta..." onkeydown="if(event.key==='Enter')enviar()"/>
+      <button class="send-btn" id="sendBtn" onclick="enviar()">➤</button>
+    </div>
+  </div>
+
+</div><!-- /main -->
+
+<!-- Mobile chat toggle -->
+<button class="chat-toggle" onclick="document.getElementById('chatPanel').classList.toggle('open')">
+  🤖<div class="chat-badge">!</div>
+</button>
+
+<!-- ═══ CENTRAL DE AJUDA ═══ -->
+<div class="ajuda-overlay" id="ajudaOverlay" onclick="if(event.target===this)fecharAjuda()">
+  <div class="ajuda-modal">
+    <div class="ajuda-head">
+      <div>
+        <div class="ajuda-title">❓ Central de Ajuda</div>
+        <div class="ajuda-sub">Encontre respostas na hora · disponível 24/7</div>
+      </div>
+      <button class="ajuda-close" onclick="fecharAjuda()">✕</button>
+    </div>
+    <div class="ajuda-search">
+      <input type="text" id="ajudaBusca" placeholder="🔍 Buscar ajuda... (ex: termômetro, Buy Box, reembolso)" oninput="filtrarAjuda()">
+    </div>
+    <div class="ajuda-body" id="ajudaBody"><!-- artigos injetados via JS --></div>
+    <div class="ajuda-footer">
+      <div class="ajuda-ia-cta">
+        <div>
+          <strong>Não encontrou?</strong> Pergunte ao Consultor IA — ele responde na hora.
+        </div>
+        <button onclick="fecharAjuda();document.getElementById('chatPanel').classList.add('open');" class="ajuda-ia-btn">🤖 Falar com a IA</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+// ─── CENTRAL DE AJUDA ───────────────────────────────────
+const AJUDA_ARTIGOS = [
+  { cat: 'Primeiros passos', q: 'Como conectar minha conta do Mercado Livre?', a: 'No painel, clique em "Conectar conta ML". Você será levado ao Mercado Livre para autorizar com segurança — sem precisar informar sua senha para nós. Após autorizar, seus dados aparecem automaticamente.' },
+  { cat: 'Primeiros passos', q: 'O que faço no primeiro acesso?', a: '1) Conecte sua conta ML. 2) Aguarde a primeira análise (poucos minutos). 3) Veja seus alertas no Dashboard. 4) Baixe seu primeiro Relatório Estratégico em PDF. O onboarding guiado te acompanha em cada etapa.' },
+  { cat: 'Alertas', q: 'O que significa o alerta de termômetro?', a: 'O termômetro é o indicador de saúde da sua reputação no ML. Quando ele aparece em alerta, significa que mediações, cancelamentos ou atrasos estão subindo. O Consultor IA mostra exatamente o que resolver primeiro para proteger sua conta.' },
+  { cat: 'Alertas', q: 'Como funcionam os alertas no WhatsApp?', a: 'Você recebe no seu WhatsApp os alertas críticos (termômetro em risco, Buy Box perdida, estoque Full prestes a gerar tarifa). Configure seu número em Configurações → Notificações.' },
+  { cat: 'Buy Box', q: 'Por que perdi a Buy Box?', a: 'A Buy Box (ganhar o anúncio do catálogo) depende de preço, reputação, prazo de entrega e estoque. O sistema monitora em tempo real e avisa quando você perde, mostrando o motivo provável e o que ajustar.' },
+  { cat: 'Margem & ACOS', q: 'Como o sistema calcula minha margem real?', a: 'Cruzamos o preço de venda com taxa do ML, frete/Full, custo de Ads e imposto (Simples Nacional). O resultado é a margem real por SKU — não o "lucro de fachada". Disponível no plano Platinum e superior.' },
+  { cat: 'Margem & ACOS', q: 'O que é ACOS e por que importa?', a: 'ACOS é quanto você gasta em anúncios (Ads) para cada real vendido. ACOS alto come sua margem. O sistema audita seu ACOS e sugere onde cortar gasto sem perder venda.' },
+  { cat: 'Reembolsos', q: 'O que é a auditoria de reembolsos ocultos?', a: 'O Mercado Livre às vezes retém valores de reembolsos, fretes e estornos que deveriam voltar para você. Nossa auditoria identifica esses valores "esquecidos" e mostra quanto você pode recuperar. Disponível no Enterprise.' },
+  { cat: 'Planos', q: 'Qual a diferença entre os planos?', a: 'Starter: para começar — diagnóstico, alertas, curso e IA. Platinum: escala com margem — IA ilimitada, auditoria ACOS, margem por SKU. Enterprise: governança — multicontas, auditoria de reembolsos, fluxo de caixa preditivo.' },
+  { cat: 'Planos', q: 'Como faço upgrade do meu plano?', a: 'Vá em Configurações → Plano → Fazer upgrade. A mudança é imediata e o valor é ajustado proporcionalmente. Você não perde nenhum dado ao subir de plano.' },
+  { cat: 'Conta & Pagamento', q: 'Como cancelar minha assinatura?', a: 'Você pode cancelar quando quiser em Configurações → Plano → Cancelar. Sem multa, sem burocracia. Seu acesso continua até o fim do período já pago.' },
+  { cat: 'Conta & Pagamento', q: 'Meus dados estão seguros?', a: 'Sim. Usamos conexão criptografada e a autorização oficial do Mercado Livre (OAuth) — nunca temos acesso à sua senha. Seus dados são usados só para gerar suas análises.' },
+];
+
+function abrirAjuda() {
+  renderAjuda(AJUDA_ARTIGOS);
+  document.getElementById('ajudaOverlay').classList.add('open');
+  setTimeout(()=>document.getElementById('ajudaBusca').focus(), 200);
+}
+function fecharAjuda() {
+  document.getElementById('ajudaOverlay').classList.remove('open');
+}
+function renderAjuda(lista) {
+  const body = document.getElementById('ajudaBody');
+  if (!lista.length) {
+    body.innerHTML = '<div class="ajuda-empty">Nenhum resultado. Tente outra palavra ou fale com o Consultor IA.</div>';
+    return;
+  }
+  const cats = {};
+  lista.forEach(a => { (cats[a.cat] = cats[a.cat] || []).push(a); });
+  let html = '';
+  for (const cat in cats) {
+    html += `<div class="ajuda-cat">${cat}</div>`;
+    cats[cat].forEach((a, i) => {
+      const id = 'fq_' + cat.replace(/\W/g,'') + i;
+      html += `<div class="ajuda-item">
+        <button class="ajuda-q" onclick="document.getElementById('${id}').classList.toggle('open')">${a.q}<span>+</span></button>
+        <div class="ajuda-a" id="${id}">${a.a}</div>
+      </div>`;
+    });
+  }
+  body.innerHTML = html;
+}
+function filtrarAjuda() {
+  const termo = document.getElementById('ajudaBusca').value.toLowerCase().trim();
+  if (!termo) return renderAjuda(AJUDA_ARTIGOS);
+  const filtrados = AJUDA_ARTIGOS.filter(a =>
+    a.q.toLowerCase().includes(termo) || a.a.toLowerCase().includes(termo) || a.cat.toLowerCase().includes(termo)
+  );
+  renderAjuda(filtrados);
+}
+document.addEventListener('keydown', e => { if (e.key === 'Escape') fecharAjuda(); });
+</script>
+
+<script>
+// ─── GERAR PDF ─────────────────────────────────────────────
+function gerarPDF() {
+  /* ══════════════════════════════════════════════════════
+     RELATÓRIO ESTRATÉGICO — CONSULTOR PLATINUM ML
+     Arquitetura em 2 partes:
+       1) coletarDados()  → fonte dos dados (hoje: painel/demo; futuro: API Meli)
+       2) montarRelatorio() → molde definitivo (não muda quando a API entrar)
+     Quando a API do Mercado Livre for integrada, basta coletarDados()
+     passar a retornar dados reais e o selo de demonstração some sozinho.
+  ══════════════════════════════════════════════════════ */
+
+  // ─── CAMADA DE DADOS ───────────────────────────────────
+  function coletarDados() {
+    const user = JSON.parse(localStorage.getItem('cp_user') || '{}');
+    // Flag: vira true automaticamente quando a conta do ML estiver conectada
+    const apiConectada = !!((window.__contaReal && window.__contaReal.conectado) || (window.CP_API && window.CP_API.conectada));
+
+    const alertas = [];
+    document.querySelectorAll('.alert-card').forEach((card) => {
+      const nivel  = card.querySelector('.ac-nivel')?.textContent?.trim() || 'ATENÇÃO';
+      const titulo = card.querySelector('.ac-title')?.textContent?.trim() || '';
+      const tag    = card.querySelector('.ac-tag')?.textContent?.trim() || '';
+      const desc   = card.querySelector('.ac-desc')?.textContent?.trim() || '';
+      const acoes  = [];
+      card.querySelectorAll('.ac-action span').forEach(a => acoes.push(a.textContent.trim()));
+      const feitas = card.querySelectorAll('.ac-action.done').length;
+      const total  = card.querySelectorAll('.ac-action').length;
+      alertas.push({ nivel, titulo, tag, desc, acoes, feitas, total });
+    });
+
+    const txt = (sel) => document.querySelector(sel)?.textContent?.trim() || '--';
+    const idt = (id)  => document.getElementById(id)?.textContent?.trim() || '--';
+
+    return {
+      user, apiConectada,
+      alertas,
+      kpis: {
+        score:      txt('.score-num'),
+        pedidos:    idt('mPedidos'),
+        aguardando: idt('mAguardando'),
+        buybox:     idt('mBuyBox'),
+        acos:       idt('mAcos'),
+      }
+    };
+  }
+
+  // ─── HELPERS DE CLASSIFICAÇÃO ──────────────────────────
+  function classificarNivel(nivel) {
+    const n = nivel.toUpperCase();
+    if (n.includes('CRÍTICO') || n.includes('CRITICO') || n.includes('EMERGÊNCIA') || n.includes('EMERGENCIA'))
+      return { ordem:1, label:'CRÍTICO', cor:'#dc2626', urgencia:'Resolver hoje', prazo:'Hoje' };
+    if (n.includes('ATENÇÃO') || n.includes('ATENCAO'))
+      return { ordem:2, label:'ATENÇÃO', cor:'#d97706', urgencia:'Resolver esta semana', prazo:'Esta semana' };
+    if (n.includes('ENTERPRISE'))
+      return { ordem:2, label:'ESTRATÉGICO', cor:'#7c3aed', urgencia:'Planejar', prazo:'Esta semana' };
+    return { ordem:3, label:'MONITORAR', cor:'#0891b2', urgencia:'Acompanhar', prazo:'Próximas 2 semanas' };
+  }
+
+  // Impacto qualitativo honesto por tipo (sem inventar R$)
+  function impactoQualitativo(a) {
+    const t = (a.titulo + ' ' + a.tag).toLowerCase();
+    if (/term[oô]metro|media|reputa/.test(t)) return 'Sinal de risco para o termômetro';
+    if (/acos|ads|an[uú]ncio/.test(t))        return 'Margem de lucro sendo corroída';
+    if (/buy ?box/.test(t))                   return 'Vendas migrando para concorrentes';
+    if (/full|estoque|armazena/.test(t))      return 'Custo de armazenagem / ruptura iminente';
+    if (/reembolso|extravi/.test(t))          return 'Dinheiro retido que pode ser recuperado';
+    if (/simples|tribut|fiscal/.test(t))      return 'Risco fiscal / enquadramento tributário';
+    if (/multicont|governan/.test(t))         return 'Risco de bloqueio em cascata';
+    if (/caixa|fluxo|pagamento/.test(t))      return 'Pressão de fluxo de caixa';
+    if (/envio|pedido|log[ií]stica/.test(t))  return 'Atraso que pressiona a reputação';
+    return 'Impacto operacional na conta';
+  }
+
+  // ─── MONTAGEM DO RELATÓRIO ─────────────────────────────
+  function montarRelatorio(d) {
+    const agora = new Date();
+    const dataFmt = agora.toLocaleDateString('pt-BR', { day:'2-digit', month:'long', year:'numeric' });
+    const horaFmt = agora.toLocaleTimeString('pt-BR', { hour:'2-digit', minute:'2-digit' });
+
+    // Enriquecer alertas
+    const enriq = d.alertas.map(a => ({ ...a, c: classificarNivel(a.nivel), impacto: impactoQualitativo(a) }))
+                           .sort((x,y) => x.c.ordem - y.c.ordem);
+
+    const criticos = enriq.filter(a => a.c.ordem === 1);
+    const semana   = enriq.filter(a => a.c.ordem === 2);
+    const monitor  = enriq.filter(a => a.c.ordem === 3);
+    const totalAcoes  = enriq.reduce((s,a)=>s+a.total,0);
+    const totalFeitas = enriq.reduce((s,a)=>s+a.feitas,0);
+    const totalPend   = totalAcoes - totalFeitas;
+
+    // Saúde 0-10
+    const scoreNum = parseInt(d.kpis.score) || 65;
+    let saude = Math.round(scoreNum/10);
+    if (criticos.length>=2) saude = Math.max(2, saude-2);
+    else if (criticos.length===1) saude = Math.max(3, saude-1);
+    saude = Math.min(10, Math.max(1, saude));
+    const classif = saude>=8?'Saudável':saude>=6?'Estável':saude>=4?'Em Atenção':'Crítica';
+    const cCor    = saude>=8?'#16a34a':saude>=6?'#2563eb':saude>=4?'#d97706':'#dc2626';
+
+    const topRisco = criticos[0] || semana[0] || enriq[0];
+
+    // Selo de fonte de dados
+    const selo = d.apiConectada
+      ? `<span style="font-size:0.6rem;font-weight:700;color:#16a34a;background:#f0fdf4;border:1px solid #bbf7d0;padding:3px 10px;border-radius:999px;">● Dados reais · Conta conectada via API</span>`
+      : `<span style="font-size:0.6rem;font-weight:700;color:#92400e;background:#fffbeb;border:1px solid #fde68a;padding:3px 10px;border-radius:999px;">◐ Dados de demonstração · Conecte sua conta para diagnóstico real</span>`;
+
+    // KPI cards
+    const kpiCards = [
+      { l:'Score da conta', v:d.kpis.score },
+      { l:'Pedidos (48h)',  v:d.kpis.pedidos },
+      { l:'Aguard. envio',  v:d.kpis.aguardando },
+      { l:'Buy Box',        v:d.kpis.buybox },
+      { l:'ACOS',           v:d.kpis.acos },
+    ].map(k => `<div style="text-align:center;padding:12px 6px;border:1px solid #e5e7eb;border-radius:6px;background:#fafafa;">
+        <div style="font-size:0.54rem;text-transform:uppercase;letter-spacing:1px;color:#9ca3af;margin-bottom:4px;">${k.l}</div>
+        <div style="font-size:1.45rem;font-weight:800;color:#111;line-height:1;">${k.v}</div>
+      </div>`).join('');
+
+    // Bloco de alerta (Camada 2 — coração do relatório)
+    const blocoAlerta = (a, idx) => {
+      const acoesList = a.acoes.map((ac,j) => {
+        const feita = j < a.feitas;
+        return `<li style="font-size:0.76rem;color:${feita?'#16a34a':'#374151'};margin-bottom:5px;line-height:1.45;${feita?'text-decoration:line-through;opacity:.65;':''}">${feita?'✓ ':''}${ac}</li>`;
+      }).join('');
+      return `<div style="margin-bottom:14px;border:1px solid #e5e7eb;border-left:4px solid ${a.c.cor};border-radius:6px;overflow:hidden;page-break-inside:avoid;">
+        <div style="padding:11px 16px;background:#fafafa;border-bottom:1px solid #f0f0f0;display:flex;align-items:center;justify-content:space-between;gap:10px;">
+          <div style="display:flex;align-items:center;gap:9px;">
+            <span style="font-size:0.85rem;font-weight:800;color:#d1d5db;">${String(idx).padStart(2,'0')}</span>
+            <span style="font-size:0.84rem;font-weight:700;color:#111;">${a.titulo}</span>
+          </div>
+          <span style="font-size:0.56rem;font-weight:800;text-transform:uppercase;letter-spacing:1px;color:${a.c.cor};background:${a.c.cor}14;padding:3px 9px;border-radius:3px;white-space:nowrap;">${a.c.label}</span>
+        </div>
+        <div style="padding:13px 16px;">
+          <p style="font-size:0.76rem;color:#4b5563;margin-bottom:11px;line-height:1.55;">${a.desc}</p>
+          <div style="display:flex;gap:8px;margin-bottom:11px;flex-wrap:wrap;">
+            <span style="font-size:0.66rem;background:#fef2f2;color:#b91c1c;border:1px solid #fecaca;padding:3px 10px;border-radius:4px;">⚠ ${a.impacto}</span>
+            <span style="font-size:0.66rem;background:#f8fafc;color:#475569;border:1px solid #e2e8f0;padding:3px 10px;border-radius:4px;">🕐 ${a.c.urgencia}</span>
+          </div>
+          <div style="font-size:0.6rem;font-weight:800;text-transform:uppercase;letter-spacing:1px;color:#9ca3af;margin-bottom:6px;">O que fazer</div>
+          <ul style="margin:0;padding-left:18px;">${acoesList}</ul>
+        </div>
+      </div>`;
+    };
+
+    let idx = 0;
+    const secaoCriticos = criticos.length ? `
+      <div style="font-size:0.72rem;font-weight:800;color:#dc2626;margin:18px 0 10px;display:flex;align-items:center;gap:8px;">
+        <span style="background:#dc2626;color:#fff;padding:2px 10px;border-radius:4px;font-size:0.62rem;">RESOLVER HOJE</span>
+        ${criticos.length} alerta(s) crítico(s)
+      </div>${criticos.map(a=>blocoAlerta(a,++idx)).join('')}` : '';
+    const secaoSemana = semana.length ? `
+      <div style="font-size:0.72rem;font-weight:800;color:#d97706;margin:18px 0 10px;display:flex;align-items:center;gap:8px;">
+        <span style="background:#d97706;color:#fff;padding:2px 10px;border-radius:4px;font-size:0.62rem;">ESTA SEMANA</span>
+        ${semana.length} alerta(s) de atenção
+      </div>${semana.map(a=>blocoAlerta(a,++idx)).join('')}` : '';
+    const secaoMonitor = monitor.length ? `
+      <div style="font-size:0.72rem;font-weight:800;color:#0891b2;margin:18px 0 10px;display:flex;align-items:center;gap:8px;">
+        <span style="background:#0891b2;color:#fff;padding:2px 10px;border-radius:4px;font-size:0.62rem;">MONITORAR</span>
+        ${monitor.length} ponto(s) de acompanhamento
+      </div>${monitor.map(a=>blocoAlerta(a,++idx)).join('')}` : '';
+
+    // Camada 3 — Roteiro de execução
+    const acoesHoje = criticos.flatMap(a => a.acoes.filter((_,j)=>j>=a.feitas));
+    const acoesSemana = semana.flatMap(a => a.acoes.filter((_,j)=>j>=a.feitas));
+    const roteiroItem = (txt) => `<li style="font-size:0.76rem;color:#374151;margin-bottom:6px;line-height:1.45;">${txt}</li>`;
+    const roteiroHTML = `
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;">
+        <div style="border:1px solid #fecaca;background:#fef2f2;border-radius:8px;padding:16px;">
+          <div style="font-size:0.66rem;font-weight:800;text-transform:uppercase;letter-spacing:1px;color:#b91c1c;margin-bottom:10px;">🔴 Comece hoje</div>
+          <ul style="margin:0;padding-left:18px;">${acoesHoje.length?acoesHoje.map(roteiroItem).join(''):'<li style="font-size:0.76rem;color:#9ca3af;">Nenhuma ação crítica pendente ✓</li>'}</ul>
+        </div>
+        <div style="border:1px solid #fed7aa;background:#fffbeb;border-radius:8px;padding:16px;">
+          <div style="font-size:0.66rem;font-weight:800;text-transform:uppercase;letter-spacing:1px;color:#92400e;margin-bottom:10px;">🟡 Ainda esta semana</div>
+          <ul style="margin:0;padding-left:18px;">${acoesSemana.length?acoesSemana.map(roteiroItem).join(''):'<li style="font-size:0.76rem;color:#9ca3af;">Nenhuma ação pendente para a semana ✓</li>'}</ul>
+        </div>
+      </div>`;
+
+    // Decisão do consultor
+    const decisao = topRisco
+      ? `Se eu cuidasse desta conta hoje, minha primeira ação seria <strong>"${(topRisco.acoes[0]||topRisco.titulo)}"</strong> — porque ataca <strong>${topRisco.titulo.toLowerCase()}</strong>, o ponto de maior risco no momento (${topRisco.impacto.toLowerCase()}), e é a ação de maior efeito com menor esforço.`
+      : `Sua conta está saudável. Mantenha o monitoramento diário e foque em escalar seus produtos vencedores com campanhas bem calibradas.`;
+
+    return `<!DOCTYPE html><html lang="pt-BR"><head><meta charset="UTF-8">
+<title>Relatório Estratégico — Consultor Platinum ML</title>
+<style>
+  *{margin:0;padding:0;box-sizing:border-box;}
+  body{font-family:-apple-system,'Segoe UI',Roboto,sans-serif;color:#111;background:#fff;padding:36px;max-width:840px;margin:0 auto;}
+  @page{size:A4;margin:0;}
+  @media print{
+    html,body{background:#fff;}
+    body{padding:14mm 16mm;max-width:none;margin:0;}
+    .no-print{display:none!important;}
+    .pb{page-break-before:always;}
+  }
+  h2.sec{font-size:0.64rem;font-weight:800;text-transform:uppercase;letter-spacing:2px;color:#9ca3af;margin:28px 0 12px;padding-bottom:7px;border-bottom:1px solid #e5e7eb;}
+</style></head><body>
+
+  <!-- CABEÇALHO -->
+  <div style="display:flex;align-items:flex-start;justify-content:space-between;margin-bottom:14px;padding-bottom:18px;border-bottom:2px solid #111;">
+    <div>
+      <div style="font-size:1.4rem;font-weight:800;letter-spacing:-0.02em;">CONSULTOR<span style="color:#8995a8;">PLATINUM</span> ML</div>
+      <div style="font-size:0.74rem;color:#6b7280;margin-top:3px;">Relatório Estratégico da Operação</div>
+    </div>
+    <div style="text-align:right;">
+      <div style="font-size:0.82rem;font-weight:700;">${d.user.loja || d.user.nome || 'Sua Conta ML'}</div>
+      <div style="font-size:0.7rem;color:#6b7280;">${dataFmt} · ${horaFmt}</div>
+    </div>
+  </div>
+  <div style="margin-bottom:22px;">${selo}</div>
+
+  <!-- CAMADA 1 — DIAGNÓSTICO -->
+  <h2 class="sec">1 · Diagnóstico da Conta</h2>
+  <div style="display:flex;gap:16px;align-items:stretch;margin-bottom:14px;">
+    <div style="flex-shrink:0;width:140px;border:1px solid #e5e7eb;border-radius:8px;padding:18px;text-align:center;background:#fafafa;display:flex;flex-direction:column;justify-content:center;">
+      <div style="font-size:2.8rem;font-weight:800;color:${cCor};line-height:1;">${saude}<span style="font-size:1rem;color:#9ca3af;">/10</span></div>
+      <div style="font-size:0.66rem;font-weight:800;color:${cCor};text-transform:uppercase;letter-spacing:1px;margin-top:6px;">${classif}</div>
+      <div style="font-size:0.58rem;color:#9ca3af;margin-top:3px;">Saúde geral</div>
+    </div>
+    <div style="flex:1;display:grid;grid-template-columns:repeat(3,1fr);gap:8px;">
+      <div style="border:1px solid #fecaca;background:#fef2f2;border-radius:6px;padding:12px;text-align:center;">
+        <div style="font-size:1.6rem;font-weight:800;color:#dc2626;">${criticos.length}</div>
+        <div style="font-size:0.58rem;color:#b91c1c;text-transform:uppercase;letter-spacing:.5px;">Críticos</div>
+      </div>
+      <div style="border:1px solid #fed7aa;background:#fffbeb;border-radius:6px;padding:12px;text-align:center;">
+        <div style="font-size:1.6rem;font-weight:800;color:#d97706;">${semana.length}</div>
+        <div style="font-size:0.58rem;color:#92400e;text-transform:uppercase;letter-spacing:.5px;">Atenção</div>
+      </div>
+      <div style="border:1px solid #e5e7eb;background:#fafafa;border-radius:6px;padding:12px;text-align:center;">
+        <div style="font-size:1.6rem;font-weight:800;color:#111;">${totalPend}</div>
+        <div style="font-size:0.58rem;color:#6b7280;text-transform:uppercase;letter-spacing:.5px;">Ações pendentes</div>
+      </div>
+      <div style="grid-column:1/-1;border:1px solid #e5e7eb;border-radius:6px;padding:11px 14px;background:#fff;font-size:0.76rem;color:#4b5563;line-height:1.5;">
+        <strong style="color:#111;">Leitura rápida:</strong> ${criticos.length>0 ? `há ${criticos.length} ponto(s) que exigem ação imediata para proteger a conta.` : 'nenhum ponto crítico agora.'} O maior risco do momento é <strong style="color:${(topRisco?topRisco.c.cor:'#111')};">${topRisco?topRisco.titulo:'—'}</strong>.
+      </div>
+    </div>
+  </div>
+  <div style="display:grid;grid-template-columns:repeat(5,1fr);gap:8px;">${kpiCards}</div>
+
+  <!-- CAMADA 2 — PLANO DE AÇÃO -->
+  <h2 class="sec">2 · Plano de Ação Priorizado</h2>
+  <p style="font-size:0.76rem;color:#6b7280;margin-bottom:4px;">Ordenado por urgência real. Resolva de cima para baixo — o topo é o que mais protege sua conta agora.</p>
+  ${secaoCriticos}${secaoSemana}${secaoMonitor}
+  ${enriq.length===0?'<p style="font-size:0.8rem;color:#16a34a;padding:16px;border:1px solid #bbf7d0;background:#f0fdf4;border-radius:8px;">✓ Nenhum alerta ativo. Sua conta está operando sem pontos de risco detectados.</p>':''}
+
+  <!-- CAMADA 3 — ROTEIRO -->
+  <div class="pb"></div>
+  <h2 class="sec">3 · Roteiro de Execução</h2>
+  <p style="font-size:0.76rem;color:#6b7280;margin-bottom:12px;">Seu mapa de navegação: o que fazer primeiro, sem precisar decidir sozinho.</p>
+  ${roteiroHTML}
+
+  <!-- DECISÃO -->
+  <h2 class="sec">A Decisão do Consultor</h2>
+  <div style="background:#111;color:#fff;border-radius:8px;padding:20px 24px;">
+    <div style="font-size:0.6rem;text-transform:uppercase;letter-spacing:2px;color:#8995a8;margin-bottom:8px;">Recomendação executiva</div>
+    <p style="font-size:0.9rem;line-height:1.6;">${decisao}</p>
+  </div>
+
+  ${!d.apiConectada ? `<div style="margin-top:18px;border:1px dashed #d1d5db;border-radius:8px;padding:14px 18px;background:#fafafa;">
+    <div style="font-size:0.74rem;color:#4b5563;line-height:1.55;"><strong style="color:#111;">📡 Próximo nível:</strong> ao conectar sua conta do Mercado Livre via API, este relatório passa a usar seus dados reais — faturamento, ACOS de cada campanha, margem por SKU e valores exatos em reais de cada oportunidade.</div>
+  </div>` : ''}
+
+  <!-- RODAPÉ -->
+  <div style="margin-top:26px;padding-top:14px;border-top:1px solid #e5e7eb;display:flex;justify-content:space-between;font-size:0.62rem;color:#9ca3af;">
+    <span>CONSULTOR PLATINUM ML · Relatório gerado pela IA</span>
+    <span>${dataFmt} · ${horaFmt}</span>
+  </div>
+
+  <!-- CONTROLES -->
+  <div class="no-print" style="margin-top:24px;text-align:center;">
+    <button onclick="window.print()" style="background:#FFD700;color:#111;border:none;padding:12px 32px;font-size:0.9rem;font-weight:700;cursor:pointer;border-radius:6px;font-family:inherit;">🖨️ Salvar como PDF / Imprimir</button>
+    <button onclick="window.close()" style="background:#f1f5f9;color:#374151;border:none;padding:12px 20px;font-size:0.9rem;font-weight:700;cursor:pointer;border-radius:6px;font-family:inherit;margin-left:8px;">Fechar</button>
+  </div>
+
+</body></html>`;
+  }
+
+  // ─── EXECUÇÃO ──────────────────────────────────────────
+  const dados = coletarDados();
+  const html  = montarRelatorio(dados);
+  const win = window.open('', '_blank', 'width=900,height=700');
+  win.document.write(html);
+  win.document.close();
+  win.onload = () => { setTimeout(() => win.print(), 500); };
+}
+
+// ── FIREBASE AUTH GUARD ──
+// Mantém sessão persistente no dispositivo
+firebase.auth().setPersistence(firebase.auth.Auth.Persistence.LOCAL)
+  .then(() => {
+    auth.onAuthStateChanged(async (user) => {
+      if(!user){
+        // Espera 1s antes de redirecionar (evita flicker no carregamento)
+        setTimeout(() => { window.location.href = 'login.html'; }, 1000);
+        return;
+      }
+      // Sincroniza localStorage com dados do Firestore
+      try {
+        const snap = await db.collection('sellers').doc(user.uid).get();
+        const data = snap.exists ? snap.data() : {};
+
+        // ── TRAVA DE INADIMPLÊNCIA ──
+        // O webhook do Mercado Pago marca acesso_liberado=false quando a
+        // assinatura é cancelada/pausada. Só bloqueia se for explicitamente
+        // false (conta nova, sem o campo ainda, continua liberada).
+        if (data.acesso_liberado === false) {
+          window.location.href = 'pendente.html';
+          return;
+        }
+
+        const planoFirestore = data.plano || 'starter';
+        localStorage.setItem('cp_user', JSON.stringify({
+          uid:   user.uid,
+          nome:  data.nome  || user.email.split('@')[0],
+          email: user.email,
+          loja:  data.loja  || '',
+          plano: planoFirestore
+        }));
+
+        // ── APLICA RESTRIÇÕES DO PLANO IMEDIATAMENTE ──
+        aplicarControlePlano(planoFirestore);
+
+        // Puxa os dados REAIS da conta do Mercado Livre (se conectada via OAuth)
+        try { const idt = await user.getIdToken(); carregarDadosReais(idt); } catch(_) {}
+      } catch(e) {
+        console.log('Firestore sync error:', e);
+      }
+    });
+  });
+const _u = localStorage.getItem('cp_user');
+
+// ─── INIT ───
+const user = JSON.parse(_u||'{}');
+if(user.nome){
+  document.getElementById('sellerName').textContent = user.loja || user.nome;
+  document.getElementById('avatarInitial').textContent = user.nome.charAt(0).toUpperCase();
+  const h = new Date().getHours();
+  const greet = h<12?'Bom dia':h<18?'Boa tarde':'Boa noite';
+  document.getElementById('greetTitle').textContent = `${greet}, ${user.nome.split(' ')[0]}! Sua conta tem alertas hoje.`;
+  // Aplica plano imediatamente do cache (antes do Firestore responder)
+  // O Firestore sync vai sobrescrever se o plano tiver mudado
+  aplicarControlePlano(user.plano || 'starter');
+}
+
+// ══════════════════════════════════════════════════════════════
+// SISTEMA DE CONTROLE POR PLANO
+// Lê o campo `plano` do Firestore (via localStorage cp_user).
+// Planos reconhecidos: 'starter' | 'platinum' | 'enterprise'
+// Qualquer outro valor é tratado como 'starter' (proteção).
+// ══════════════════════════════════════════════════════════════
+
+// Mapa de permissões por plano
+const PLANO_RECURSOS = {
+  starter: {
+    nome:         '🌱 Starter',
+    cor:          '#22c55e',
+    ia_limite:    20,       // msgs/dia
+    ia_ilimitado: false,
+    skus_max:     100,
+    alertas:      ['termometro','mediacao','pedidos','buybox'], // tags permitidas
+    kpis:         ['pedidos','aguardando','buybox'],            // IDs de KPI visíveis
+    kpi_acos:     false,
+    kpi_reembolso:false,
+    sidebar_ads:  false,    // ícone ML Ads bloqueado
+    pdf:          true,
+  },
+  platinum: {
+    nome:         '💎 Platinum',
+    cor:          '#FFD700',
+    ia_limite:    99999,
+    ia_ilimitado: true,
+    skus_max:     1000,
+    alertas:      ['termometro','mediacao','pedidos','buybox','fullml','fiscal','ads'],
+    kpis:         ['pedidos','aguardando','buybox','acos'],
+    kpi_acos:     true,
+    kpi_reembolso:false,
+    sidebar_ads:  true,
+    pdf:          true,
+  },
+  enterprise: {
+    nome:         '🏆 Enterprise',
+    cor:          '#a78bfa',
+    ia_limite:    99999,
+    ia_ilimitado: true,
+    skus_max:     999999,
+    alertas:      ['termometro','mediacao','pedidos','buybox','fullml','fiscal','ads','auditoria','financeiro'],
+    kpis:         ['pedidos','aguardando','buybox','acos','reembolso'],
+    kpi_acos:     true,
+    kpi_reembolso:true,
+    sidebar_ads:  true,
+    pdf:          true,
+  }
+};
+
+// Mapa de tag de alerta por ID de card (demo estático)
+const ALERTA_PLANO = {
+  ac1: 'termometro',  // Termômetro → Starter+
+  ac2: 'ads',         // ACOS/Ads → Platinum+
+  ac3: 'pedidos',     // Pedidos → Starter+
+  ac4: 'fullml',      // Estoque Zumbi Full → Platinum+
+  ac5: 'fiscal',      // Simples Nacional → Platinum+
+  ac6: 'auditoria',   // Reembolsos Ocultos → Enterprise
+  ac7: 'financeiro',  // Fluxo de Caixa → Enterprise
+};
+
+// Normaliza plano recebido
+function normalizarPlano(raw) {
+  const r = (raw || '').toLowerCase().trim();
+  if (r.includes('enterprise') || r.includes('interprise')) return 'enterprise';
+  if (r.includes('platinum'))  return 'platinum';
+  return 'starter'; // padrão seguro
+}
+
+// ── Aplica restrições visuais no painel ──
+function aplicarControlePlano(planoRaw) {
+  const plano = normalizarPlano(planoRaw);
+  const cfg   = PLANO_RECURSOS[plano];
+
+  // 1. Badge do plano na topbar
+  const badge = document.getElementById('planoBadge');
+  if (badge) {
+    badge.textContent = cfg.nome;
+    badge.style.background = cfg.cor + '20';
+    badge.style.color = cfg.cor;
+    badge.style.border = `1px solid ${cfg.cor}44`;
+    badge.style.display = '';
+  }
+
+  // 2. Controle de alertas — mostra os permitidos, blinda os demais
+  Object.entries(ALERTA_PLANO).forEach(([id, tag]) => {
+    const card = document.getElementById(id);
+    if (!card) return;
+    if (cfg.alertas.includes(tag)) {
+      card.style.display = '';      // mostra
+      card.removeAttribute('data-locked');
+    } else {
+      // Substitui o card por um teaser de upgrade
+      card.setAttribute('data-locked', '1');
+      const label = card.querySelector('.ac-title')?.textContent || 'Recurso Premium';
+      const upgradeTarget = (tag === 'auditoria' || tag === 'financeiro') ? 'enterprise' : 'platinum';
+      const upgradeCfg = PLANO_RECURSOS[upgradeTarget];
+      card.innerHTML = `
+        <div class="ac-head" style="opacity:.5;cursor:default;padding:14px 16px;">
+          <div class="ac-nivel a" style="background:rgba(255,255,255,.04);color:#4a5a78;border:1px solid rgba(255,255,255,.08);">
+            <div class="nd" style="background:#4a5a78;"></div>BLOQUEADO
+          </div>
+          <div class="ac-title" style="color:#3a4a62;">${label}</div>
+          <span class="ac-tag" style="color:#4a5a78;border-color:rgba(255,255,255,.08);">${tag.toUpperCase()}</span>
+        </div>
+        <div style="padding:16px 18px;background:rgba(255,255,255,.02);border-top:1px solid rgba(255,255,255,.05);display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap;">
+          <div style="font-size:0.78rem;color:#4a5a78;line-height:1.5;">
+            🔒 Este recurso está disponível no plano <strong style="color:${upgradeCfg.cor}">${upgradeCfg.nome}</strong>
+          </div>
+          <button onclick="window.open('/#planos','_blank')" style="background:${upgradeCfg.cor}18;color:${upgradeCfg.cor};border:1px solid ${upgradeCfg.cor}44;padding:8px 14px;border-radius:8px;font-size:0.72rem;font-weight:700;cursor:pointer;white-space:nowrap;font-family:inherit;">
+            Ver plano ${upgradeCfg.nome} →
+          </button>
+        </div>`;
+    }
+  });
+
+  // 3. KPI: ACOS
+  const kpiAcos = document.getElementById('mAcos');
+  if (kpiAcos) {
+    const kpiCard = kpiAcos.closest('.kpi');
+    if (kpiCard) {
+      if (cfg.kpi_acos) {
+        kpiCard.style.display = '';
+      } else {
+        kpiCard.innerHTML = `<div class="kpi-l">ROAS/Ads</div><div class="kpi-v" style="color:#3a4a62;font-size:.75rem;">💎 Platinum+</div><div class="kpi-s" style="cursor:pointer;color:#FFD70088;" onclick="window.open('/#planos','_blank')">Fazer upgrade</div>`;
+      }
+    }
+  }
+
+  // 4. KPI: Reembolsos (Enterprise)
+  const kpiReemb = document.querySelector('.kpi[data-enterprise]') ||
+    (() => { const el = document.querySelector('.kpi-l'); return null; })();
+  // Encontrar pelo conteúdo
+  document.querySelectorAll('.kpi').forEach(k => {
+    if (k.querySelector('.kpi-l')?.textContent?.includes('Reembolsos')) {
+      k.style.display = cfg.kpi_reembolso ? '' : 'none';
+    }
+  });
+
+  // 5. Sidebar ML Ads
+  const sidebarAds = document.querySelector('.sitem[title="ML Ads"]');
+  if (sidebarAds) {
+    if (!cfg.sidebar_ads) {
+      sidebarAds.setAttribute('data-locked-sidebar', '1');
+      sidebarAds.onclick = () => mostrarUpgradeToast('ML Ads', 'platinum');
+      sidebarAds.title = '🔒 ML Ads — Platinum+';
+      sidebarAds.style.opacity = '.4';
+      sidebarAds.style.cursor  = 'pointer';
+    } else {
+      sidebarAds.onclick = () => perguntarTema('Como estão minhas campanhas de ML Ads? Analise meu ROAS.');
+      sidebarAds.title = 'ML Ads';
+      sidebarAds.style.opacity = '';
+    }
+  }
+
+  // 6b. Quick buttons — bloquear por plano
+  document.querySelectorAll('#quickBtns [data-plano-min]').forEach(btn => {
+    const minPlano = btn.getAttribute('data-plano-min');
+    const ORDEM = { starter: 0, platinum: 1, enterprise: 2 };
+    const nivelAtual = ORDEM[plano] ?? 0;
+    const nivelMin   = ORDEM[minPlano] ?? 99;
+    if (nivelAtual < nivelMin) {
+      btn.classList.add('locked');
+      btn.disabled = true;
+      btn.title = `🔒 Disponível no plano ${PLANO_RECURSOS[minPlano]?.nome || minPlano}`;
+      btn.onclick = (e) => {
+        e.preventDefault();
+        mostrarUpgradeToast(btn.textContent, minPlano);
+      };
+    } else {
+      btn.classList.remove('locked');
+      btn.disabled = false;
+    }
+  });
+
+  // 6. Limite de IA: armazenar para uso no processarMsg
+  window.__planoAtual = plano;
+  window.__iaMsgsHoje = parseInt(localStorage.getItem('cp_ia_hoje_' + new Date().toISOString().slice(0,10)) || '0');
+
+  // 7. Atualizar badge de contagem de alertas (só exibir os visíveis)
+  const visíveis = Object.entries(ALERTA_PLANO).filter(([id,tag]) => cfg.alertas.includes(tag)).length;
+  const nbadge = document.getElementById('notifBadge');
+  if (nbadge) { nbadge.textContent = visíveis; nbadge.style.display = visíveis > 0 ? '' : 'none'; }
+
+  console.log(`✅ Plano aplicado: ${plano} (${cfg.nome})`);
+  return plano;
+}
+
+function mostrarUpgradeToast(recurso, planoNecessario) {
+  const cfg = PLANO_RECURSOS[planoNecessario];
+  toast(`🔒 ${recurso} disponível no plano ${cfg.nome}. Clique em "Ver planos" para upgrade.`);
+}
+
+// ── Verifica limite de IA no frontend (segunda camada — o backend já verifica) ──
+function verificarLimiteIA() {
+  const plano = normalizarPlano(window.__planoAtual || 'starter');
+  const cfg = PLANO_RECURSOS[plano];
+  if (cfg.ia_ilimitado) return true;
+  const chave = 'cp_ia_hoje_' + new Date().toISOString().slice(0,10);
+  const usado = parseInt(localStorage.getItem(chave) || '0');
+  if (usado >= cfg.ia_limite) {
+    toast(`🔒 Limite diário de ${cfg.ia_limite} análises atingido. Upgrade para Platinum para consultas ilimitadas.`);
+    return false;
+  }
+  localStorage.setItem(chave, String(usado + 1));
+  return true;
+}
+
+// ─── DADOS REAIS DA CONTA (via ml-conta / API Mercado Livre) ───
+window.__contaReal = null;
+
+async function carregarDadosReais(idToken){
+  try {
+    const r = await fetch('/.netlify/functions/ml-conta', {
+      method: 'POST',
+      headers: { 'Content-Type':'application/json', 'Authorization':'Bearer '+idToken }
+    });
+    const d = await r.json().catch(()=>({}));
+    if (!r.ok) return;            // falhou → mantém o painel demo
+    window.__contaReal = d;
+    if (!d.conectado) return;     // conta não conectada → mantém demo
+    aplicarDadosReais(d);
+  } catch(e){ console.log('ml-conta load:', e); }
+}
+
+function aplicarDadosReais(d){
+  try {
+    const set = (id,val)=>{ const el=document.getElementById(id); if(el) el.textContent=val; };
+    // Nome real da loja no topo (resolve o "teste")
+    if (d.nickname) set('sellerName', d.nickname);
+    // Pedidos reais
+    if (d.pedidos){
+      set('mPedidos', d.pedidos.pagos_recentes!=null ? d.pedidos.pagos_recentes : (d.pedidos.total!=null ? d.pedidos.total : 0));
+      set('mAguardando', d.pedidos.aguardando_envio!=null ? d.pedidos.aguardando_envio : 0);
+      const bp = document.getElementById('badgePedidos');
+      if (bp){ const ag = d.pedidos.aguardando_envio||0; bp.textContent = ag; bp.style.display = ag>0?'':'none'; }
+    } else { set('mPedidos','—'); set('mAguardando','—'); }
+    // ACOS / Buy Box exigem Mercado Ads → honesto: "em breve"
+    set('mBuyBox','—'); set('mAcos','—');
+    // Score + termômetro a partir da reputação real
+    const zona = d.termometro ? d.termometro.zona : 'cinza';
+    const scoreMap = { verde:88, amarelo:62, vermelho:35, cinza:50 };
+    const score = scoreMap[zona] || 50;
+    const sNum = document.querySelector('.score-num');
+    if (sNum){ sNum.textContent = score; sNum.className = 'score-num ' + (zona==='verde'?'g':zona==='vermelho'?'r':'a'); }
+    const ring = document.querySelectorAll('.score-ring circle')[1];
+    if (ring){ ring.setAttribute('stroke-dashoffset', Math.round(226*(1-score/100))); ring.setAttribute('stroke', zona==='verde'?'var(--green)':zona==='vermelho'?'var(--red)':'var(--amber)'); }
+    const sStatus = document.querySelector('.score-status');
+    if (sStatus) sStatus.textContent = (zona==='verde'?'✓ Saudável':zona==='vermelho'?'🚨 Crítico':'⚠️ Atenção');
+    // Alertas reais
+    montarAlertasReais(d);
+    // Saudação real
+    const gt = document.getElementById('greetTitle');
+    if (gt){
+      const u = JSON.parse(localStorage.getItem('cp_user')||'{}');
+      const nome = (u.nome||'').split(' ')[0] || 'vendedor';
+      const h=new Date().getHours(); const g=h<12?'Bom dia':h<18?'Boa tarde':'Boa noite';
+      const temAlerta = zona!=='verde' || (d.pedidos && d.pedidos.aguardando_envio>0);
+      gt.textContent = temAlerta ? `${g}, ${nome}! Sua conta tem pontos de atenção.` : `${g}, ${nome}! Sua conta está saudável ✓`;
+    }
+  } catch(e){ console.log('aplicarDadosReais:', e); }
+}
+
+function montarAlertasReais(d){
+  try {
+    const c1 = document.getElementById('ac1');
+    const wrap = c1 ? c1.parentElement : null;
+    if (!wrap) return;
+    ['ac1','ac2','ac3','ac4','ac5','ac6','ac7'].forEach(id=>{ const e=document.getElementById(id); if(e) e.remove(); });
+    const A = [];
+    const med=d.mediacao_taxa_pct, atr=d.atrasos_taxa_pct, can=d.cancelamentos_taxa_pct;
+    const zona = d.termometro ? d.termometro.zona : null;
+    if (med!=null && med>2) A.push({n:'CRÍTICO',c:'r',t:'🌡️ Mediação acima do limite',tag:'Reputação',desc:`Taxa de reclamações em ${med}% (limite saudável ~2%). Resolva as mediações abertas o quanto antes pra evitar penalização do ML.`});
+    if (zona==='vermelho') A.push({n:'CRÍTICO',c:'r',t:'🌡️ Termômetro na zona vermelha',tag:'Reputação',desc:'Sua reputação está em risco. Priorize resolver reclamações, atrasos e cancelamentos esta semana.'});
+    else if (zona==='amarelo') A.push({n:'ATENÇÃO',c:'a',t:'🌡️ Termômetro na zona amarela',tag:'Reputação',desc:'Alguns indicadores precisam melhorar pra voltar ao verde. Foque no que está puxando pra baixo.'});
+    if (atr!=null && atr>5) A.push({n:'ATENÇÃO',c:'a',t:'🚚 Atrasos no envio',tag:'Logística',desc:`Taxa de atraso em ${atr}%. Despache dentro do prazo pra proteger a reputação.`});
+    if (can!=null && can>3) A.push({n:'ATENÇÃO',c:'a',t:'❌ Cancelamentos elevados',tag:'Operação',desc:`Cancelamentos em ${can}%. Revise estoque e prazos pra reduzir.`});
+    if (d.pedidos && d.pedidos.aguardando_envio>0) A.push({n:'ATENÇÃO',c:'a',t:`📦 ${d.pedidos.aguardando_envio} pedido(s) aguardando envio`,tag:'Logística',desc:'Há pedidos pagos esperando despacho. Envie hoje pra não atrasar.'});
+    if (d.anuncios && d.anuncios.pausados>0) A.push({n:'ATENÇÃO',c:'a',t:`⏸️ ${d.anuncios.pausados} anúncio(s) pausado(s)`,tag:'Anúncios',desc:'Reative os anúncios pausados que ainda fazem sentido pra não perder vendas.'});
+    A.push({n:'EM BREVE',c:'a',t:'📊 ACOS e Buy Box',tag:'Mercado Ads',desc:'A análise de ACOS e Buy Box estará disponível ao conectar o módulo Mercado Ads.'});
+    if (A.length===1) A.unshift({n:'OK',c:'g',t:'✓ Conta saudável',tag:'Diagnóstico',desc:'Nenhum problema crítico detectado na sua conta agora. Continue monitorando.'});
+    const crit=A.filter(a=>a.c==='r').length, aten=A.filter(a=>a.c==='a').length;
+    const badges = wrap.querySelector('.section-head .badges');
+    if (badges) badges.innerHTML = `<span class="pill r">${crit} críticos</span> <span class="pill a">${aten} atenções</span>`;
+    const nb = document.getElementById('notifBadge');
+    if (nb){ const tot=crit+aten; nb.textContent=tot; nb.style.display = tot>0?'':'none'; }
+    const gp = document.querySelector('.greeting-text p');
+    if (gp) gp.innerHTML = `Atualizado agora · <span style="color:var(--gold)">${crit+aten} alertas</span> · dados reais da conta`;
+    A.forEach(a=>{
+      const div=document.createElement('div'); div.className='alert-card';
+      div.innerHTML = `<div class="ac-head"><div class="ac-nivel ${a.c}"><div class="nd"></div>${a.n}</div><div class="ac-title">${a.t}</div><span class="ac-tag">${a.tag}</span></div><div class="ac-body open"><div class="ac-desc">${a.desc}</div></div>`;
+      wrap.appendChild(div);
+    });
+  } catch(e){ console.log('montarAlertasReais:', e); }
+}
+
+// ─── TOGGLE CARDS ───
+function toggleCard(id){
+  const card = document.getElementById(id);
+  if(!card) return;
+  const body = card.querySelector('.ac-body');
+  const chev = card.querySelector('.ac-chevron');
+  if(!body) return;
+  body.classList.toggle('open');
+  if(chev) chev.classList.toggle('open');
+}
+// Abre primeiro card por padrão
+setTimeout(()=>toggleCard('ac1'), 500);
+
+// ─── MARCAR AÇÃO ───
+function marcar(el){
+  el.classList.toggle('done');
+  const all = el.parentElement.querySelectorAll('.ac-action');
+  el.querySelector('.ac-n').textContent = el.classList.contains('done') ? '✓' : (Array.from(all).indexOf(el)+1);
+}
+
+// ─── TOAST + ATALHOS DE TEMA ───
+function toast(msg){
+  let t = document.getElementById('cpToast');
+  if(!t){
+    t = document.createElement('div'); t.id='cpToast';
+    t.style.cssText='position:fixed;bottom:22px;left:50%;transform:translateX(-50%);background:#0a1628;color:#fff;border:1px solid var(--gold);padding:12px 20px;border-radius:10px;font-size:0.8rem;font-weight:600;z-index:9999;box-shadow:0 8px 30px rgba(0,0,0,.45);max-width:90vw;text-align:center;opacity:0;transition:opacity .25s;';
+    document.body.appendChild(t);
+  }
+  t.textContent = msg; t.style.opacity='1';
+  clearTimeout(t._tm); t._tm = setTimeout(()=>{ t.style.opacity='0'; }, 3200);
+}
+function perguntarTema(q){
+  const panel = document.querySelector('.chat-panel');
+  if(panel) panel.classList.add('open');
+  if(typeof processarMsg === 'function') processarMsg(q);
+}
+
+// ─── SYNC ───
+function syncNow(){
+  const btn = event.currentTarget;
+  btn.textContent='⟳ Sincronizando...';
+  btn.disabled=true;
+  setTimeout(()=>{btn.textContent='⟳ Sincronizar';btn.disabled=false;},2000);
+}
+
+// ─── SAIR ───
+function sair(){
+  if(confirm('Deseja sair?')){
+    auth.signOut().then(()=>{
+      localStorage.removeItem('cp_user');
+      localStorage.removeItem('cp_onboarded');
+      window.location.href='login.html';
+    });
+  }
+}
+
+// ─── PERGUNTAR IA ───
+function perguntarIA(msg){
+  document.getElementById('chatPanel').classList.add('open');
+  document.getElementById('chatInp').value = msg;
+  setTimeout(enviar, 100);
+}
+
+function enviar(){
+  const inp = document.getElementById('chatInp');
+  const msg = inp.value.trim();
+  if(!msg) return;
+  inp.value='';
+  processarMsg(msg);
+}
+
+// ── CONSULTOR IA — via porteiro seguro (Netlify Function) ──
+// A chave da Anthropic NUNCA fica no navegador. O porteiro
+// (/.netlify/functions/consultor-ia) guarda a chave, valida o
+// usuário (Firebase) e fala com o Claude. Veja netlify/functions/.
+const IA_ENDPOINT = '/.netlify/functions/consultor-ia';
+
+// Histórico da conversa (para contexto entre mensagens)
+const chatHistorico = [];
+const HIST_MAX = 10; // máx 10 trocas mantidas
+
+async function processarMsg(msg) {
+  // ── Verificar limite de IA pelo plano ──
+  if (!verificarLimiteIA()) return;
+
+  const chat = document.getElementById('chatMsgs');
+  const sendBtn = document.getElementById('sendBtn');
+  sendBtn.disabled = true;
+
+  // Msg usuário
+  const u = document.createElement('div');
+  u.className = 'msg msg-usr';
+  u.innerHTML = `<div class="bubble">${msg}</div><div class="msg-time">Agora</div>`;
+  chat.appendChild(u);
+  chat.scrollTop = chat.scrollHeight;
+
+  // Adicionar ao histórico
+  chatHistorico.push({ role: 'user', content: msg });
+  if (chatHistorico.length > HIST_MAX * 2) chatHistorico.splice(0, 2);
+
+  // Typing indicator
+  const t = document.createElement('div');
+  t.className = 'msg msg-ia typing-wrap';
+  t.innerHTML = `<div class="typing-bub"><div class="tdot"></div><div class="tdot"></div><div class="tdot"></div></div>`;
+  chat.appendChild(t);
+  chat.scrollTop = chat.scrollHeight;
+
+  try {
+    // Token do usuário logado (Firebase) — o porteiro valida antes de gastar tokens de IA
+    let idToken = '';
+    try { if (auth.currentUser) idToken = await auth.currentUser.getIdToken(); } catch(_) {}
+
+    // Dados do plano do usuário
+    const userLocal = JSON.parse(localStorage.getItem('cp_user') || '{}');
+    const plano = userLocal.plano || 'platinum';
+
+    const response = await fetch(IA_ENDPOINT, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        ...(idToken ? { 'Authorization': 'Bearer ' + idToken } : {})
+      },
+      body: JSON.stringify({
+        message: msg,
+        conta: window.__contaReal || null,
+        historico: chatHistorico.slice(0, -1), // envia histórico exceto última msg (já incluída)
+        plano,
+      })
+    });
+
+    const data = await response.json().catch(() => ({}));
+    if (!response.ok) {
+      const motivo = data.detail
+        ? `${data.error || 'Falha'} (${data.detail})`
+        : (data.error || ('Erro ' + response.status));
+      throw new Error(motivo);
+    }
+    const txt = data.reply || data.text || 'Não consegui processar sua pergunta. Tente novamente.';
+    // Formatar markdown básico
+    const txtFormatted = txt
+      .replace(/\*\*(.+?)\*\*/g, '<strong>$1</strong>')
+      .replace(/\n\n/g,'<br><br>')
+      .replace(/\n/g,'<br>')
+      .replace(/- /g,'• ');
+
+    // Adicionar resposta ao histórico
+    chatHistorico.push({ role: 'assistant', content: txt });
+
+    chat.removeChild(t);
+    const ia = document.createElement('div');
+    ia.className = 'msg msg-ia';
+    ia.innerHTML = `<div class="bubble">${txtFormatted}</div><div class="msg-time">Agora</div>`;
+    chat.appendChild(ia);
+    chat.scrollTop = chat.scrollHeight;
+
+  } catch(err) {
+    chat.removeChild(t);
+    const ia = document.createElement('div');
+    ia.className = 'msg msg-ia';
+    ia.innerHTML = `<div class="bubble">⚠️ ${err.message || 'Erro de conexão. Verifique sua internet e tente novamente.'}</div><div class="msg-time">Agora</div>`;
+    chat.appendChild(ia);
+    chat.scrollTop = chat.scrollHeight;
+  }
+
+  sendBtn.disabled = false;
+}
+
+// Mensagem automática
+setTimeout(()=>{
+  const chat=document.getElementById('chatMsgs');
+  const t=document.createElement('div');t.className='msg msg-ia typing-wrap';
+  t.innerHTML=`<div class="typing-bub"><div class="tdot"></div><div class="tdot"></div><div class="tdot"></div></div>`;
+  chat.appendChild(t);chat.scrollTop=chat.scrollHeight;
+  setTimeout(()=>{
+    chat.removeChild(t);
+    const ia=document.createElement('div');ia.className='msg msg-ia';
+    ia.innerHTML=`<div class="bubble">Seu <b>termômetro</b> tem sinais de risco. Você tem <span class="hl">3 mediações sem resposta</span> — o ML penaliza automaticamente após 48h. Clique no alerta vermelho acima para ver o protocolo. 👆</div><div class="msg-time">Agora</div>`;
+    chat.appendChild(ia);chat.scrollTop=chat.scrollHeight;
+    const c=document.getElementById('ac1');
+    if(c){c.classList.add('flash');setTimeout(()=>c.classList.remove('flash'),700);}
+  },1400);
+},2000);
+</script>
+</body>
+</html>

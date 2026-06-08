@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<script>
+/* Safe storage shim */
+(function(){try{var t='__cp_test__';window.localStorage.setItem(t,'1');window.localStorage.removeItem(t);}catch(e){var mem={};try{Object.defineProperty(window,'localStorage',{value:{getItem:function(k){return mem.hasOwnProperty(k)?mem[k]:null;},setItem:function(k,v){mem[k]=String(v);},removeItem:function(k){delete mem[k];},clear:function(){mem={};}},configurable:true});}catch(_){}}})();
+</script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex">
+<title>Conectando sua conta — Consultor Platinum ML</title>
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+<script src="https://www.gstatic.com/firebasejs/9.22.2/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/9.22.2/firebase-auth-compat.js"></script>
+<script>
+  const firebaseConfig = {
+    apiKey:"AIzaSyBQO4D_j8qeuE-M94FUgpqpG9rvyYUlM-M",
+    authDomain:"seller-guardian.firebaseapp.com",
+    projectId:"seller-guardian",
+    storageBucket:"seller-guardian.firebasestorage.app",
+    messagingSenderId:"485816142226",
+    appId:"1:485816142226:web:c042b5f008b91cf51c994b"
+  };
+  firebase.initializeApp(firebaseConfig);
+  const auth = firebase.auth();
+</script>
+<style>
+*{margin:0;padding:0;box-sizing:border-box;}
+:root{--bg:#0a1628;--surface:#0f1f3d;--border:#1a2f52;--gold:#FFD700;--text:#e2e8f0;--muted:#64748b;--red:#ef4444;--green:#22c55e;}
+body{background:var(--bg);color:var(--text);font-family:'Sora',sans-serif;min-height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:24px;text-align:center;}
+.spinner{width:46px;height:46px;border:3px solid var(--border);border-top-color:var(--gold);border-radius:50%;animation:spin 1s linear infinite;margin-bottom:22px;}
+@keyframes spin{to{transform:rotate(360deg);}}
+h1{font-size:1.15rem;font-weight:800;color:#fff;margin-bottom:8px;}
+p{font-size:.85rem;color:var(--muted);max-width:380px;line-height:1.6;}
+.btn{margin-top:20px;display:none;background:var(--gold);color:#0a1628;border:none;padding:12px 22px;border-radius:8px;font-family:'Sora',sans-serif;font-weight:700;cursor:pointer;text-decoration:none;}
+.err h1{color:var(--red);}
+</style>
+</head>
+<body>
+<div class="spinner" id="spin"></div>
+<h1 id="titulo">Conectando sua conta do Mercado Livre…</h1>
+<p id="sub">Validando a autorização com segurança. Não feche esta janela.</p>
+<a class="btn" id="btn" href="onboarding.html">Continuar</a>
+
+<script>
+function erro(msg){
+  document.getElementById('spin').style.display='none';
+  document.body.classList.add('err');
+  document.getElementById('titulo').textContent='Não conseguimos conectar';
+  document.getElementById('sub').textContent = msg || 'Tente novamente pelo painel.';
+  var b=document.getElementById('btn'); b.textContent='Voltar e tentar de novo'; b.href='onboarding.html'; b.style.display='inline-block';
+}
+
+(function(){
+  var params = new URLSearchParams(window.location.search);
+  var code = params.get('code');
+  var state = params.get('state');
+  var saved = sessionStorage.getItem('ml_oauth_state');
+
+  if (params.get('error')) { erro('Você cancelou ou negou a autorização.'); return; }
+  if (!code) { erro('Autorização inválida (sem código).'); return; }
+  if (!state || state !== saved) { erro('Falha de segurança na autorização (state). Tente de novo.'); return; }
+
+  var redirectUri = window.location.origin + '/ml-oauth-callback.html';
+
+  auth.onAuthStateChanged(async function(user){
+    if (!user) { window.location.href = 'login.html'; return; }
+    try {
+      var idToken = await user.getIdToken();
+      var r = await fetch('/.netlify/functions/ml-oauth', {
+        method:'POST',
+        headers:{'Content-Type':'application/json','Authorization':'Bearer '+idToken},
+        body: JSON.stringify({ code: code, redirectUri: redirectUri })
+      });
+      var data = await r.json();
+      if (!r.ok || !data.ok) { erro(data.error || 'Falha ao conectar com o Mercado Livre.'); return; }
+
+      localStorage.setItem('cp_ml_connected','true');
+      sessionStorage.removeItem('ml_oauth_state');
+      document.getElementById('titulo').textContent = 'Conta conectada! ✅';
+      document.getElementById('sub').textContent = 'Levando você para o diagnóstico…';
+      setTimeout(function(){ window.location.href = 'onboarding.html?ml=ok'; }, 1200);
+    } catch(e){
+      erro('Erro de conexão. Verifique sua internet e tente novamente.');
+    }
+  });
+})();
+</script>
+</body>
+</html>

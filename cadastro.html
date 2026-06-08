@@ -1,0 +1,497 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<script>
+/* Safe storage shim — evita crash em modo privado/cookies bloqueados */
+(function(){
+  try {
+    var t='__cp_test__'; window.localStorage.setItem(t,'1'); window.localStorage.removeItem(t);
+  } catch(e){
+    var mem={};
+    try {
+      Object.defineProperty(window,'localStorage',{value:{
+        getItem:function(k){return mem.hasOwnProperty(k)?mem[k]:null;},
+        setItem:function(k,v){mem[k]=String(v);},
+        removeItem:function(k){delete mem[k];},
+        clear:function(){mem={};}
+      },configurable:true});
+    } catch(_){}
+  }
+})();
+</script>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Criar Conta — Consultor Platinum ML</title>
+<link rel="icon" type="image/png" href="data:image/png;base64,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">
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box;}
+:root{
+  --bg:#0a1628;--surface:#0f1f3d;--border:#1a2f52;
+  --gold:#FFD700;--text:#e2e8f0;--muted:#64748b;
+  --green:#22c55e;--red:#ef4444;
+}
+body{
+  background:var(--bg);color:var(--text);
+  font-family:'Sora',sans-serif;
+  min-height:100vh;display:flex;flex-direction:column;
+  align-items:center;justify-content:center;
+  padding:24px;
+  background-image:radial-gradient(ellipse at 60% 0%,rgba(255,215,0,0.06) 0%,transparent 60%);
+}
+
+/* Logo */
+.logo{
+  font-size:1.1rem;font-weight:800;background:linear-gradient(135deg,#f4f6fa 0%,#aeb8c8 45%,#e8edf4 55%,#8995a8 100%);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;
+  letter-spacing:-0.02em;margin-bottom:32px;text-align:center;
+}
+.logo span{color:#fff;}
+.logo-sub{font-size:0.72rem;color:var(--muted);font-weight:400;display:block;margin-top:4px;}
+
+/* Card */
+.card{
+  background:var(--surface);
+  border:1px solid var(--border);
+  padding:40px 36px;
+  width:100%;max-width:440px;
+  position:relative;
+}
+.card::before{
+  content:'';position:absolute;top:0;left:0;right:0;height:2px;
+  background:linear-gradient(90deg,transparent,var(--gold),transparent);
+}
+
+.card-title{font-size:1.3rem;font-weight:800;color:#fff;margin-bottom:6px;}
+.card-sub{font-size:0.8rem;color:var(--muted);margin-bottom:28px;}
+
+/* Steps indicator */
+.steps-ind{
+  display:flex;align-items:center;gap:0;
+  margin-bottom:28px;
+}
+.si{
+  display:flex;align-items:center;gap:6px;
+  font-size:0.65rem;font-weight:700;
+  color:var(--muted);text-transform:uppercase;letter-spacing:1px;
+}
+.si.active{color:var(--gold);}
+.si.done{color:var(--green);}
+.si-num{
+  width:20px;height:20px;border-radius:50%;
+  border:1px solid var(--border);
+  display:flex;align-items:center;justify-content:center;
+  font-size:0.6rem;font-weight:700;
+  background:var(--bg);color:var(--muted);
+}
+.si.active .si-num{background:rgba(255,215,0,0.15);border-color:var(--gold);color:var(--gold);}
+.si.done .si-num{background:rgba(34,197,94,0.15);border-color:var(--green);color:var(--green);}
+.si-line{flex:1;height:1px;background:var(--border);margin:0 8px;}
+
+/* Form */
+.field{margin-bottom:16px;}
+.field label{
+  display:block;font-size:0.72rem;font-weight:600;
+  color:var(--muted);text-transform:uppercase;letter-spacing:0.5px;
+  margin-bottom:6px;
+}
+.field input,.field select{
+  width:100%;background:var(--bg);
+  border:1px solid var(--border);
+  padding:12px 14px;color:#fff;
+  font-family:'Sora',sans-serif;font-size:0.85rem;
+  outline:none;border-radius:6px;
+  transition:border-color 0.2s;
+  -webkit-appearance:none;
+}
+.field input:focus,.field select:focus{border-color:rgba(255,215,0,0.5);}
+.field input::placeholder{color:#333;}
+.field input.error{border-color:var(--red);}
+.field .field-err{font-size:0.68rem;color:var(--red);margin-top:4px;display:none;}
+.field input.error + .field-err{display:block;}
+
+/* Dois campos lado a lado */
+.field-row{display:grid;grid-template-columns:1fr 1fr;gap:12px;}
+
+/* Senha força */
+.pwd-wrap{position:relative;}
+.pwd-toggle{
+  position:absolute;right:12px;top:50%;transform:translateY(-50%);
+  background:none;border:none;color:var(--muted);cursor:pointer;
+  font-size:0.85rem;padding:4px;
+}
+.pwd-strength{
+  display:flex;gap:3px;margin-top:6px;
+}
+.pwd-bar{
+  flex:1;height:3px;border-radius:2px;
+  background:var(--border);transition:background 0.3s;
+}
+.pwd-bar.weak{background:var(--red);}
+.pwd-bar.medium{background:#f59e0b;}
+.pwd-bar.strong{background:var(--green);}
+.pwd-hint{font-size:0.62rem;color:var(--muted);margin-top:4px;}
+
+/* Checkbox */
+.check-wrap{
+  display:flex;align-items:flex-start;gap:10px;
+  margin-bottom:20px;cursor:pointer;
+}
+.check-wrap input{
+  width:16px;height:16px;margin-top:2px;flex-shrink:0;
+  accent-color:var(--gold);cursor:pointer;
+}
+.check-label{font-size:0.75rem;color:var(--muted);line-height:1.5;}
+.check-label a{color:var(--gold);text-decoration:none;}
+.check-label a:hover{text-decoration:underline;}
+
+/* Botão */
+.btn-primary{
+  width:100%;background:var(--gold);color:#0a1628;
+  border:none;padding:14px;
+  font-family:'Sora',sans-serif;font-weight:800;font-size:0.9rem;
+  cursor:pointer;border-radius:6px;
+  transition:all 0.2s;letter-spacing:0.3px;
+  display:flex;align-items:center;justify-content:center;gap:8px;
+}
+.btn-primary:hover{background:#ffdc6b;transform:translateY(-1px);box-shadow:0 6px 20px rgba(255,215,0,0.3);}
+.btn-primary:disabled{opacity:0.5;cursor:not-allowed;transform:none;box-shadow:none;}
+
+/* Divider */
+.divider{
+  display:flex;align-items:center;gap:12px;
+  margin:20px 0;color:var(--muted);font-size:0.72rem;
+}
+.divider::before,.divider::after{
+  content:'';flex:1;height:1px;background:var(--border);
+}
+
+/* Link login */
+.login-link{
+  text-align:center;font-size:0.78rem;color:var(--muted);
+  margin-top:20px;
+}
+.login-link a{color:var(--gold);text-decoration:none;font-weight:600;}
+.login-link a:hover{text-decoration:underline;}
+
+/* Benefícios laterais */
+.benefits{
+  margin-top:24px;
+  background:rgba(255,215,0,0.04);
+  border:1px solid rgba(255,215,0,0.12);
+  padding:16px;border-radius:6px;
+}
+.benefit-item{
+  display:flex;align-items:center;gap:10px;
+  font-size:0.73rem;color:#aaa;padding:5px 0;
+}
+.benefit-item:not(:last-child){border-bottom:1px solid rgba(255,255,255,0.04);}
+.benefit-item .bi{color:var(--green);font-size:0.8rem;flex-shrink:0;}
+
+/* Loading overlay */
+.loading-overlay{
+  display:none;position:fixed;inset:0;
+  background:rgba(10,22,40,0.9);
+  z-index:100;
+  flex-direction:column;align-items:center;justify-content:center;gap:16px;
+}
+.loading-overlay.show{display:flex;}
+.spinner{
+  width:44px;height:44px;border:3px solid rgba(255,215,0,0.2);
+  border-top-color:var(--gold);border-radius:50%;
+  animation:spin 0.8s linear infinite;
+}
+@keyframes spin{to{transform:rotate(360deg)}}
+.loading-msg{font-size:0.85rem;color:#aaa;}
+.loading-msg b{color:var(--gold);}
+
+/* Toast */
+.toast{
+  position:fixed;bottom:24px;left:50%;transform:translateX(-50%);
+  background:var(--surface);border:1px solid var(--border);
+  padding:12px 20px;border-radius:6px;
+  font-size:0.78rem;color:#fff;
+  display:none;z-index:200;white-space:nowrap;
+  box-shadow:0 8px 32px rgba(0,0,0,0.4);
+}
+.toast.show{display:block;animation:toastIn 0.3s ease;}
+@keyframes toastIn{from{opacity:0;transform:translateX(-50%) translateY(10px)}to{opacity:1;transform:translateX(-50%) translateY(0)}}
+.toast.success{border-color:rgba(34,197,94,0.4);color:var(--green);}
+.toast.error{border-color:rgba(239,68,68,0.4);color:var(--red);}
+</style>
+  <!-- ══ FIREBASE AUTH SDK ══════════════════════════════ -->
+  <script src="https://www.gstatic.com/firebasejs/10.12.0/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/10.12.0/firebase-auth-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/10.12.0/firebase-firestore-compat.js"></script>
+  <script>
+    const firebaseConfig = {
+      apiKey:            "AIzaSyBQO4D_j8qeuE-M94FUgpqpG9rvyYUlM-M",
+      authDomain:        "seller-guardian.firebaseapp.com",
+      projectId:         "seller-guardian",
+      storageBucket:     "seller-guardian.firebasestorage.app",
+      messagingSenderId: "485816142226",
+      appId:             "1:485816142226:web:c042b5f008b91cf51c994b"
+    };
+    firebase.initializeApp(firebaseConfig);
+    const auth = firebase.auth();
+    const db   = firebase.firestore();
+  </script>
+  <!-- ══ FIM FIREBASE ════════════════════════════════════ -->
+</head>
+<body>
+<script>
+// Fluxo pay-first (Mercado Pago): o cadastro só cria o LOGIN depois do
+// pagamento. Quem chega aqui sem ter pago é levado para a página de planos.
+(function(){
+  const params = new URLSearchParams(window.location.search);
+  const pago = params.get('pago');
+  if(pago !== 'true'){
+    window.location.replace('index.html#planos');
+  }
+})();
+</script>
+
+
+<div class="loading-overlay" id="loadingOverlay">
+  <div class="spinner"></div>
+  <div class="loading-msg">Criando sua conta <b>Platinum</b>...</div>
+</div>
+
+<div class="toast" id="toast"></div>
+
+<div class="logo">
+  Consultor<span>Platinum</span> ML
+  <span class="logo-sub">Seu consultor de IA para Mercado Livre</span>
+</div>
+
+<div class="card">
+  <div class="card-title">Criar sua conta</div>
+  <div class="card-sub">Preencha os dados abaixo. Leva menos de 1 minuto.</div>
+
+  <!-- Steps -->
+  <div class="steps-ind">
+    <div class="si active">
+      <div class="si-num">1</div>
+      Cadastro
+    </div>
+    <div class="si-line"></div>
+    <div class="si">
+      <div class="si-num">2</div>
+      Plano
+    </div>
+    <div class="si-line"></div>
+    <div class="si">
+      <div class="si-num">3</div>
+      Conectar ML
+    </div>
+  </div>
+
+  <form id="formCadastro" novalidate>
+
+    <div class="field-row">
+      <div class="field">
+        <label>Seu nome</label>
+        <input type="text" id="nome" placeholder="João Silva" autocomplete="given-name"/>
+        <div class="field-err">Campo obrigatório</div>
+      </div>
+      <div class="field">
+        <label>WhatsApp</label>
+        <input type="tel" id="whatsapp" placeholder="(11) 99999-9999" autocomplete="tel"/>
+        <div class="field-err">Número inválido</div>
+      </div>
+    </div>
+
+    <div class="field">
+      <label>E-mail</label>
+      <input type="email" id="email" placeholder="joao@minhaloja.com" autocomplete="email"/>
+      <div class="field-err">E-mail inválido</div>
+    </div>
+
+    <div class="field">
+      <label>Nome da sua loja no Mercado Livre</label>
+      <input type="text" id="loja" placeholder="Ex: loja-top-brasil" autocomplete="off"/>
+      <div class="field-err">Campo obrigatório</div>
+    </div>
+
+    <div class="field">
+      <label>Senha</label>
+      <div class="pwd-wrap">
+        <input type="password" id="senha" placeholder="Mínimo 8 caracteres" oninput="checkPwd(this.value)" autocomplete="new-password"/>
+        <button type="button" class="pwd-toggle" onclick="togglePwd()" id="pwdToggle">👁️</button>
+      </div>
+      <div class="pwd-strength">
+        <div class="pwd-bar" id="pb1"></div>
+        <div class="pwd-bar" id="pb2"></div>
+        <div class="pwd-bar" id="pb3"></div>
+      </div>
+      <div class="pwd-hint" id="pwdHint">Use letras, números e símbolos</div>
+      <div class="field-err">Mínimo 8 caracteres</div>
+    </div>
+
+    <div class="field">
+      <label>Plano escolhido</label>
+      <select id="plano">
+        <option value="">Selecione seu plano</option>
+        <option value="starter">🌱 Starter — R$97/mês (até R$30k/mês)</option>
+        <option value="platinum">💎 Platinum — R$347/mês (R$30k–R$300k/mês)</option>
+        <option value="enterprise">🏆 Enterprise — R$1.997/mês (R$300k+/mês)</option>
+      </select>
+      <div class="field-err">Selecione um plano</div>
+    </div>
+
+    <label class="check-wrap">
+      <input type="checkbox" id="termos"/>
+      <span class="check-label">
+        Li e aceito os <a href="#" onclick="return false">Termos de Uso</a> e a <a href="#" onclick="return false">Política de Privacidade</a>
+      </span>
+    </label>
+
+    <button type="submit" class="btn-primary" id="btnCadastrar">
+      ⚡ Criar minha conta Platinum
+    </button>
+
+  </form>
+
+  <!-- Benefícios -->
+  <div class="benefits">
+    <div class="benefit-item"><span class="bi">✓</span> Teste grátis por 7 dias — cancele sem multa</div>
+    <div class="benefit-item"><span class="bi">✓</span> Consultor IA disponível 24h por dia</div>
+    <div class="benefit-item"><span class="bi">✓</span> Painel de alertas em tempo real</div>
+    <div class="benefit-item"><span class="bi">✓</span> Conecta com seu ML em 30 segundos</div>
+  </div>
+
+  <div class="login-link">
+    Já tem conta? <a href="login.html">Entrar →</a>
+  </div>
+
+</div>
+
+<script>
+// Máscara WhatsApp
+document.getElementById('whatsapp').addEventListener('input', function(e){
+  let v = e.target.value.replace(/\D/g,'');
+  if(v.length>0) v = '('+v;
+  if(v.length>3) v = v.slice(0,3)+') '+v.slice(3);
+  if(v.length>10) v = v.slice(0,10)+'-'+v.slice(10,14);
+  e.target.value = v;
+});
+
+// Força da senha
+function checkPwd(v){
+  const bars = [document.getElementById('pb1'),document.getElementById('pb2'),document.getElementById('pb3')];
+  const hint = document.getElementById('pwdHint');
+  bars.forEach(b=>{b.className='pwd-bar';});
+  if(v.length===0){hint.textContent='Use letras, números e símbolos';return;}
+  let score=0;
+  if(v.length>=8)score++;
+  if(/[0-9]/.test(v))score++;
+  if(/[^a-zA-Z0-9]/.test(v)||/[A-Z]/.test(v))score++;
+  const labels=['','Fraca','Média','Forte'];
+  const cls=['','weak','medium','strong'];
+  for(let i=0;i<score;i++) bars[i].classList.add(cls[score]);
+  hint.textContent = score>0 ? 'Senha '+labels[score] : 'Use letras, números e símbolos';
+}
+
+// Toggle senha
+function togglePwd(){
+  const inp=document.getElementById('senha');
+  const btn=document.getElementById('pwdToggle');
+  if(inp.type==='password'){inp.type='text';btn.textContent='🙈';}
+  else{inp.type='password';btn.textContent='👁️';}
+}
+
+// Validação e submit
+document.getElementById('formCadastro').addEventListener('submit', function(e){
+  e.preventDefault();
+  let ok=true;
+
+  const nome=document.getElementById('nome');
+  const email=document.getElementById('email');
+  const loja=document.getElementById('loja');
+  const senha=document.getElementById('senha');
+  const plano=document.getElementById('plano');
+  const termos=document.getElementById('termos');
+
+  // Reset erros
+  [nome,email,loja,senha,plano].forEach(f=>f.classList.remove('error'));
+
+  if(!nome.value.trim()){nome.classList.add('error');ok=false;}
+  if(!email.value.includes('@')){email.classList.add('error');ok=false;}
+  if(!loja.value.trim()){loja.classList.add('error');ok=false;}
+  if(senha.value.length<8){senha.classList.add('error');ok=false;}
+  if(!plano.value){plano.classList.add('error');ok=false;}
+  if(!termos.checked){
+    showToast('Aceite os termos para continuar','error');
+    ok=false;
+  }
+
+  if(!ok)return;
+
+  // ── FIREBASE AUTH: cria conta real ──
+  document.getElementById('loadingOverlay').classList.add('show');
+  document.getElementById('btnCadastrar').disabled = true;
+
+  auth.createUserWithEmailAndPassword(email.value.trim(), senha.value)
+    .then(async (cred) => {
+      // Salva dados do seller no Firestore
+      await db.collection('sellers').doc(cred.user.uid).set({
+        nome:      nome.value.trim(),
+        email:     email.value.trim(),
+        loja:      loja.value.trim(),
+        whatsapp:  document.getElementById('whatsapp').value.trim(),
+        plano:     plano.value,
+        criado_em: firebase.firestore.FieldValue.serverTimestamp(),
+        ativo:     true
+      });
+      // Salva sessão local
+      localStorage.setItem('cp_user', JSON.stringify({
+        uid:   cred.user.uid,
+        nome:  nome.value.trim(),
+        email: email.value.trim(),
+        loja:  loja.value.trim(),
+        plano: plano.value
+      }));
+      // Pagamento já foi feito (fluxo pay-first via Mercado Pago).
+      // Marca o plano confirmado e segue para o onboarding.
+      localStorage.setItem('cp_onboarded', '');
+      document.getElementById('loadingOverlay').classList.remove('show');
+      window.location.href = 'onboarding.html';
+    })
+    .catch((err) => {
+      document.getElementById('loadingOverlay').classList.remove('show');
+      document.getElementById('btnCadastrar').disabled = false;
+      const msgs = {
+        'auth/email-already-in-use': 'Este e-mail já está cadastrado. Faça login.',
+        'auth/weak-password':        'Senha fraca. Use pelo menos 6 caracteres.',
+        'auth/invalid-email':        'E-mail inválido. Verifique e tente novamente.'
+      };
+      showToast(msgs[err.code] || 'Erro ao criar conta. Tente novamente.', 'error');
+    });
+});
+
+function showToast(msg, tipo=''){
+  const t=document.getElementById('toast');
+  t.textContent=msg;
+  t.className='toast show '+(tipo||'');
+  setTimeout(()=>t.classList.remove('show'),3000);
+}
+
+// Pré-selecionar plano se veio da LP
+const params=new URLSearchParams(window.location.search);
+const planoParam=params.get('plano');
+if(planoParam) document.getElementById('plano').value=planoParam;
+
+// Se veio da página de obrigado (já pagou via Mercado Pago), adapta o botão
+const jaPagou = params.get('pago') === 'true';
+if(jaPagou){
+  document.querySelector('.card-title').textContent = 'Complete seu cadastro';
+  document.querySelector('.card-sub').textContent = 'Seu pagamento foi confirmado! Preencha os dados abaixo para ativar sua conta.';
+  document.getElementById('btnCadastrar').innerHTML = '⚡ Ativar minha conta Platinum';
+  // Pré-selecionar campo plano como desabilitado (já pagou)
+  document.getElementById('plano').disabled = true;
+  document.getElementById('plano').options[0].text = 'Plano já confirmado no pagamento';
+  document.getElementById('plano').selectedIndex = 1;
+}
+</script>
+</body>
+</html>

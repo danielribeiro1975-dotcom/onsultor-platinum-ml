@@ -1,0 +1,4500 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<script>
+/* Safe storage shim — evita crash em modo privado/cookies bloqueados */
+(function(){
+  try {
+    var t='__cp_test__'; window.localStorage.setItem(t,'1'); window.localStorage.removeItem(t);
+  } catch(e){
+    var mem={};
+    try {
+      Object.defineProperty(window,'localStorage',{value:{
+        getItem:function(k){return mem.hasOwnProperty(k)?mem[k]:null;},
+        setItem:function(k,v){mem[k]=String(v);},
+        removeItem:function(k){delete mem[k];},
+        clear:function(){mem={};}
+      },configurable:true});
+    } catch(_){}
+  }
+})();
+</script>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Consultor Platinum ML — IA 24/7 para Sellers do Mercado Livre</title>
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://consultorplatinum.com.br/">
+
+<!-- Open Graph -->
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://consultorplatinum.com.br/">
+<meta property="og:title" content="Consultor Platinum ML — IA 24/7 para Sellers do Mercado Livre">
+<meta property="og:description" content="IA 24/7 para sellers do Mercado Livre. Detecta sinais de risco antes que virem problema — termômetro, Buy Box, ACOS, SLA e mediações em tempo real.">
+<meta property="og:image" content="https://consultorplatinum.com.br/og-image.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:locale" content="pt_BR">
+<meta property="og:site_name" content="Consultor Platinum ML">
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Consultor Platinum ML — IA 24/7 para Sellers do Mercado Livre">
+<meta name="twitter:description" content="Alertas em tempo real + IA que resolve termômetro, Buy Box, ACOS e SLA. Proteja sua conta no Mercado Livre.">
+<meta name="twitter:image" content="https://consultorplatinum.com.br/og-image.jpg">
+
+<!-- Schema.org -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Organization",
+      "@id": "https://consultorplatinum.com.br/#org",
+      "name": "Consultor Platinum ML",
+      "url": "https://consultorplatinum.com.br/",
+      "description": "Consultor de IA 24/7 para sellers do Mercado Livre.",
+      "areaServed": "BR"
+    },
+    {
+      "@type": "WebSite",
+      "@id": "https://consultorplatinum.com.br/#site",
+      "url": "https://consultorplatinum.com.br/",
+      "name": "Consultor Platinum ML",
+      "inLanguage": "pt-BR",
+      "publisher": { "@id": "https://consultorplatinum.com.br/#org" }
+    },
+    {
+      "@type": "SoftwareApplication",
+      "name": "Consultor Platinum ML",
+      "applicationCategory": "BusinessApplication",
+      "operatingSystem": "Web",
+      "url": "https://consultorplatinum.com.br/",
+      "description": "Painel de alertas em tempo real + Consultor IA 24/7 que detecta e resolve problemas de termômetro, Buy Box, ACOS, estoque Full e SLA no Mercado Livre.",
+      "inLanguage": "pt-BR",
+      "offers": [
+        { "@type": "Offer", "name": "Starter", "price": "97.00", "priceCurrency": "BRL", "category": "subscription" },
+        { "@type": "Offer", "name": "Platinum", "price": "347.00", "priceCurrency": "BRL", "category": "subscription" },
+        { "@type": "Offer", "name": "Enterprise", "price": "1997.00", "priceCurrency": "BRL", "category": "subscription" }
+      ]
+    }
+  ]
+}
+</script>
+<link rel="icon" type="image/png" href="data:image/png;base64,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">
+<meta name="description" content="IA 24/7 para sellers do Mercado Livre. Detecta sinais de risco antes que virem problema — termômetro, Buy Box, ACOS, SLA e mediações em tempo real.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Sora:wght@300;400;600;700;800;900&display=swap" rel="stylesheet">
+
+<style>
+/* ═══════════════════════════════════════
+   TOKENS & RESET
+═══════════════════════════════════════ */
+:root {
+  --bg:       #0a0c10;
+  --bg2:      #0e1116;
+  --surface:  #14171e;
+  --surface2: #1a1e26;
+  /* DOURADO — reservado para CTAs e destaques de ação */
+  --gold:     #FFD700;
+  --gold2:    #FFC107;
+  --amber:    #f59e0b;
+  /* PLATINUM — identidade da marca (prata) */
+  --platinum:    #D8DEE9;
+  --platinum2:   #aeb8c8;
+  --platinum-dk: #8995a8;
+  --white:    #ffffff;
+  --text:     #c8d4e8;
+  --muted:    #4a5a78;
+  --green:    #22c55e;
+  --red:      #ef4444;
+  --border:    rgba(216,222,233,0.16);
+  --border-gd: rgba(255,215,0,0.22);
+  --border2:  rgba(255,255,255,0.07);
+  --glow:     rgba(216,222,233,0.16);
+  --glow-gd:  rgba(255,215,0,0.20);
+  --radius:   4px;
+}
+
+*,*::before,*::after { margin:0; padding:0; box-sizing:border-box; }
+html { scroll-behavior:smooth; font-size:16px; }
+
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: 'Sora', sans-serif;
+  line-height: 1.6;
+  overflow-x: hidden;
+}
+
+/* Noise texture */
+body::after {
+  content:'';
+  position:fixed; inset:0; z-index:0;
+  background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.025'/%3E%3C/svg%3E");
+  pointer-events:none;
+  opacity:.5;
+}
+
+/* ═══ FLOATING CANVAS LAYER ═══ */
+#floatCanvas {
+  position:fixed;
+  inset:0;
+  z-index:0;
+  pointer-events:none;
+  overflow:hidden;
+}
+
+/* Partículas flutuantes */
+.fp {
+  position:absolute;
+  border-radius:50%;
+  pointer-events:none;
+  animation:fpFloat linear infinite;
+}
+
+@keyframes fpFloat {
+  0%   { transform:translateY(0) rotate(0deg); opacity:0; }
+  10%  { opacity:1; }
+  90%  { opacity:.6; }
+  100% { transform:translateY(-100vh) rotate(360deg); opacity:0; }
+}
+
+/* Losangos flutuantes */
+.fd {
+  position:absolute;
+  pointer-events:none;
+  animation:fdDrift ease-in-out infinite alternate;
+}
+
+@keyframes fdDrift {
+  0%   { transform:translateY(0) rotate(0deg) scale(1); }
+  100% { transform:translateY(-30px) rotate(20deg) scale(1.1); }
+}
+
+/* Linhas diagonais de acento */
+.fl {
+  position:absolute;
+  pointer-events:none;
+  animation:flPulse ease-in-out infinite alternate;
+}
+
+@keyframes flPulse {
+  0%   { opacity:.08; transform:scaleX(1); }
+  100% { opacity:.2;  transform:scaleX(1.1); }
+}
+
+/* ═══ FUNDO TECNOLÓGICO (rede neural / IA) ═══ */
+.hero-net{
+  position:absolute; inset:0;
+  width:100%; height:100%;
+  z-index:0; pointer-events:none;
+  opacity:.62;
+}
+@media (prefers-reduced-motion: reduce){ .hero-net{ display:none; } }
+
+/* ═══ HERO GEOMETRIC FLOAT ═══ */
+.hero-geo {
+  position:absolute;
+  pointer-events:none;
+}
+
+.hg1 {
+  top:18%; left:4%;
+  width:80px; height:80px;
+  border:1px solid rgba(255,215,0,.18);
+  transform:rotate(45deg);
+  animation:geoSpin1 18s linear infinite;
+}
+
+.hg2 {
+  top:60%; right:6%;
+  width:48px; height:48px;
+  border:1px solid rgba(255,215,0,.12);
+  transform:rotate(20deg);
+  animation:geoSpin2 24s linear infinite;
+}
+
+.hg3 {
+  top:30%; right:14%;
+  width:120px; height:120px;
+  border:1px solid rgba(255,215,0,.06);
+  border-radius:50%;
+  animation:geoSpin1 32s linear infinite reverse;
+}
+
+.hg4 {
+  bottom:20%; left:10%;
+  width:36px; height:36px;
+  background:rgba(255,215,0,.07);
+  transform:rotate(45deg);
+  animation:geoSpin2 14s linear infinite;
+}
+
+@keyframes geoSpin1 {
+  from { transform:rotate(0deg); }
+  to   { transform:rotate(360deg); }
+}
+
+@keyframes geoSpin2 {
+  from { transform:rotate(45deg); }
+  to   { transform:rotate(405deg); }
+}
+
+/* ═══ SECTION VISUAL BREAKS ═══ */
+
+/* Seção dores — fundo com grade inclinada */
+.pain-section {
+  background:linear-gradient(180deg, var(--bg) 0%, var(--bg2) 100%);
+  position:relative;
+  overflow:hidden;
+}
+.pain-section::after {
+  content:'';
+  position:absolute;
+  inset:0; z-index:0;
+  background-image:
+    linear-gradient(135deg, rgba(255,68,68,.025) 1px, transparent 1px),
+    linear-gradient(225deg, rgba(255,68,68,.025) 1px, transparent 1px);
+  background-size:48px 48px;
+  pointer-events:none;
+}
+.pain-section > * { position:relative; z-index:1; }
+
+/* Seção diferenciais — blob dourado esquerda */
+.diff-section::after {
+  content:'';
+  position:absolute;
+  left:-200px; top:50%;
+  transform:translateY(-50%);
+  width:500px; height:500px;
+  background:radial-gradient(circle, rgba(216,222,233,.06) 0%, transparent 65%);
+  pointer-events:none;
+  border-radius:50%;
+  animation:blobPulse 8s ease-in-out infinite alternate;
+}
+
+@keyframes blobPulse {
+  0%   { transform:translateY(-50%) scale(1); opacity:.6; }
+  100% { transform:translateY(-50%) scale(1.2); opacity:1; }
+}
+
+/* Seção fundador — acento diagonal */
+.founder-section::after {
+  content:'';
+  position:absolute;
+  top:0; left:0; right:0; bottom:0;
+  background:
+    linear-gradient(135deg, rgba(216,222,233,.03) 0%, transparent 40%),
+    linear-gradient(225deg, rgba(216,222,233,.02) 60%, transparent 100%);
+  pointer-events:none;
+  z-index:0;
+}
+.founder-section > * { position:relative; z-index:1; }
+
+/* Seção planos — estrelas fundo */
+.plans-section {
+  background:var(--bg2);
+  position:relative;
+  overflow:hidden;
+}
+
+/* Final CTA — glow central intensificado */
+.final-cta::after {
+  content:'';
+  position:absolute;
+  bottom:0; left:0; right:0;
+  height:1px;
+  background:linear-gradient(90deg,transparent,rgba(216,222,233,.4),transparent);
+}
+
+/* ═══ PING CORNERS (detalhe premium) ═══ */
+.corner-accent {
+  position:absolute;
+  pointer-events:none;
+}
+
+.corner-accent::before,
+.corner-accent::after {
+  content:'';
+  position:absolute;
+  width:20px; height:20px;
+  border-color:var(--gold);
+  border-style:solid;
+  opacity:.25;
+}
+
+.ca-tl::before { top:16px; left:16px; border-width:2px 0 0 2px; }
+.ca-br::after  { bottom:16px; right:16px; border-width:0 2px 2px 0; }
+
+section, nav, footer { position:relative; z-index:1; }
+
+a { text-decoration:none; color:inherit; }
+img { max-width:100%; display:block; }
+
+/* ═══════════════════════════════════════
+   TOPBAR
+═══════════════════════════════════════ */
+.topbar-alert {
+  background: linear-gradient(90deg, #ef4444, #dc2626);
+  color:#fff;
+  text-align:center;
+  font-size:.72rem;
+  font-weight:700;
+  letter-spacing:.5px;
+  padding:9px 16px;
+  position:relative;
+  z-index:200;
+}
+
+.topbar-alert span { color:#fde047; }
+
+/* ═══════════════════════════════════════
+   NAV
+═══════════════════════════════════════ */
+nav {
+  position:fixed;
+  top:36px; left:0; right:0;
+  z-index:150;
+  padding:0 5%;
+  height:64px;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  background:rgba(8,14,28,0.88);
+  backdrop-filter:blur(20px);
+  border-bottom:1px solid var(--border2);
+  transition:top .3s ease;
+}
+
+nav.scrolled { top:0; border-bottom-color:var(--border); }
+
+.nav-logo {
+  font-family:'Bebas Neue', sans-serif;
+  font-size:1.45rem;
+  letter-spacing:2.5px;
+  background:linear-gradient(135deg,#f4f6fa 0%,#aeb8c8 45%,#e8edf4 55%,#8995a8 100%);
+  -webkit-background-clip:text;
+  background-clip:text;
+  -webkit-text-fill-color:transparent;
+  font-weight:400;
+}
+.nav-logo span {
+  background:linear-gradient(135deg,#ffffff 0%,#c8d0dc 100%);
+  -webkit-background-clip:text;
+  background-clip:text;
+  -webkit-text-fill-color:transparent;
+}
+
+.nav-links {
+  display:flex;
+  align-items:center;
+  gap:32px;
+  list-style:none;
+}
+
+.nav-links a {
+  font-size:.78rem;
+  font-weight:600;
+  color:var(--muted);
+  letter-spacing:.5px;
+  text-transform:uppercase;
+  transition:color .2s;
+}
+.nav-links a:hover { color:var(--gold); }
+
+.nav-cta {
+  background:var(--gold);
+  color:#080e1c;
+  font-weight:800;
+  font-size:.75rem;
+  letter-spacing:.5px;
+  text-transform:uppercase;
+  padding:11px 24px;
+  border:none;
+  cursor:pointer;
+  font-family:'Sora',sans-serif;
+  transition:all .2s;
+  clip-path:polygon(0 0,calc(100% - 10px) 0,100% 10px,100% 100%,10px 100%,0 calc(100% - 10px));
+}
+.nav-cta:hover { background:#fff; transform:translateY(-2px); }
+
+.nav-mobile-btn {
+  display:none;
+  background:none;
+  border:none;
+  cursor:pointer;
+  padding:6px;
+  flex-direction:column;
+  gap:5px;
+}
+.nav-mobile-btn span {
+  display:block;
+  width:24px; height:2px;
+  background:var(--gold);
+  transition:all .3s;
+}
+
+/* ═══════════════════════════════════════
+   HERO
+═══════════════════════════════════════ */
+.hero {
+  min-height:auto;
+  display:flex;
+  flex-direction:column;
+  justify-content:flex-start;
+  align-items:center;
+  text-align:center;
+  padding:120px 6% 80px;
+  position:relative;
+  overflow:hidden;
+}
+
+/* Grid lines background */
+.hero::before {
+  content:'';
+  position:absolute; inset:0;
+  background-image:
+    linear-gradient(rgba(216,222,233,.04) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(216,222,233,.04) 1px, transparent 1px);
+  background-size:60px 60px;
+  mask-image:radial-gradient(ellipse 80% 80% at 50% 50%, black 40%, transparent 100%);
+  pointer-events:none;
+}
+
+/* Glow orb */
+.hero-orb {
+  position:absolute;
+  top:-100px; left:50%;
+  transform:translateX(-50%);
+  width:900px; height:600px;
+  background:
+    radial-gradient(ellipse at center, rgba(255,215,0,.05) 0%, transparent 60%),
+    radial-gradient(ellipse at center, rgba(216,222,233,.08) 0%, transparent 70%);
+  pointer-events:none;
+}
+/* Camada tecnológica: circuito + nós sutis */
+.hero::after{
+  content:'';
+  position:absolute; inset:0; z-index:0;
+  background-image:
+    radial-gradient(circle at 18% 30%, rgba(255,215,0,.06) 0 2px, transparent 3px),
+    radial-gradient(circle at 82% 22%, rgba(216,222,233,.08) 0 2px, transparent 3px),
+    radial-gradient(circle at 68% 70%, rgba(255,215,0,.05) 0 2px, transparent 3px),
+    radial-gradient(circle at 30% 78%, rgba(216,222,233,.06) 0 2px, transparent 3px),
+    linear-gradient(90deg, transparent 49.5%, rgba(216,222,233,.04) 50%, transparent 50.5%),
+    linear-gradient(0deg, transparent 49.5%, rgba(216,222,233,.03) 50%, transparent 50.5%);
+  background-size:auto, auto, auto, auto, 220px 220px, 220px 220px;
+  mask-image:radial-gradient(ellipse 90% 70% at 50% 40%, black 30%, transparent 85%);
+  pointer-events:none;
+  opacity:.7;
+}
+.hero > *:not(.hero-orb):not(.hero-net):not(.hero-geo){ position:relative; z-index:1; }
+
+.hero-eyebrow {
+  display:inline-flex;
+  align-items:center;
+  gap:8px;
+  background:rgba(255,215,0,.08);
+  border:1px solid var(--border);
+  color:var(--gold);
+  font-size:.68rem;
+  font-weight:700;
+  letter-spacing:2.5px;
+  text-transform:uppercase;
+  padding:8px 20px;
+  margin-bottom:36px;
+  animation:fadeDown .6s ease both;
+}
+
+.hero-eyebrow::before { content:'◆'; font-size:.5rem; }
+
+.hero h1 {
+  font-family:'Sora', sans-serif;
+  font-size:clamp(2.2rem,5.5vw,4rem);
+  font-weight:900;
+  color:var(--white);
+  line-height:1.1;
+  max-width:960px;
+  margin-bottom:28px;
+  animation:fadeDown .7s .1s ease both;
+  letter-spacing:-1px;
+}
+
+.hero h1 em {
+  font-style:normal;
+  color:var(--platinum);
+  position:relative;
+}
+
+.hero h1 em::after {
+  content:'';
+  position:absolute;
+  bottom:-4px; left:0; right:0;
+  height:3px;
+  background:linear-gradient(90deg, transparent, var(--gold), transparent);
+}
+
+.hero-sub {
+  font-size:clamp(1rem,2vw,1.2rem);
+  color:var(--text);
+  max-width:700px;
+  margin-bottom:48px;
+  font-weight:300;
+  line-height:1.8;
+  animation:fadeDown .7s .2s ease both;
+}
+
+.hero-sub strong { color:var(--white); font-weight:700; }
+
+/* Countdown na topbar */
+.countdown{
+  font-variant-numeric:tabular-nums;font-weight:900;
+  color:#fde047;letter-spacing:.5px;
+  background:rgba(0,0,0,.25);padding:1px 8px;border-radius:4px;
+}
+
+/* Mockup do painel no hero */
+.hero-mockup{
+  margin:56px auto 0;max-width:780px;width:100%;
+  background:linear-gradient(160deg,#0d1d38,#0a1730);
+  border:1px solid rgba(255,215,0,.18);border-radius:12px;
+  box-shadow:0 40px 100px rgba(0,0,0,.6),0 0 60px rgba(255,215,0,.05);
+  overflow:hidden;position:relative;
+  animation:mockFloat 6s ease-in-out infinite alternate;
+}
+@keyframes mockFloat{from{transform:translateY(0)}to{transform:translateY(-10px)}}
+.mock-bar{
+  display:flex;align-items:center;gap:8px;
+  padding:12px 16px;background:rgba(0,0,0,.3);
+  border-bottom:1px solid rgba(255,255,255,.06);
+}
+.mock-dot{width:11px;height:11px;border-radius:50%;}
+.mock-dot.r{background:#ff5f56;}
+.mock-dot.y{background:#ffbd2e;}
+.mock-dot.g{background:#27c93f;}
+.mock-url{
+  flex:1;text-align:center;font-size:.65rem;color:#5a6e88;
+  background:rgba(0,0,0,.3);padding:4px 12px;border-radius:5px;margin-left:8px;
+}
+.mock-body{padding:20px;}
+.mock-greet{font-size:.72rem;color:#7a8ea8;margin-bottom:4px;}
+.mock-greet strong{color:var(--white);}
+.mock-alerts-label{font-size:.6rem;color:var(--gold);text-transform:uppercase;letter-spacing:1.5px;margin:16px 0 10px;}
+.mock-alert{
+  display:flex;align-items:center;gap:12px;
+  padding:11px 14px;margin-bottom:7px;border-radius:8px;
+  background:rgba(255,255,255,.02);border:1px solid rgba(255,255,255,.05);
+  border-left-width:3px;opacity:0;transform:translateX(-12px);
+  animation:alertIn .5s ease forwards;
+}
+.mock-alert.crit{border-left-color:#ef4444;}
+.mock-alert.warn{border-left-color:#f59e0b;}
+.mock-alert.ok{border-left-color:#22c55e;}
+.mock-alert:nth-child(1){animation-delay:.3s;}
+.mock-alert:nth-child(2){animation-delay:.6s;}
+.mock-alert:nth-child(3){animation-delay:.9s;}
+.mock-alert:nth-child(4){animation-delay:1.2s;}
+@keyframes alertIn{to{opacity:1;transform:translateX(0);}}
+.mock-alert-ico{font-size:1.1rem;flex-shrink:0;}
+.mock-alert-txt{flex:1;min-width:0;}
+.mock-alert-title{font-size:.74rem;font-weight:700;color:#e8eef8;}
+.mock-alert-sub{font-size:.64rem;color:#5a6e88;margin-top:1px;}
+.mock-alert-badge{
+  font-size:.55rem;font-weight:800;padding:3px 8px;border-radius:4px;
+  text-transform:uppercase;letter-spacing:.5px;flex-shrink:0;
+}
+.mb-crit{background:rgba(239,68,68,.12);color:#fca5a5;}
+.mb-warn{background:rgba(245,158,11,.12);color:#fcd34d;}
+.mb-ok{background:rgba(34,197,94,.12);color:#86efac;}
+.mock-live{
+  position:absolute;top:14px;right:16px;z-index:2;
+  display:flex;align-items:center;gap:5px;
+  font-size:.58rem;color:#86efac;font-weight:700;
+  text-transform:uppercase;letter-spacing:1px;
+}
+.mock-live-dot{width:6px;height:6px;border-radius:50%;background:#22c55e;animation:liveBlink 1.5s infinite;}
+@keyframes liveBlink{0%,100%{opacity:1}50%{opacity:.2}}
+
+.hero-ctas {
+  display:flex;
+  gap:16px;
+  flex-wrap:wrap;
+  justify-content:center;
+  animation:fadeDown .7s .35s ease both;
+  margin-bottom:60px;
+}
+
+.btn-primary {
+  display:inline-flex;
+  align-items:center;
+  gap:10px;
+  background:var(--gold);
+  color:#080e1c;
+  font-weight:900;
+  font-size:.95rem;
+  padding:18px 40px;
+  letter-spacing:.3px;
+  transition:all .25s;
+  cursor:pointer;
+  border:none;
+  font-family:'Sora',sans-serif;
+  clip-path:polygon(0 0,calc(100% - 12px) 0,100% 12px,100% 100%,12px 100%,0 calc(100% - 12px));
+  position:relative;
+  overflow:hidden;
+}
+
+.btn-primary::before {
+  content:'';
+  position:absolute; inset:0;
+  background:linear-gradient(135deg, rgba(255,255,255,.2), transparent);
+  opacity:0;
+  transition:opacity .2s;
+}
+.btn-primary:hover::before { opacity:1; }
+.btn-primary:hover { transform:translateY(-3px); box-shadow:0 16px 40px rgba(255,215,0,.4); }
+
+.btn-wpp {
+  display:inline-flex;
+  align-items:center;
+  gap:10px;
+  background:transparent;
+  border:1px solid rgba(255,255,255,.15);
+  color:var(--white);
+  font-weight:700;
+  font-size:.88rem;
+  padding:18px 32px;
+  transition:all .25s;
+  cursor:pointer;
+  font-family:'Sora',sans-serif;
+  clip-path:polygon(0 0,calc(100% - 10px) 0,100% 10px,100% 100%,10px 100%,0 calc(100% - 10px));
+}
+
+.btn-wpp:hover {
+  border-color:#25D366;
+  color:#25D366;
+  background:rgba(37,211,102,.06);
+  transform:translateY(-3px);
+}
+
+.btn-wpp svg { width:18px; height:18px; }
+
+/* Hero proof pills */
+.hero-proof {
+  display:flex;
+  gap:40px;
+  flex-wrap:wrap;
+  justify-content:center;
+  animation:fadeDown .7s .5s ease both;
+}
+
+.proof-item {
+  text-align:center;
+  padding-left:24px;
+  border-left:2px solid var(--border);
+}
+
+.proof-num {
+  font-family:'Bebas Neue',sans-serif;
+  font-size:2.4rem;
+  color:var(--gold);
+  line-height:1;
+}
+
+.proof-label {
+  font-size:.65rem;
+  color:var(--muted);
+  text-transform:uppercase;
+  letter-spacing:1.5px;
+  margin-top:4px;
+}
+
+/* Scroll indicator */
+.scroll-hint {
+  position:absolute;
+  bottom:32px; left:50%;
+  transform:translateX(-50%);
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  gap:6px;
+  opacity:.4;
+  animation:bounce 2s infinite;
+}
+
+.scroll-hint span { font-size:.62rem; text-transform:uppercase; letter-spacing:2px; color:var(--muted); }
+.scroll-hint::after { content:'↓'; color:var(--gold); font-size:1rem; }
+
+@keyframes bounce {
+  0%,100%{transform:translateX(-50%) translateY(0)}
+  50%{transform:translateX(-50%) translateY(6px)}
+}
+
+/* ═══════════════════════════════════════
+   TICKER
+═══════════════════════════════════════ */
+.ticker-section {
+  background:rgba(255,215,0,.04);
+  border-top:1px solid var(--border);
+  border-bottom:1px solid var(--border);
+  padding:14px 0;
+  overflow:hidden;
+}
+
+.ticker-track {
+  display:flex;
+  gap:48px;
+  animation:ticker 28s linear infinite;
+  width:max-content;
+}
+
+@keyframes ticker {
+  from{transform:translateX(0)}
+  to{transform:translateX(-50%)}
+}
+
+.tick {
+  white-space:nowrap;
+  font-size:.72rem;
+  color:var(--muted);
+  display:flex;
+  align-items:center;
+  gap:8px;
+}
+
+.tick strong { color:var(--gold); }
+.tick-sep { color:rgba(255,215,0,.3); font-size:.6rem; }
+
+/* ═══════════════════════════════════════
+   PROBLEMA — DOR SECTION
+═══════════════════════════════════════ */
+.pain-section {
+  padding:140px 7%;
+  background:linear-gradient(180deg, var(--bg) 0%, var(--bg2) 100%);
+}
+
+.pain-inner { max-width:1200px; margin:0 auto; }
+
+.section-eyebrow {
+  display:inline-block;
+  font-size:.64rem;
+  font-weight:600;
+  letter-spacing:4px;
+  text-transform:uppercase;
+  color:var(--platinum2);
+  padding:9px 20px;
+  border:1px solid rgba(216,222,233,0.14);
+  background:rgba(216,222,233,0.03);
+  margin-bottom:28px;
+}
+
+.section-title {
+  font-size:clamp(1.9rem,4vw,3.1rem);
+  font-weight:800;
+  color:var(--white);
+  line-height:1.18;
+  margin-bottom:20px;
+  letter-spacing:-.8px;
+}
+
+.section-title em { font-style:normal; color:var(--platinum); }
+
+.section-sub {
+  font-size:1rem;
+  color:var(--text);
+  max-width:620px;
+  font-weight:300;
+  line-height:1.8;
+}
+
+.pain-header { margin-bottom:64px; }
+
+.pain-grid {
+  display:grid;
+  grid-template-columns:repeat(3, 1fr);
+  gap:2px;
+}
+
+.pain-card {
+  background:rgba(255,255,255,.02);
+  border:1px solid var(--border2);
+  padding:38px 32px;
+  position:relative;
+  overflow:hidden;
+  transition:all .3s;
+  cursor:default;
+}
+
+.pain-card::before {
+  content:'';
+  position:absolute;
+  top:0; left:0;
+  width:3px; height:100%;
+  background:var(--red);
+  opacity:0;
+  transition:opacity .3s;
+}
+
+.pain-card:hover {
+  border-color:rgba(239,68,68,.25);
+  background:rgba(239,68,68,.03);
+  transform:translateY(-4px);
+}
+.pain-card:hover::before { opacity:1; }
+
+.pain-card-num {
+  font-family:'Bebas Neue',sans-serif;
+  font-size:3rem;
+  color:rgba(239,68,68,.12);
+  line-height:1;
+  margin-bottom:12px;
+}
+
+.pain-card-icon { font-size:1.8rem; margin-bottom:12px; }
+
+.pain-card-title {
+  font-size:.9rem;
+  font-weight:800;
+  color:var(--white);
+  margin-bottom:8px;
+  text-transform:uppercase;
+  letter-spacing:.3px;
+}
+
+.pain-card-desc {
+  font-size:.78rem;
+  color:#7a8aa8;
+  line-height:1.7;
+}
+
+.pain-card-tag {
+  display:inline-block;
+  font-size:.58rem;
+  color:var(--red);
+  border:1px solid rgba(239,68,68,.3);
+  padding:3px 8px;
+  margin-top:14px;
+  letter-spacing:1px;
+  text-transform:uppercase;
+}
+
+/* ═══════════════════════════════════════
+   3 DIFERENCIAIS — HERO FEATURES
+═══════════════════════════════════════ */
+.diff-section {
+  padding:140px 7%;
+  background:var(--bg2);
+  position:relative;
+  overflow:hidden;
+}
+
+.diff-section::before {
+  content:'';
+  position:absolute;
+  top:0; left:0; right:0;
+  height:1px;
+  background:linear-gradient(90deg,transparent,var(--platinum),transparent);
+}
+
+.diff-inner { max-width:1200px; margin:0 auto; }
+.diff-header { text-align:center; margin-bottom:80px; }
+
+.diff-grid {
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:3px;
+}
+
+.diff-card {
+  background:var(--surface);
+  border:1px solid var(--border2);
+  padding:48px 36px;
+  position:relative;
+  overflow:hidden;
+  transition:all .3s;
+}
+
+.diff-card::after {
+  content:'';
+  position:absolute;
+  bottom:0; left:0; right:0;
+  height:2px;
+  background:linear-gradient(90deg,transparent,var(--platinum),transparent);
+  opacity:0;
+  transition:opacity .3s;
+}
+
+.diff-card:hover {
+  border-color:var(--border);
+  background:var(--surface2);
+  transform:translateY(-6px);
+  box-shadow:0 24px 60px rgba(0,0,0,.5), 0 0 40px rgba(255,215,0,.06);
+}
+
+.diff-card:hover::after { opacity:1; }
+
+/* Numbered badge */
+.diff-num {
+  position:absolute;
+  top:24px; right:24px;
+  font-family:'Bebas Neue',sans-serif;
+  font-size:4rem;
+  color:rgba(255,215,0,.06);
+  line-height:1;
+  pointer-events:none;
+  transition:color .3s;
+}
+.diff-card:hover .diff-num { color:rgba(255,215,0,.1); }
+
+.diff-icon {
+  width:56px; height:56px;
+  background:rgba(255,215,0,.08);
+  border:1px solid var(--border);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-size:1.6rem;
+  margin-bottom:28px;
+}
+
+.diff-title {
+  font-size:1.15rem;
+  font-weight:800;
+  color:var(--white);
+  margin-bottom:14px;
+  line-height:1.3;
+}
+
+.diff-desc {
+  font-size:.85rem;
+  color:#6a7d9b;
+  line-height:1.8;
+  margin-bottom:24px;
+}
+
+.diff-proof {
+  background:rgba(255,215,0,.05);
+  border:1px solid rgba(255,215,0,.12);
+  padding:12px 16px;
+  font-size:.75rem;
+  color:var(--gold);
+  font-weight:700;
+}
+
+.diff-proof::before { content:'→  '; }
+
+/* ═══════════════════════════════════════
+   COMO FUNCIONA
+═══════════════════════════════════════ */
+.how-section {
+  padding:140px 7%;
+  background:var(--bg);
+  text-align:center;
+}
+
+.how-inner { max-width:1000px; margin:0 auto; }
+.how-header { margin-bottom:80px; }
+
+.steps-row {
+  display:flex;
+  gap:0;
+  position:relative;
+  max-width:900px;
+  margin:0 auto;
+}
+
+.steps-row::before {
+  content:'';
+  position:absolute;
+  top:44px; left:12%;
+  width:76%;
+  height:1px;
+  background:linear-gradient(90deg,transparent,rgba(255,215,0,.3),rgba(255,215,0,.6),rgba(255,215,0,.3),transparent);
+}
+
+.how-step {
+  flex:1;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  padding:0 24px;
+}
+
+.how-step-num {
+  width:88px; height:88px;
+  border:2px solid var(--gold);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-family:'Bebas Neue',sans-serif;
+  font-size:2.2rem;
+  color:var(--gold);
+  background:var(--bg);
+  position:relative;
+  z-index:1;
+  margin-bottom:28px;
+  transition:all .3s;
+  clip-path:polygon(0 0,calc(100% - 12px) 0,100% 12px,100% 100%,12px 100%,0 calc(100% - 12px));
+}
+
+.how-step:hover .how-step-num {
+  background:rgba(255,215,0,.12);
+  box-shadow:0 0 30px rgba(255,215,0,.25);
+}
+
+.how-step-title {
+  font-size:.9rem;
+  font-weight:800;
+  color:var(--white);
+  margin-bottom:10px;
+  text-transform:uppercase;
+  letter-spacing:.3px;
+}
+
+.how-step-desc {
+  font-size:.78rem;
+  color:#6a7d9b;
+  line-height:1.7;
+}
+
+/* ═══════════════════════════════════════
+   FUNDADOR
+═══════════════════════════════════════ */
+.founder-section {
+  padding:140px 7%;
+  background:var(--bg2);
+  position:relative;
+  overflow:hidden;
+}
+
+.founder-section::before {
+  content:'';
+  position:absolute;
+  right:-200px; top:-200px;
+  width:600px; height:600px;
+  background:radial-gradient(circle, rgba(255,215,0,.04) 0%, transparent 70%);
+  pointer-events:none;
+}
+
+.founder-inner {
+  max-width:800px;
+  margin:0 auto;
+}
+
+.founder-visual-removed {}
+
+.founder-content {}
+
+.founder-label {
+  font-size:.62rem;
+  font-weight:700;
+  letter-spacing:3px;
+  text-transform:uppercase;
+  color:var(--gold);
+  margin-bottom:20px;
+  display:flex;
+  align-items:center;
+  gap:10px;
+  justify-content:center;
+}
+.founder-label::before,
+.founder-label::after { content:''; width:32px; height:1px; background:var(--gold); }
+
+.founder-name {
+  font-family:'Bebas Neue',sans-serif;
+  font-size:clamp(2.4rem,4vw,3.6rem);
+  color:var(--white);
+  line-height:1;
+  margin-bottom:6px;
+  letter-spacing:1px;
+  text-align:center;
+}
+
+.founder-role {
+  font-size:.85rem;
+  color:var(--muted);
+  margin-bottom:32px;
+  font-weight:400;
+  text-align:center;
+}
+
+.founder-bio {
+  font-size:.92rem;
+  color:var(--text);
+  line-height:1.9;
+  margin-bottom:36px;
+  font-weight:300;
+  text-align:center;
+  max-width:680px;
+  margin-left:auto;
+  margin-right:auto;
+}
+
+.founder-bio strong { color:var(--white); font-weight:700; }
+
+.founder-stats {
+  display:flex;
+  gap:0;
+  border:1px solid var(--border2);
+  max-width:540px;
+  margin:0 auto;
+}
+
+.founder-stat {
+  flex:1;
+  padding:20px;
+  text-align:center;
+  border-right:1px solid var(--border2);
+}
+.founder-stat:last-child { border-right:none; }
+
+.fstat-num {
+  font-family:'Bebas Neue',sans-serif;
+  font-size:1.8rem;
+  color:var(--gold);
+  line-height:1;
+}
+
+.fstat-label {
+  font-size:.62rem;
+  color:var(--muted);
+  text-transform:uppercase;
+  letter-spacing:1px;
+  margin-top:4px;
+}
+
+/* ═══════════════════════════════════════
+   PROVA SOCIAL / DEPOIMENTOS
+═══════════════════════════════════════ */
+.proof-section {
+  padding:140px 7%;
+  background:var(--bg);
+}
+
+.proof-inner { max-width:1200px; margin:0 auto; }
+.proof-header { text-align:center; margin-bottom:64px; }
+
+.proof-grid {
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:2px;
+  margin-bottom:48px;
+}
+
+.proof-card {
+  background:var(--surface);
+  border:1px solid var(--border2);
+  padding:32px 28px;
+  position:relative;
+  overflow:hidden;
+  transition:all .3s;
+}
+
+.proof-card::before {
+  content:'"';
+  position:absolute;
+  top:16px; right:20px;
+  font-family:'Bebas Neue',sans-serif;
+  font-size:5rem;
+  color:rgba(255,215,0,.07);
+  line-height:1;
+  pointer-events:none;
+}
+
+.proof-card:hover {
+  border-color:var(--border);
+  transform:translateY(-4px);
+  box-shadow:0 16px 40px rgba(0,0,0,.4);
+}
+
+.proof-stars {
+  display:flex;
+  gap:3px;
+  margin-bottom:14px;
+}
+
+.proof-stars span { color:var(--gold); font-size:.85rem; }
+
+.proof-text {
+  font-size:.83rem;
+  color:var(--text);
+  line-height:1.8;
+  margin-bottom:20px;
+  font-weight:300;
+}
+
+.proof-text strong { color:var(--gold); font-weight:700; }
+
+.proof-divider {
+  height:1px;
+  background:var(--border2);
+  margin-bottom:16px;
+}
+
+.proof-author {
+  display:flex;
+  align-items:center;
+  gap:12px;
+}
+
+.proof-avatar {
+  width:36px; height:36px;
+  border-radius:8px;
+  background:rgba(255,215,0,.1);
+  border:1px solid var(--border);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-size:1rem;
+  flex-shrink:0;
+}
+
+.proof-name {
+  font-size:.78rem;
+  font-weight:700;
+  color:var(--white);
+}
+
+.proof-info {
+  font-size:.65rem;
+  color:var(--muted);
+  margin-top:2px;
+}
+
+.proof-result {
+  display:inline-block;
+  background:rgba(34,197,94,.08);
+  border:1px solid rgba(34,197,94,.2);
+  color:var(--green);
+  font-size:.6rem;
+  font-weight:700;
+  padding:2px 8px;
+  margin-top:4px;
+  text-transform:uppercase;
+  letter-spacing:.5px;
+}
+
+/* ═══════════════════════════════════════
+   PLANOS / CTA
+═══════════════════════════════════════ */
+.plans-section {
+  padding:140px 7%;
+  background:var(--bg2);
+  position:relative;
+  overflow:hidden;
+}
+
+.plans-section::before {
+  content:'';
+  position:absolute;
+  bottom:-300px; left:50%;
+  transform:translateX(-50%);
+  width:800px; height:800px;
+  background:radial-gradient(circle, rgba(255,215,0,.07) 0%, transparent 65%);
+  pointer-events:none;
+}
+
+.plans-inner { max-width:920px; margin:0 auto; }
+.plans-header { text-align:center; margin-bottom:64px; }
+
+.plans-grid {
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:3px;
+  margin-bottom:40px;
+}
+
+.plan-card {
+  background:var(--surface);
+  border:1px solid rgba(216,222,233,0.08);
+  padding:44px 38px;
+  position:relative;
+  transition:all .3s;
+}
+
+.plan-card:hover {
+  transform:translateY(-4px);
+  box-shadow:0 20px 50px rgba(0,0,0,.4);
+}
+
+.plan-card-featured {
+  border-color:rgba(255,215,0,.35);
+  background:linear-gradient(135deg, var(--surface2) 0%, var(--surface) 100%);
+}
+
+.plan-card-featured::before {
+  content:'';
+  position:absolute;
+  top:0; left:0; right:0;
+  height:2px;
+  background:linear-gradient(90deg,transparent,var(--platinum),transparent);
+}
+
+.plan-badge {
+  position:absolute;
+  top:-13px; left:50%;
+  transform:translateX(-50%);
+  background:var(--gold);
+  color:#080e1c;
+  font-size:.62rem;
+  font-weight:800;
+  padding:4px 16px;
+  white-space:nowrap;
+  letter-spacing:.5px;
+}
+
+.plan-label {
+  font-size:.62rem;
+  font-weight:700;
+  letter-spacing:2px;
+  text-transform:uppercase;
+  color:var(--muted);
+  margin-bottom:20px;
+}
+
+.plan-price-was {
+  font-size:.75rem;
+  color:var(--muted);
+  text-decoration:line-through;
+  margin-bottom:4px;
+}
+
+.plan-price {
+  font-family:'Bebas Neue',sans-serif;
+  font-size:3.6rem;
+  color:var(--white);
+  line-height:1;
+  margin-bottom:6px;
+}
+
+.plan-card-featured .plan-price { color:var(--gold); }
+
+.plan-price sup {
+  font-family:'Sora',sans-serif;
+  font-size:1.4rem;
+  font-weight:400;
+  vertical-align:top;
+  margin-top:8px;
+}
+
+.plan-price small {
+  font-family:'Sora',sans-serif;
+  font-size:.75rem;
+  font-weight:400;
+  color:var(--muted);
+}
+
+.plan-period {
+  font-size:.72rem;
+  color:var(--muted);
+  margin-bottom:28px;
+}
+
+.plan-features {
+  list-style:none;
+  margin-bottom:32px;
+}
+
+.plan-features li {
+  font-size:.8rem;
+  color:#8a9bb8;
+  padding:8px 0;
+  border-bottom:1px solid rgba(255,255,255,.04);
+  display:flex;
+  align-items:flex-start;
+  gap:10px;
+  line-height:1.5;
+}
+.plan-features li:last-child { border-bottom:none; }
+
+.plan-features li::before {
+  content:'✓';
+  color:var(--green);
+  font-weight:700;
+  flex-shrink:0;
+  margin-top:1px;
+}
+
+.plan-cta {
+  display:block;
+  text-align:center;
+  padding:14px;
+  font-weight:800;
+  font-size:.85rem;
+  transition:all .2s;
+  cursor:pointer;
+  font-family:'Sora',sans-serif;
+  border:none;
+  clip-path:polygon(0 0,calc(100% - 8px) 0,100% 8px,100% 100%,8px 100%,0 calc(100% - 8px));
+}
+
+.plan-cta-outline {
+  background:rgba(255,215,0,.08);
+  color:var(--gold);
+  border:1px solid rgba(255,215,0,.3);
+}
+.plan-cta-outline:hover { background:rgba(255,215,0,.16); transform:translateY(-2px); }
+
+.plan-cta-solid {
+  background:var(--gold);
+  color:#080e1c;
+}
+.plan-cta-solid:hover { background:#fff; transform:translateY(-2px); box-shadow:0 8px 24px rgba(255,215,0,.35); }
+
+.plan-guarantee { font-size:.62rem; color:var(--muted); text-align:center; margin-top:10px; }
+
+/* ═══════════════════════════════════════
+   FAQ
+═══════════════════════════════════════ */
+.faq-section {
+  padding:140px 7%;
+  background:var(--bg);
+}
+
+.faq-inner { max-width:820px; margin:0 auto; }
+.faq-header { text-align:center; margin-bottom:60px; }
+
+.faq-list { display:flex; flex-direction:column; gap:2px; }
+
+.faq-item {
+  background:var(--surface);
+  border:1px solid var(--border2);
+  overflow:hidden;
+  transition:border-color .2s;
+}
+
+.faq-item.open { border-color:var(--border); }
+
+.faq-q {
+  padding:22px 28px;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  cursor:pointer;
+  user-select:none;
+  gap:16px;
+}
+
+.faq-q-text {
+  font-size:.9rem;
+  font-weight:700;
+  color:var(--white);
+  line-height:1.4;
+}
+
+.faq-icon {
+  width:28px; height:28px;
+  border:1px solid var(--border);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  color:var(--gold);
+  font-size:1.1rem;
+  flex-shrink:0;
+  transition:all .3s;
+  font-weight:300;
+}
+
+.faq-item.open .faq-icon { transform:rotate(45deg); background:rgba(255,215,0,.1); }
+
+.faq-a {
+  max-height:0;
+  overflow:hidden;
+  transition:max-height .4s ease, padding .4s ease;
+  padding:0 28px;
+}
+
+.faq-a-inner {
+  font-size:.83rem;
+  color:#6a7d9b;
+  line-height:1.8;
+  padding-bottom:22px;
+  border-top:1px solid var(--border2);
+  padding-top:18px;
+}
+
+.faq-item.open .faq-a { max-height:300px; }
+
+/* ═══════════════════════════════════════
+   FINAL CTA
+═══════════════════════════════════════ */
+.final-cta {
+  padding:140px 6%;
+  text-align:center;
+  background:linear-gradient(180deg, var(--bg) 0%, var(--bg2) 100%);
+  position:relative;
+  overflow:hidden;
+}
+
+.final-cta::before {
+  content:'';
+  position:absolute;
+  top:50%; left:50%;
+  transform:translate(-50%,-50%);
+  width:900px; height:500px;
+  background:radial-gradient(ellipse,rgba(255,215,0,.08) 0%,transparent 65%);
+  pointer-events:none;
+}
+
+.final-cta h2 {
+  font-size:clamp(2rem,5vw,3.4rem);
+  font-weight:900;
+  color:var(--white);
+  line-height:1.15;
+  max-width:860px;
+  margin:0 auto 28px;
+  letter-spacing:-.5px;
+}
+
+.final-cta h2 em { font-style:normal; color:var(--platinum); }
+
+.final-cta p {
+  font-size:1.05rem;
+  color:var(--text);
+  max-width:580px;
+  margin:0 auto 48px;
+  font-weight:300;
+  line-height:1.8;
+}
+
+.final-trust {
+  display:flex;
+  gap:32px;
+  justify-content:center;
+  flex-wrap:wrap;
+  margin-top:36px;
+}
+
+.trust-item {
+  display:flex;
+  align-items:center;
+  gap:8px;
+  font-size:.72rem;
+  color:var(--muted);
+}
+
+.trust-item span:first-child { color:var(--gold); }
+
+/* ═══════════════════════════════════════
+   FOOTER
+═══════════════════════════════════════ */
+footer {
+  padding:40px 6%;
+  border-top:1px solid var(--border2);
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  flex-wrap:wrap;
+  gap:16px;
+}
+
+.footer-logo {
+  font-family:'Bebas Neue',sans-serif;
+  font-size:1.4rem;
+  letter-spacing:2px;
+  color:var(--gold);
+}
+.footer-logo span { color:var(--white); }
+
+footer p { font-size:.7rem; color:var(--muted); }
+
+.footer-links {
+  display:flex;
+  gap:24px;
+  list-style:none;
+}
+
+.footer-links a {
+  font-size:.7rem;
+  color:var(--muted);
+  transition:color .2s;
+}
+.footer-links a:hover { color:var(--gold); }
+
+/* ═══════════════════════════════════════
+   WHATSAPP CHATBOT WIDGET
+═══════════════════════════════════════ */
+.wpp-widget {
+  position:fixed;
+  bottom:28px; right:28px;
+  z-index:500;
+  display:flex;
+  flex-direction:column;
+  align-items:flex-end;
+  gap:12px;
+}
+
+/* Bubble button */
+.wpp-btn {
+  width:62px; height:62px;
+  background:#25D366;
+  border-radius:50%;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  cursor:pointer;
+  box-shadow:0 6px 24px rgba(37,211,102,.45);
+  transition:all .3s;
+  border:none;
+  position:relative;
+}
+
+.wpp-btn:hover { transform:scale(1.1); box-shadow:0 10px 32px rgba(37,211,102,.6); }
+
+.wpp-btn svg { width:32px; height:32px; }
+
+/* Ping animation */
+.wpp-ping {
+  position:absolute;
+  inset:0;
+  border-radius:50%;
+  background:#25D366;
+  animation:wppPing 2.5s ease-in-out infinite;
+}
+
+@keyframes wppPing {
+  0%{transform:scale(1);opacity:.5}
+  70%{transform:scale(1.6);opacity:0}
+  100%{transform:scale(1.6);opacity:0}
+}
+
+/* Notification dot */
+.wpp-notif {
+  position:absolute;
+  top:-2px; right:-2px;
+  width:18px; height:18px;
+  background:var(--red);
+  border-radius:50%;
+  border:2px solid var(--bg);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-size:.6rem;
+  font-weight:800;
+  color:#fff;
+  animation:wppBounce 1.5s ease-in-out infinite;
+}
+
+@keyframes wppBounce {
+  0%,100%{transform:scale(1)}
+  50%{transform:scale(1.2)}
+}
+
+/* Tooltip label */
+.wpp-label {
+  background:rgba(255,255,255,.95);
+  color:#080e1c;
+  font-size:.72rem;
+  font-weight:800;
+  padding:8px 14px;
+  border-radius:8px;
+  white-space:nowrap;
+  box-shadow:0 4px 20px rgba(0,0,0,.25);
+  pointer-events:none;
+  animation:fadeLabel 3s ease forwards;
+}
+
+@keyframes fadeLabel {
+  0%{opacity:0;transform:translateX(10px)}
+  15%{opacity:1;transform:translateX(0)}
+  75%{opacity:1;transform:translateX(0)}
+  100%{opacity:0;transform:translateX(10px)}
+}
+
+/* Chat popup */
+.wpp-chat {
+  position:fixed;
+  bottom:108px; right:28px;
+  width:340px;
+  background:#0d1a0a;
+  border:1px solid rgba(37,211,102,.2);
+  border-radius:16px;
+  overflow:hidden;
+  box-shadow:0 24px 60px rgba(0,0,0,.6);
+  z-index:501;
+  transform:scale(0.9) translateY(20px);
+  opacity:0;
+  pointer-events:none;
+  transition:all .3s cubic-bezier(.34,1.56,.64,1);
+  transform-origin:bottom right;
+}
+
+.wpp-chat.open {
+  transform:scale(1) translateY(0);
+  opacity:1;
+  pointer-events:all;
+}
+
+/* Chat header */
+.wpp-chat-head {
+  background:linear-gradient(135deg,#075e54,#128c7e);
+  padding:16px 18px;
+  display:flex;
+  align-items:center;
+  gap:12px;
+  position:relative;
+}
+
+.wpp-close {
+  position:absolute;
+  top:12px; right:14px;
+  background:rgba(255,255,255,.15);
+  border:none;
+  color:#fff;
+  width:24px; height:24px;
+  border-radius:50%;
+  cursor:pointer;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-size:.75rem;
+  transition:background .2s;
+}
+.wpp-close:hover { background:rgba(255,255,255,.3); }
+
+.wpp-agent-avatar {
+  width:44px; height:44px;
+  border-radius:50%;
+  background:rgba(255,255,255,.15);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-size:1.4rem;
+  flex-shrink:0;
+}
+
+.wpp-agent-name { font-size:.88rem; font-weight:700; color:#fff; }
+.wpp-agent-status {
+  font-size:.65rem;
+  color:#dcfce7;
+  display:flex;
+  align-items:center;
+  gap:5px;
+  margin-top:2px;
+}
+
+.wpp-status-dot {
+  width:7px; height:7px;
+  border-radius:50%;
+  background:#4ade80;
+  animation:wppPulse 1.5s infinite;
+}
+
+@keyframes wppPulse { 0%,100%{opacity:1}50%{opacity:.3} }
+
+/* Chat body */
+.wpp-chat-body {
+  padding:16px;
+  background:#ece5dd;
+  min-height:180px;
+  display:flex;
+  flex-direction:column;
+  gap:10px;
+  position:relative;
+}
+
+/* whatsapp wallpaper */
+.wpp-chat-body::before {
+  content:'';
+  position:absolute; inset:0;
+  opacity:.06;
+  background-image:url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23000000' fill-opacity='1'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+  pointer-events:none;
+}
+
+.wpp-msg {
+  max-width:88%;
+  background:#fff;
+  border-radius:8px 8px 8px 0;
+  padding:10px 14px;
+  font-size:.8rem;
+  color:#111;
+  line-height:1.6;
+  box-shadow:0 1px 3px rgba(0,0,0,.1);
+  position:relative;
+  animation:msgSlide .3s ease both;
+}
+
+@keyframes msgSlide {
+  from{opacity:0;transform:translateY(8px)}
+  to{opacity:1;transform:translateY(0)}
+}
+
+.wpp-msg-time {
+  font-size:.58rem;
+  color:#999;
+  text-align:right;
+  margin-top:4px;
+}
+
+.wpp-typing {
+  max-width:88%;
+  background:#fff;
+  border-radius:8px 8px 8px 0;
+  padding:12px 16px;
+  display:flex;
+  gap:4px;
+  align-items:center;
+  box-shadow:0 1px 3px rgba(0,0,0,.1);
+}
+
+.wpp-typing span {
+  width:7px; height:7px;
+  border-radius:50%;
+  background:#999;
+  animation:typing 1.4s infinite;
+}
+.wpp-typing span:nth-child(2){animation-delay:.2s}
+.wpp-typing span:nth-child(3){animation-delay:.4s}
+
+@keyframes typing { 0%,60%,100%{transform:none;opacity:1}30%{transform:translateY(-4px);opacity:.5} }
+
+/* Chat options */
+.wpp-options {
+  display:flex;
+  flex-direction:column;
+  gap:8px;
+  padding:12px 16px 16px;
+  background:#fff;
+}
+
+.wpp-option {
+  background:#075e54;
+  color:#fff;
+  border:none;
+  border-radius:24px;
+  padding:11px 18px;
+  font-size:.78rem;
+  font-weight:600;
+  cursor:pointer;
+  text-align:left;
+  display:flex;
+  align-items:center;
+  gap:10px;
+  transition:all .2s;
+  font-family:'Sora',sans-serif;
+}
+
+.wpp-option:hover { background:#128c7e; transform:translateX(4px); }
+
+.wpp-option-icon { font-size:1rem; }
+
+/* ═══════════════════════════════════════
+   FLOATING NAV CTA (mobile)
+═══════════════════════════════════════ */
+.float-cta-mobile {
+  position:fixed;
+  bottom:28px; left:28px;
+  z-index:499;
+  background:var(--gold);
+  color:#080e1c;
+  font-weight:800;
+  font-size:.72rem;
+  padding:13px 20px;
+  letter-spacing:.3px;
+  text-transform:uppercase;
+  clip-path:polygon(0 0,calc(100% - 8px) 0,100% 8px,100% 100%,8px 100%,0 calc(100% - 8px));
+  box-shadow:0 8px 24px rgba(255,215,0,.35);
+  display:none;
+  animation:pulse 2.5s infinite;
+}
+
+/* ═══════════════════════════════════════
+   REVEAL ANIMATIONS
+═══════════════════════════════════════ */
+.reveal {
+  opacity:0;
+  transform:translateY(32px);
+  transition:opacity .8s ease, transform .8s ease;
+}
+
+.reveal.visible {
+  opacity:1;
+  transform:translateY(0);
+}
+
+@keyframes fadeDown {
+  from{opacity:0;transform:translateY(-24px)}
+  to{opacity:1;transform:translateY(0)}
+}
+
+@keyframes pulse {
+  0%,100%{box-shadow:0 8px 24px rgba(255,215,0,.35)}
+  50%{box-shadow:0 8px 40px rgba(255,215,0,.65)}
+}
+
+/* ═══════════════════════════════════════
+   RESPONSIVE
+═══════════════════════════════════════ */
+@media (max-width:1024px) {
+  .pain-grid { grid-template-columns:repeat(2,1fr); }
+  .diff-grid { grid-template-columns:1fr 1fr; }
+  .proof-grid { grid-template-columns:1fr 1fr; }
+}
+
+@media (max-width:768px) {
+  .nav-links { display:none; }
+  .nav-mobile-btn { display:flex; }
+  .nav-links.mobile-open {
+    display:flex;
+    flex-direction:column;
+    position:fixed;
+    top:100px; left:0; right:0;
+    background:rgba(8,14,28,.98);
+    backdrop-filter:blur(20px);
+    padding:32px 6%;
+    border-bottom:1px solid var(--border);
+    gap:24px;
+  }
+  .nav-links.mobile-open a { font-size:1.1rem; }
+  .nav-cta { display:none; }
+
+  .pain-grid { grid-template-columns:1fr; }
+  .diff-grid { grid-template-columns:1fr; }
+  .proof-grid { grid-template-columns:1fr; }
+  .steps-row { flex-direction:column; gap:32px; }
+  .steps-row::before { display:none; }
+  .plans-grid { grid-template-columns:1fr; }
+  .hero-proof { gap:20px; }
+  .hero-ctas { flex-direction:column; align-items:center; }
+  .hero-mockup { display:none !important; }
+  .btn-primary,.btn-wpp { width:100%; max-width:320px; justify-content:center; }
+  .float-cta-mobile { display:block; }
+  .wpp-chat { width:calc(100vw - 40px); right:20px; }
+  .topbar-alert { font-size:.62rem; }
+  nav { top:0; }
+}
+
+@media (max-width:480px) {
+  .hero h1 { font-size:1.9rem; }
+  .founder-stats { flex-direction:column; }
+  .founder-stat { border-right:none; border-bottom:1px solid var(--border2); }
+  .founder-stat:last-child { border-bottom:none; }
+}
+
+/* ═══ COMPARATIVO VS (site) ═══ */
+.compare-section{padding:140px 7%;background:var(--bg2);position:relative;overflow:hidden;}
+.compare-section::before{content:'';position:absolute;top:0;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent,var(--platinum),transparent);}
+.compare-inner{max-width:1080px;margin:0 auto;}
+.compare-header{text-align:center;margin-bottom:60px;}
+.compare-grid{display:grid;grid-template-columns:1fr 56px 1fr;gap:0;align-items:start;}
+.cmp-label{font-family:'Bebas Neue',sans-serif;font-size:1.15rem;letter-spacing:3px;padding:16px 20px;text-align:center;margin-bottom:2px;}
+.cmp-label.bad{background:rgba(239,68,68,.1);color:var(--red);border:1px solid rgba(239,68,68,.2);}
+.cmp-label.good{background:rgba(255,215,0,.08);color:var(--gold);border:1px solid var(--border);}
+.cmp-item{display:flex;align-items:flex-start;gap:12px;padding:15px 18px;border-bottom:1px solid rgba(255,255,255,.04);font-size:.84rem;line-height:1.55;}
+.cmp-item.bad{background:rgba(239,68,68,.02);color:#9aaccc;}
+.cmp-item.good{background:rgba(255,215,0,.02);color:#c0d0e8;}
+.cmp-item .ic{font-size:1rem;flex-shrink:0;margin-top:2px;}
+.cmp-item.bad .ic{color:var(--red);}
+.cmp-item.good .ic{color:var(--green);}
+.cmp-div{display:flex;align-items:center;justify-content:center;padding-top:56px;}
+.cmp-circle{width:44px;height:44px;border-radius:50%;background:var(--gold);display:flex;align-items:center;justify-content:center;font-family:'Bebas Neue',sans-serif;font-size:1rem;color:#060b16;font-weight:900;}
+
+/* ═══ SOFTWARE EM AÇÃO (site) ═══ */
+.showcase-section{padding:140px 7%;background:var(--bg);position:relative;overflow:hidden;}
+.showcase-section::after{content:'';position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:900px;height:600px;background:radial-gradient(ellipse,rgba(255,215,0,.06) 0%,transparent 65%);pointer-events:none;}
+.showcase-inner{max-width:1100px;margin:0 auto;position:relative;z-index:1;}
+.showcase-header{text-align:center;margin-bottom:56px;}
+.sw-window{background:#0a1830;border:1px solid var(--border);border-radius:10px;overflow:hidden;box-shadow:0 40px 100px rgba(0,0,0,.6),0 0 60px rgba(255,215,0,.05);}
+.sw-bar{display:flex;align-items:center;gap:8px;padding:12px 16px;background:#0d1d38;border-bottom:1px solid var(--border2);}
+.sw-dot{width:11px;height:11px;border-radius:50%;}
+.sw-dot.r{background:#ff5f57;}.sw-dot.y{background:#febc2e;}.sw-dot.g{background:#28c840;}
+.sw-url{flex:1;text-align:center;font-size:.7rem;color:var(--muted);font-family:monospace;}
+.sw-live{display:flex;align-items:center;gap:6px;font-size:.62rem;color:var(--green);font-weight:700;}
+.sw-live-dot{width:7px;height:7px;border-radius:50%;background:var(--green);animation:swPulse 1.5s infinite;}
+@keyframes swPulse{0%,100%{opacity:1}50%{opacity:.3}}
+.sw-body{padding:24px;display:grid;grid-template-columns:1fr 1fr;gap:16px;background:linear-gradient(180deg,#0a1830,#081428);}
+.sw-greet{grid-column:1/-1;font-size:.92rem;color:#e8eef8;margin-bottom:4px;}
+.sw-greet strong{color:var(--gold);}
+.sw-kpis{grid-column:1/-1;display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin-bottom:8px;}
+.sw-kpi{background:rgba(255,255,255,.03);border:1px solid var(--border2);padding:14px;text-align:center;}
+.sw-kpi-l{font-size:.58rem;color:var(--muted);text-transform:uppercase;letter-spacing:.5px;}
+.sw-kpi-v{font-family:'Bebas Neue',sans-serif;font-size:1.5rem;margin-top:4px;}
+.sw-kpi-v.g{color:var(--green);}.sw-kpi-v.r{color:var(--red);}.sw-kpi-v.y{color:var(--amber);}.sw-kpi-v.gold{color:var(--gold);}
+.sw-panel{background:rgba(255,255,255,.02);border:1px solid var(--border2);padding:18px;}
+.sw-panel-title{font-size:.7rem;font-weight:700;color:var(--gold);text-transform:uppercase;letter-spacing:1px;margin-bottom:14px;display:flex;align-items:center;gap:8px;}
+.sw-alert{display:flex;gap:10px;padding:11px 0;border-bottom:1px solid rgba(255,255,255,.04);}
+.sw-alert:last-child{border-bottom:none;}
+.sw-alert-ico{font-size:1.1rem;flex-shrink:0;}
+.sw-alert-t{font-size:.74rem;font-weight:600;color:#dce6f5;}
+.sw-alert-s{font-size:.64rem;color:var(--muted);margin-top:2px;}
+.sw-chat-msg{background:rgba(255,215,0,.06);border-left:2px solid var(--gold);padding:10px 12px;font-size:.72rem;color:#c0d0e8;line-height:1.6;margin-bottom:8px;}
+.sw-chat-user{background:rgba(255,255,255,.04);padding:10px 12px;font-size:.72rem;color:#9aaccc;text-align:right;margin-bottom:8px;border-radius:6px;}
+.sw-caption{text-align:center;margin-top:28px;font-size:.82rem;color:var(--muted);}
+.sw-caption strong{color:var(--gold);}
+@media(max-width:768px){
+  .compare-grid{grid-template-columns:1fr;}
+  .cmp-div{display:none;}
+  .sw-body{grid-template-columns:1fr;}
+  .sw-kpis{grid-template-columns:repeat(2,1fr);}
+}
+
+
+/* ═══ SIMULAÇÃO INTERATIVA + COMPARATIVO (portado da landing) ═══ */
+.demo-section {
+    padding: 100px 6%;
+    background: #060e1a;
+    position: relative;
+    overflow: hidden;
+  }
+.demo-section::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, rgba(255,215,0,0.3), transparent);
+  }
+.demo-header { text-align: center; margin-bottom: 56px; }
+.demo-label {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 0.65rem;
+    font-weight: 700;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--gold);
+    padding: 6px 16px;
+    border: 1px solid rgba(255,215,0,0.25);
+    background: rgba(255,215,0,0.06);
+    margin-bottom: 20px;
+  }
+.demo-title {
+    font-size: clamp(1.8rem, 4vw, 2.8rem);
+    font-weight: 800;
+    color: #fff;
+    margin-bottom: 14px;
+    line-height: 1.2;
+  }
+.demo-title em { font-style: normal; color: var(--platinum); }
+.demo-sub {
+    font-size: 1rem;
+    color: #888;
+    max-width: 540px;
+    margin: 0 auto;
+    font-weight: 300;
+  }
+.demo-browser {
+    max-width: 1100px;
+    margin: 0 auto;
+    border: 1px solid rgba(255,215,0,0.15);
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 40px 100px rgba(0,0,0,0.6), 0 0 0 1px rgba(255,255,255,0.04);
+  }
+.browser-bar {
+    background: #0a1628;
+    border-bottom: 1px solid rgba(255,255,255,0.06);
+    padding: 10px 16px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+.browser-dots { display: flex; gap: 6px; }
+.browser-dot {
+    width: 10px; height: 10px; border-radius: 50%;
+    background: rgba(255,255,255,0.1);
+  }
+.browser-dot:nth-child(1) { background: #ff5f57; }
+.browser-dot:nth-child(2) { background: #febc2e; }
+.browser-dot:nth-child(3) { background: #28c840; }
+.browser-url {
+    flex: 1;
+    background: rgba(255,255,255,0.05);
+    border: 1px solid rgba(255,255,255,0.07);
+    border-radius: 6px;
+    padding: 5px 12px;
+    font-size: 0.72rem;
+    color: #555;
+    font-family: monospace;
+  }
+.browser-url span { color: #888; }
+.browser-live {
+    font-size: 0.65rem;
+    color: #22c55e;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    font-weight: 600;
+  }
+.live-dot {
+    width: 6px; height: 6px;
+    border-radius: 50%;
+    background: #22c55e;
+    animation: livePulse 1.5s infinite;
+  }
+.demo-app {
+    background: #0B192C;
+    display: grid;
+    grid-template-columns: 1fr 320px;
+    height: 520px;
+  }
+.demo-left {
+    border-right: 1px solid rgba(255,255,255,0.06);
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+  }
+.demo-topbar {
+    background: rgba(255,255,255,0.02);
+    border-bottom: 1px solid rgba(255,255,255,0.06);
+    padding: 10px 16px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+.demo-seller-info { display: flex; align-items: center; gap: 8px; }
+.demo-seller-dot {
+    width: 7px; height: 7px;
+    border-radius: 50%;
+    background: #22c55e;
+    animation: livePulse 2s infinite;
+  }
+.demo-seller-name { font-size: 0.78rem; font-weight: 700; color: #fff; }
+.demo-seller-sub { font-size: 0.62rem; color: #555; }
+.demo-score-pill {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    background: rgba(245,158,11,0.1);
+    border: 1px solid rgba(245,158,11,0.25);
+    padding: 4px 10px;
+    border-radius: 999px;
+    font-size: 0.7rem;
+    font-weight: 700;
+    color: #f59e0b;
+  }
+.demo-kpis {
+    display: grid;
+    grid-template-columns: repeat(4,1fr);
+    border-bottom: 1px solid rgba(255,255,255,0.05);
+  }
+.demo-kpi {
+    padding: 10px 14px;
+    border-right: 1px solid rgba(255,255,255,0.05);
+  }
+.demo-kpi:last-child { border-right: none; }
+.demo-kpi-l { font-size: 0.58rem; text-transform: uppercase; letter-spacing: 1px; color: #555; margin-bottom: 3px; }
+.demo-kpi-v { font-size: 1.1rem; font-weight: 800; line-height: 1; }
+.demo-kpi-v.g { color: #22c55e; }
+.demo-kpi-v.a { color: #f59e0b; }
+.demo-kpi-v.r { color: #ef4444; }
+.demo-kpi-s { font-size: 0.58rem; color: #444; margin-top: 2px; }
+.demo-cards {
+    flex: 1;
+    overflow-y: auto;
+    padding: 12px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+.demo-cards::-webkit-scrollbar { width: 3px; }
+.demo-cards::-webkit-scrollbar-thumb { background: rgba(255,215,0,0.15); border-radius:2px; }
+.demo-card {
+    background: rgba(255,255,255,0.03);
+    border: 1px solid rgba(255,255,255,0.07);
+    border-radius: 8px;
+    overflow: hidden;
+    transition: all 0.3s;
+  }
+.demo-card.highlighted {
+    border-color: rgba(255,215,0,0.5) !important;
+    box-shadow: 0 0 20px rgba(255,215,0,0.1);
+  }
+.demo-card-head {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 9px 12px;
+    border-bottom: 1px solid rgba(255,255,255,0.05);
+  }
+.demo-nivel {
+    display: flex; align-items: center; gap: 5px;
+    font-size: 0.62rem; font-weight: 700;
+    text-transform: uppercase; letter-spacing: 1px;
+  }
+.demo-nivel .ndot { width: 6px; height: 6px; border-radius: 50%; animation: livePulse 2s infinite; }
+.dem-crit { color: #ef4444; }
+.dem-crit .ndot { background: #ef4444; }
+.dem-atc  .ndot { background: #f59e0b; }
+.dem-ok { color: #22c55e; }
+.dem-ok   .ndot { background: #22c55e; }
+.demo-card-title { font-size: 0.78rem; font-weight: 700; color: #fff; }
+.demo-tag {
+    font-size: 0.55rem; font-weight: 700;
+    text-transform: uppercase; letter-spacing: 1px;
+    padding: 2px 7px; border-radius: 999px;
+    background: rgba(255,215,0,0.08);
+    color: var(--gold);
+    border: 1px solid rgba(255,215,0,0.15);
+  }
+.demo-card-body { padding: 10px 12px; }
+.demo-card-desc { font-size: 0.72rem; color: #888; line-height: 1.5; margin-bottom: 8px; }
+.demo-acoes { display: flex; flex-direction: column; gap: 4px; }
+.demo-acao {
+    display: flex; gap: 8px; align-items: flex-start;
+    font-size: 0.68rem; color: #aaa; padding: 6px 8px;
+    background: rgba(255,255,255,0.02);
+    border: 1px solid rgba(255,255,255,0.04);
+    border-radius: 6px;
+    cursor: pointer; transition: all 0.2s;
+    line-height: 1.4;
+  }
+.demo-acao:hover { border-color: rgba(255,215,0,0.3); color: #fff; background: rgba(255,215,0,0.04); }
+.demo-acao.done { color: #4ade80; background: rgba(34,197,94,0.05); border-color: rgba(34,197,94,0.2); text-decoration: line-through; opacity: 0.7; }
+.demo-acao-n { width: 16px; height: 16px; border-radius: 50%; background: rgba(255,215,0,0.1); color: var(--gold); font-size: 0.6rem; font-weight: 700; display: flex; align-items: center; justify-content: center; flex-shrink: 0; margin-top: 1px; }
+.demo-acao.done .demo-acao-n { background: rgba(34,197,94,0.15); color: #22c55e; }
+.demo-ask-btn {
+    margin-top: 8px; width: 100%;
+    background: rgba(255,215,0,0.08);
+    border: 1px solid rgba(255,215,0,0.2);
+    color: var(--gold); padding: 7px;
+    border-radius: 6px; font-size: 0.68rem;
+    font-weight: 700; cursor: pointer;
+    font-family: 'Sora', sans-serif;
+    transition: all 0.2s;
+  }
+.demo-ask-btn:hover { background: rgba(255,215,0,0.15); }
+.demo-chat {
+    display: flex; flex-direction: column; overflow: hidden;
+    background: #080f1a;
+    min-width: 0;
+  }
+.demo-chat-head {
+    padding: 10px 14px;
+    border-bottom: 1px solid rgba(255,255,255,0.06);
+    display: flex; align-items: center; gap: 8px;
+    flex-shrink: 0;
+  }
+.demo-msgs {
+    flex: 1; overflow-y: auto; overflow-x: hidden; padding: 12px;
+    display: flex; flex-direction: column; gap: 10px;
+    scroll-behavior: smooth;
+    min-width: 0;
+  }
+.demo-msgs::-webkit-scrollbar { width: 2px; }
+.demo-msgs::-webkit-scrollbar-thumb { background: rgba(255,255,255,0.1); }
+.demo-quick {
+    padding: 8px 10px;
+    border-top: 1px solid rgba(255,255,255,0.05);
+    display: flex; gap: 5px; overflow-x: auto; flex-shrink: 0;
+  }
+.demo-quick::-webkit-scrollbar { display: none; }
+.demo-input-row {
+    display: flex; gap: 6px; padding: 10px;
+    border-top: 1px solid rgba(255,255,255,0.05);
+    flex-shrink: 0;
+  }
+.demo-inp {
+    flex: 1; background: rgba(255,255,255,0.04);
+    border: 1px solid rgba(255,255,255,0.08);
+    border-radius: 8px; padding: 8px 12px;
+    color: #fff; font-family: 'Sora', sans-serif;
+    font-size: 0.72rem; outline: none;
+    transition: border-color 0.2s;
+  }
+.demo-inp:focus { border-color: rgba(255,215,0,0.4); }
+.demo-inp::placeholder { color: #333; }
+.demo-send {
+    width: 34px; height: 34px;
+    background: var(--gold); color: #0B192C;
+    border: none; border-radius: 8px;
+    cursor: pointer; font-size: 0.85rem;
+    transition: all 0.2s; flex-shrink: 0;
+  }
+.demo-send:hover { background: #fff; transform: scale(1.05); }
+.demo-send:disabled { opacity: 0.4; cursor: not-allowed; transform: none; }
+.demo-hint {
+    text-align: center; margin-top: 24px;
+    font-size: 0.72rem; color: #444;
+    display: flex; align-items: center; justify-content: center; gap: 8px;
+  }
+.demo-hint strong { color: var(--gold); }
+.demo-app { grid-template-columns: 1fr; height: auto; }
+.demo-left { height: 420px; }
+.demo-chat { height: 420px; border-top: 1px solid rgba(255,255,255,0.06); }
+.demo-kpis { grid-template-columns: repeat(2,1fr); }
+.comp-section {
+    padding: 100px 6%;
+    background: #0B192C;
+    position: relative; z-index: 1;
+  }
+.comp-inner { max-width: 1100px; margin: 0 auto; }
+.comp-header { text-align: center; margin-bottom: 52px; }
+.comp-tag {
+    display: inline-block; font-size: 0.65rem; font-weight: 700;
+    letter-spacing: 2px; text-transform: uppercase; color: var(--gold);
+    padding: 6px 16px; border: 1px solid rgba(255,215,0,0.25);
+    background: rgba(255,215,0,0.06); margin-bottom: 18px;
+  }
+.comp-title {
+    font-size: clamp(1.7rem, 3.5vw, 2.6rem);
+    font-weight: 800; color: #fff; line-height: 1.2; margin-bottom: 14px;
+  }
+.comp-title em { font-style: normal; color: var(--platinum); }
+.comp-sub { font-size: 0.9rem; color: #888; max-width: 560px; margin: 0 auto; }
+.comp-table-wrap { overflow-x: auto; margin-bottom: 32px; -webkit-overflow-scrolling: touch; }
+.comp-table { min-width: 700px; }
+.comp-conclusao {
+    display: flex; align-items: flex-start; gap: 18px;
+    background: rgba(255,215,0,0.05); border: 1px solid rgba(255,215,0,0.18); padding: 22px 24px;
+  }
+@keyframes livePulse { 0%,100%{opacity:1;transform:scale(1)} 50%{opacity:0.4;transform:scale(0.8)} }
+
+/* ═══ CSS TABELA COMPARATIVA ct-* (portado) ═══ */
+.comp-table-wrap { overflow-x: auto; margin-bottom: 32px; -webkit-overflow-scrolling: touch; }
+.comp-table { min-width: 700px; }
+.ct-header {
+    display: grid; grid-template-columns: 1fr repeat(4, 140px);
+    background: rgba(255,255,255,0.02);
+    border: 1px solid rgba(255,255,255,0.07);
+    border-bottom: 2px solid rgba(255,215,0,0.2);
+  }
+.ct-col-label {
+    padding: 14px 16px; font-size: 0.65rem; font-weight: 700;
+    text-transform: uppercase; letter-spacing: 1.5px; color: #555;
+    display: flex; align-items: center;
+  }
+.ct-col {
+    padding: 12px 10px; text-align: center;
+    border-left: 1px solid rgba(255,255,255,0.05);
+    display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 4px;
+  }
+.ct-col-bad { background: rgba(239,68,68,0.04); }
+.ct-col-good { background: rgba(255,215,0,0.06); border-left: 1px solid rgba(255,215,0,0.15) !important; }
+.ct-col-title { font-size: 0.75rem; font-weight: 800; color: #fff; line-height: 1.3; }
+.ct-col-bad  .ct-col-title { color: #ef4444; }
+.ct-col-good .ct-col-title { color: var(--gold); }
+.ct-col-sub { font-size: 0.6rem; color: #555; }
+.ct-row {
+    display: grid; grid-template-columns: 1fr repeat(4, 140px);
+    border: 1px solid rgba(255,255,255,0.04); border-top: none;
+    transition: background 0.15s;
+  }
+.ct-row:hover { background: rgba(255,255,255,0.02); }
+.ct-row.alt { background: rgba(255,255,255,0.015); }
+.ct-row.alt:hover { background: rgba(255,255,255,0.03); }
+.ct-label {
+    padding: 13px 16px; font-size: 0.78rem; color: #aaa;
+    display: flex; align-items: center;
+    border-right: 1px solid rgba(255,255,255,0.05);
+  }
+.ct-val {
+    padding: 13px 10px; text-align: center; font-size: 0.75rem; font-weight: 700;
+    display: flex; align-items: center; justify-content: center;
+    border-left: 1px solid rgba(255,255,255,0.04);
+  }
+.ct-val.good { color: var(--green); background: rgba(34,197,94,0.05); }
+.ct-val.bad { color: #444; }
+.ct-val.partial { color: #f59e0b; font-size: 0.68rem; font-weight: 600; }
+.ct-footer {
+    display: grid; grid-template-columns: 1fr repeat(4, 140px);
+    background: rgba(255,255,255,0.03);
+    border: 1px solid rgba(255,255,255,0.07);
+    border-top: 2px solid rgba(255,255,255,0.08);
+  }
+.ct-foot-label {
+    padding: 14px 16px; font-size: 0.65rem; font-weight: 800;
+    text-transform: uppercase; letter-spacing: 1.5px; color: #555;
+    display: flex; align-items: center;
+  }
+.ct-foot-val {
+    padding: 14px 10px; text-align: center;
+    font-family: 'Bebas Neue', sans-serif; font-size: 1.4rem;
+    display: flex; align-items: center; justify-content: center;
+    border-left: 1px solid rgba(255,255,255,0.05);
+  }
+.ct-foot-val.bad-foot { color: #444; }
+.ct-foot-val.good-foot { color: var(--gold); background: rgba(255,215,0,0.06); border-left: 1px solid rgba(255,215,0,0.15) !important; }
+.ct-col { padding: 8px 6px; }
+.ct-label { padding: 10px; font-size: 0.72rem; }
+
+/* Hairline platinum divider — elegância tipo logo */
+.hairline{height:1px;width:100%;max-width:120px;margin:0 auto;background:linear-gradient(90deg,transparent,var(--platinum2),transparent);opacity:.5;}
+.section-eyebrow + .section-title, .section-eyebrow + h2{margin-top:4px;}
+
+/* ═══ SEÇÃO RELATÓRIO GPS ═══ */
+.gps-section{padding:140px 7%;background:linear-gradient(180deg,var(--bg2) 0%,var(--bg) 100%);position:relative;overflow:hidden;}
+.gps-inner{max-width:1100px;margin:0 auto;}
+.gps-grid{display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:center;margin-top:48px;}
+@media(max-width:860px){.gps-grid{grid-template-columns:1fr;gap:32px;}}
+.gps-doc{background:#fff;border-radius:10px;padding:28px 26px;box-shadow:0 30px 80px rgba(0,0,0,.5),0 0 50px rgba(216,222,233,.06);transform:rotate(-1.5deg);transition:transform .4s;}
+.gps-doc:hover{transform:rotate(0deg) scale(1.02);}
+.gps-doc-head{display:flex;justify-content:space-between;align-items:flex-start;border-bottom:2px solid #111;padding-bottom:12px;margin-bottom:14px;}
+.gps-doc-logo{font-size:.78rem;font-weight:800;color:#111;letter-spacing:-.3px;}
+.gps-doc-logo span{color:#8995a8;}
+.gps-doc-tag{font-size:.5rem;color:#888;text-transform:uppercase;letter-spacing:1px;margin-top:2px;}
+.gps-doc-date{font-size:.55rem;color:#999;text-align:right;}
+.gps-score{display:flex;gap:10px;align-items:center;background:#fafafa;border:1px solid #eee;border-radius:6px;padding:10px 12px;margin-bottom:12px;}
+.gps-score-num{font-size:1.6rem;font-weight:800;color:#d97706;line-height:1;}
+.gps-score-txt{font-size:.58rem;color:#666;}
+.gps-step{display:flex;gap:8px;align-items:flex-start;padding:7px 0;border-bottom:1px solid #f0f0f0;}
+.gps-step:last-child{border-bottom:none;}
+.gps-step-n{flex-shrink:0;width:18px;height:18px;border-radius:50%;background:#111;color:#fff;font-size:.55rem;font-weight:800;display:flex;align-items:center;justify-content:center;}
+.gps-step-txt{font-size:.6rem;color:#333;line-height:1.4;}
+.gps-step-txt b{color:#16a34a;}
+.gps-feat{margin-top:8px;}
+.gps-feat-item{display:flex;gap:12px;align-items:flex-start;margin-bottom:18px;}
+.gps-feat-ico{flex-shrink:0;width:38px;height:38px;border-radius:8px;background:rgba(216,222,233,.08);border:1px solid var(--border);display:flex;align-items:center;justify-content:center;font-size:1.1rem;}
+.gps-feat-t{font-size:.9rem;font-weight:700;color:#fff;margin-bottom:3px;}
+.gps-feat-d{font-size:.78rem;color:var(--text);line-height:1.6;}
+
+.nav-logo{display:flex;align-items:center;gap:10px;}
+.cp-logo-img{height:62px;width:auto;display:block;}
+@media(max-width:768px){.cp-logo-img{height:46px;width:auto;display:block;}}
+.nav-logo-txt{display:inline-flex;}
+
+/* ═══ SEÇÃO CONTATO ═══ */
+.contact-section{padding:120px 7%;background:var(--bg2);position:relative;overflow:hidden;}
+.contact-inner{max-width:640px;margin:0 auto;text-align:center;}
+.contact-form{margin-top:36px;display:flex;flex-direction:column;gap:12px;text-align:left;}
+.cf-row{display:grid;grid-template-columns:1fr 1fr;gap:12px;}
+@media(max-width:560px){.cf-row{grid-template-columns:1fr;}}
+.cf-field label{display:block;font-size:.62rem;font-weight:700;text-transform:uppercase;letter-spacing:.5px;color:var(--platinum2);margin-bottom:5px;}
+.cf-field input,.cf-field textarea{width:100%;background:#0a0c10;border:1px solid rgba(216,222,233,.14);padding:12px 14px;color:#fff;font-family:'Sora',sans-serif;font-size:.85rem;outline:none;border-radius:6px;transition:border-color .2s;}
+.cf-field input:focus,.cf-field textarea:focus{border-color:rgba(255,215,0,.4);}
+.cf-field textarea{resize:vertical;min-height:90px;}
+.cf-submit{background:var(--gold);color:#0a0c10;border:none;padding:15px;font-family:'Sora',sans-serif;font-weight:900;font-size:.9rem;cursor:pointer;border-radius:6px;transition:all .2s;margin-top:4px;}
+.cf-submit:hover{background:#fff;transform:translateY(-2px);box-shadow:0 10px 30px rgba(255,215,0,.3);}
+.cf-ok{display:none;background:rgba(34,197,94,.1);border:1px solid rgba(34,197,94,.3);color:#4ade80;padding:14px;border-radius:6px;font-size:.84rem;text-align:center;margin-top:8px;}
+.cf-ok.show{display:block;}
+.contact-alt{display:flex;gap:24px;justify-content:center;flex-wrap:wrap;margin-top:28px;}
+.contact-alt a{display:flex;align-items:center;gap:8px;font-size:.8rem;color:var(--platinum2);transition:color .2s;}
+.contact-alt a:hover{color:var(--gold);}
+
+/* ═══ ESCOLHA DE PAGAMENTO (Checkout Pro) ═══ */
+.mp-choose-title{font-size:.9rem;font-weight:700;color:#fff;margin-bottom:16px;text-align:center;}
+.mp-pay-option{position:relative;width:100%;display:flex;align-items:center;justify-content:space-between;gap:14px;background:rgba(255,255,255,.03);border:1.5px solid rgba(255,255,255,.1);border-radius:10px;padding:18px 20px;margin-bottom:12px;cursor:pointer;transition:all .2s;text-align:left;font-family:'Sora',sans-serif;}
+.mp-pay-option:hover{border-color:var(--gold);background:rgba(255,215,0,.05);transform:translateY(-2px);}
+.mp-pay-anual{border-color:rgba(34,197,94,.3);}
+.mp-pay-anual:hover{border-color:#22c55e;background:rgba(34,197,94,.05);}
+.mp-pay-left{flex:1;}
+.mp-pay-name{font-size:1rem;font-weight:800;color:#fff;margin-bottom:3px;}
+.mp-pay-desc{font-size:.72rem;color:#8a9bb5;line-height:1.4;}
+.mp-pay-right{text-align:right;flex-shrink:0;}
+.mp-pay-price{font-size:1.3rem;font-weight:800;color:var(--gold);line-height:1;}
+.mp-pay-anual .mp-pay-price{color:#22c55e;}
+.mp-pay-per{font-size:.65rem;color:#8a9bb5;margin-top:2px;}
+.mp-pay-badge{position:absolute;top:-9px;right:16px;background:#22c55e;color:#0a0c10;font-size:.6rem;font-weight:800;padding:3px 10px;border-radius:999px;text-transform:uppercase;letter-spacing:.5px;}
+</style>
+</head>
+<body>
+
+<!-- ═══════════════════════════════════
+     FLOATING VISUAL LAYER
+═══════════════════════════════════ -->
+<div id="floatCanvas" aria-hidden="true"></div>
+
+<!-- ═══════════════════════════════════
+     TOPBAR ALERT
+═══════════════════════════════════ -->
+<div class="topbar-alert">
+  ⚡ Promoção de lançamento encerra em <span class="countdown" id="countdown">--d --h --m --s</span> · Depois o Platinum volta para <span>R$497</span>
+</div>
+
+<!-- ═══════════════════════════════════
+     NAV
+═══════════════════════════════════ -->
+<nav id="mainNav">
+  <div class="nav-logo"><a href="#inicio" aria-label="Consultor Platinum ML — início"><img src="logo.png" alt="Consultor Platinum · Intelligence 24 Horas" class="cp-logo-img"></a></div>
+
+  <ul class="nav-links" id="navLinks">
+    <li><a href="#missao">Quem Somos</a></li>
+    <li><a href="#diferenciais">O que Oferecemos</a></li>
+    <li><a href="#demo-section">Nossa Ferramenta</a></li>
+    <li><a href="#depoimentos">Depoimentos</a></li>
+    <li><a href="#planos">Planos</a></li>
+    <li><a href="#contato">Contato</a></li>
+  </ul>
+
+  <div style="display:flex;align-items:center;gap:12px;">
+    <button class="nav-mobile-btn" id="mobileMenuBtn" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
+    <a href="https://consultorplatinum.com.br/#planos" class="nav-cta">⚡ Começar agora</a>
+  </div>
+</nav>
+
+<!-- ═══════════════════════════════════
+     HERO
+═══════════════════════════════════ -->
+<section class="hero" id="inicio">
+  <div class="hero-orb"></div>
+
+  <!-- Formas geométricas flutuantes -->
+  <div class="hero-geo hg1"></div>
+  <div class="hero-geo hg2"></div>
+  <div class="hero-geo hg3"></div>
+  <div class="hero-geo hg4"></div>
+  <!-- Fundo tecnológico / rede neural (IA) -->
+  <canvas class="hero-net" id="heroNet" aria-hidden="true"></canvas>
+
+  <div class="hero-eyebrow">Encontra · Protege · Recupera o seu dinheiro no Mercado Livre</div>
+
+  <h1>
+    Enquanto você<br>
+    <em>não está olhando,</em><br>
+    sua conta no ML está<br>
+    sendo destruída.
+  </h1>
+
+  <p class="hero-sub">
+    O sistema que <strong>encontra, protege e recupera o seu dinheiro</strong> no Mercado Livre. Ads no prejuízo, reembolsos não creditados, estoque parado, Buy Box perdida — o Consultor Platinum acha o que escorre da sua operação e te diz <strong>exatamente o que fazer agora</strong>.
+  </p>
+
+  <div class="hero-ctas">
+    <a href="https://consultorplatinum.com.br/#planos" class="btn-primary">
+      ⚡ Quero proteger minha conta agora
+    </a>
+    <button class="btn-wpp" onclick="abrirChat()">
+      <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+      Falar com consultor
+    </button>
+  </div>
+
+  <div class="hero-proof">
+    <div class="proof-item">
+      <div class="proof-num">24/7</div>
+      <div class="proof-label">Monitoramento</div>
+    </div>
+    <div class="proof-item">
+      <div class="proof-num">30s</div>
+      <div class="proof-label">Para conectar</div>
+    </div>
+    <div class="proof-item">
+      <div class="proof-num">7</div>
+      <div class="proof-label">Frentes de prejuízo monitoradas</div>
+    </div>
+    <div class="proof-item">
+      <div class="proof-num">3</div>
+      <div class="proof-label">Planos disponíveis</div>
+    </div>
+  </div>
+
+  <div class="hero-mockup">
+    <div class="mock-live"><span class="mock-live-dot"></span>Ao vivo</div>
+    <div class="mock-bar">
+      <div class="mock-dot r"></div><div class="mock-dot y"></div><div class="mock-dot g"></div>
+      <div class="mock-url">🔒 app.consultorplatinum.com.br/painel</div>
+    </div>
+    <div class="mock-body">
+      <div class="mock-greet">Bom dia, <strong>Ricardo</strong> 👋 Sua conta tem <strong>4 alertas ativos</strong> hoje.</div>
+      <div class="mock-alerts-label">⚡ Detectado em tempo real</div>
+
+      <div class="mock-alert crit">
+        <div class="mock-alert-ico">🌡️</div>
+        <div class="mock-alert-txt">
+          <div class="mock-alert-title">Termômetro entrou na zona amarela</div>
+          <div class="mock-alert-sub">2 mediações abertas há 18h · protocolo de contenção pronto</div>
+        </div>
+        <div class="mock-alert-badge mb-crit">Crítico</div>
+      </div>
+
+      <div class="mock-alert crit">
+        <div class="mock-alert-ico">📉</div>
+        <div class="mock-alert-txt">
+          <div class="mock-alert-title">ACOS em 34% — destruindo sua margem</div>
+          <div class="mock-alert-sub">3 campanhas no prejuízo · pausar economiza R$1.840/mês</div>
+        </div>
+        <div class="mock-alert-badge mb-crit">Crítico</div>
+      </div>
+
+      <div class="mock-alert warn">
+        <div class="mock-alert-ico">📦</div>
+        <div class="mock-alert-txt">
+          <div class="mock-alert-title">3 SKUs perto da tarifa de Full (60 dias)</div>
+          <div class="mock-alert-sub">Acelere o giro em 8 dias para evitar armazenagem</div>
+        </div>
+        <div class="mock-alert-badge mb-warn">Atenção</div>
+      </div>
+
+      <div class="mock-alert ok">
+        <div class="mock-alert-ico">💰</div>
+        <div class="mock-alert-txt">
+          <div class="mock-alert-title">R$4.320 em reembolsos ocultos recuperáveis</div>
+          <div class="mock-alert-sub">7 transações que o ML não creditou · contestação pronta</div>
+        </div>
+        <div class="mock-alert-badge mb-ok">Oportunidade</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="scroll-hint"><span>role para ver</span></div>
+</section>
+
+<!-- TICKER -->
+<div class="ticker-section">
+  <div class="ticker-track">
+    <div class="tick"><strong>+ACOS</strong> reduzido de 38% → 9% em 1 semana <span class="tick-sep">◆</span></div>
+    <div class="tick"><strong>Buy Box</strong> recuperada em 4 horas após alerta <span class="tick-sep">◆</span></div>
+    <div class="tick"><strong>Termômetro</strong> voltou ao verde em 72h <span class="tick-sep">◆</span></div>
+    <div class="tick"><strong>Margem real</strong> subiu 12pp após auditoria de Full + taxa ML <span class="tick-sep">◆</span></div>
+    <div class="tick"><strong>PPPI contestada</strong> com sucesso em 48h <span class="tick-sep">◆</span></div>
+    <div class="tick"><strong>Anúncio destravado</strong> após SEO e reestruturação de título <span class="tick-sep">◆</span></div>
+    <!-- loop -->
+    <div class="tick"><strong>+ACOS</strong> reduzido de 38% → 9% em 1 semana <span class="tick-sep">◆</span></div>
+    <div class="tick"><strong>Buy Box</strong> recuperada em 4 horas após alerta <span class="tick-sep">◆</span></div>
+    <div class="tick"><strong>Termômetro</strong> voltou ao verde em 72h <span class="tick-sep">◆</span></div>
+    <div class="tick"><strong>Margem real</strong> subiu 12pp após auditoria de Full + taxa ML <span class="tick-sep">◆</span></div>
+    <div class="tick"><strong>PPPI contestada</strong> com sucesso em 48h <span class="tick-sep">◆</span></div>
+    <div class="tick"><strong>Anúncio destravado</strong> após SEO e reestruturação de título <span class="tick-sep">◆</span></div>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════
+     PROBLEMA
+═══════════════════════════════════ -->
+<section class="pain-section" id="problema">
+  <div class="pain-inner">
+    <div class="pain-header reveal">
+      <div class="section-eyebrow">📊 O Diagnóstico Real</div>
+      <h2 class="section-title">Por que sellers do ML <em>perdem dinheiro</em><br>mesmo vendendo muito</h2>
+      <p class="section-sub">Você trabalha, investe em estoque e ads — mas alguém está drenando sua margem sem você ver. Reconhece alguma dessas situações?</p>
+    </div>
+
+    <div class="pain-grid">
+      <div class="pain-card reveal">
+        <div class="pain-card-num">01</div>
+        <div class="pain-card-icon">🌡️</div>
+        <div class="pain-card-title">Termômetro amarelando em silêncio</div>
+        <div class="pain-card-desc">Conta entrando em zona de risco sem nenhum alerta. Mediações abertas há dias sem resolução. Suspensão chegando devagar — e você só descobre quando já está bloqueado.</div>
+        <div class="pain-card-tag">Reputação</div>
+      </div>
+      <div class="pain-card reveal">
+        <div class="pain-card-num">02</div>
+        <div class="pain-card-icon">📉</div>
+        <div class="pain-card-title">ACOS destruindo sua margem</div>
+        <div class="pain-card-desc">Campanhas de ML Ads gastando sem converter. Para cada R$100 vendido, R$34 ou mais vão pro ML. Resultado: você vende muito e lucra quase nada.</div>
+        <div class="pain-card-tag">ML Ads</div>
+      </div>
+      <div class="pain-card reveal">
+        <div class="pain-card-num">03</div>
+        <div class="pain-card-icon">🥊</div>
+        <div class="pain-card-title">Buy Box perdida sem saber por quê</div>
+        <div class="pain-card-desc">Concorrente com preço igual ou maior ganhando sua venda. O problema pode ser Full, reputação ou tempo de envio — mas você não sabe qual resolver.</div>
+        <div class="pain-card-tag">Buy Box</div>
+      </div>
+      <div class="pain-card reveal">
+        <div class="pain-card-num">04</div>
+        <div class="pain-card-icon">📦</div>
+        <div class="pain-card-title">Furo de estoque Full sem aviso</div>
+        <div class="pain-card-desc">Produto mais vendido zera no galpão do ML sem nenhuma notificação. Você perde posicionamento, Buy Box e badge de entrega rápida — enquanto o concorrente avança.</div>
+        <div class="pain-card-tag">Full ML</div>
+      </div>
+      <div class="pain-card reveal">
+        <div class="pain-card-num">05</div>
+        <div class="pain-card-icon">⏱️</div>
+        <div class="pain-card-title">Mediação ignorada em 48h — ML decide contra você</div>
+        <div class="pain-card-desc">Reclamação aberta e você não foi notificado. Após 48h sem resposta o ML decide automaticamente contra o vendedor. Resultado: punição no termômetro e perda de dinheiro.</div>
+        <div class="pain-card-tag">Reputação</div>
+      </div>
+      <div class="pain-card reveal">
+        <div class="pain-card-num">06</div>
+        <div class="pain-card-icon">💸</div>
+        <div class="pain-card-title">Margem real desconhecida por SKU</div>
+        <div class="pain-card-desc">Você acha que ganha 30% mas quando soma taxa ML + frete Full + custo de ads + imposto, sobra menos de 8%. Você está trabalhando para o Mercado Livre.</div>
+        <div class="pain-card-tag">Margem</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════
+     3 DIFERENCIAIS
+═══════════════════════════════════ -->
+<section class="diff-section" id="diferenciais">
+  <div class="diff-inner">
+    <div class="diff-header reveal">
+      <div class="section-eyebrow">⚡ Por que o Platinum é diferente</div>
+      <h2 class="section-title">3 vantagens que nenhuma<br><em>consultoria tradicional tem</em></h2>
+      <p class="section-sub" style="margin:0 auto;">Consultorias te entregam relatório. Nós entregamos a solução — em tempo real, antes que o problema te custe caro.</p>
+    </div>
+
+    <div class="diff-grid">
+
+      <!-- Diferencial 1 -->
+      <div class="diff-card reveal">
+        <div class="diff-num">01</div>
+        <div class="diff-icon">🛡️</div>
+        <div class="diff-title">Suspensão detectada e bloqueada antes de acontecer</div>
+        <div class="diff-desc">O sistema monitora 24 horas por dia os sinais que precedem uma suspensão: termômetro, taxa de mediação, envios atrasados e mensagens sem resposta. Quando qualquer métrica entra em zona de risco, você recebe alerta imediato com o protocolo de ação — antes do ML agir.</div>
+        <div class="diff-proof">Alertas desde o 1º sinal de risco — não depois que a conta cai</div>
+      </div>
+
+      <!-- Diferencial 2 -->
+      <div class="diff-card reveal">
+        <div class="diff-num">02</div>
+        <div class="diff-icon">🤖</div>
+        <div class="diff-title">Um consultor que avisa antes de você perder dinheiro</div>
+        <div class="diff-desc">Não é um chatbot genérico. É uma IA treinada especificamente no ecossistema do Mercado Livre, que analisa sua conta, entende seus SKUs, seus dados reais e te responde em segundos sobre qualquer dúvida operacional — às 2h da manhã se precisar. Sem esperar reunião.</div>
+        <div class="diff-proof">Resposta em segundos — o ML opera de madrugada também</div>
+      </div>
+
+      <!-- Diferencial 3 -->
+      <div class="diff-card reveal">
+        <div class="diff-num">03</div>
+        <div class="diff-icon">💰</div>
+        <div class="diff-title">Consultoria Platinum por menos de R$5 por dia</div>
+        <div class="diff-desc">Uma consultoria profissional de ML custa entre R$3.000 e R$12.000 por mês — e ainda atende só em horário comercial. O Consultor Platinum entrega mais, disponível 24/7, a partir de R$97/mês. Menos que uma pizza por semana para proteger um negócio que fatura R$50k+ por mês.</div>
+        <div class="diff-proof">20× mais barato que consultoria tradicional. 24× mais disponível.</div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+
+<section class="demo-section" id="demo-section">
+  <div class="demo-header reveal">
+    <div class="demo-label">⚡ Experimente Agora — É Real</div>
+    <h2 class="demo-title">Veja como o sistema funciona<br><em>na prática, agora mesmo</em></h2>
+    <p class="demo-sub">Esta é uma simulação real do painel. Converse com o Consultor IA e veja as soluções aparecendo na tela ao lado.</p>
+  </div>
+
+  <div class="demo-browser reveal">
+    <!-- Barra do browser -->
+    <div class="browser-bar">
+      <div class="browser-dots">
+        <div class="browser-dot"></div>
+        <div class="browser-dot"></div>
+        <div class="browser-dot"></div>
+      </div>
+      <div class="browser-url">app.consultorplatinum.com.br/<span>dashboard</span></div>
+      <div class="browser-live"><div class="live-dot"></div> Ao vivo</div>
+    </div>
+
+    <!-- App -->
+    <div class="demo-app">
+
+      <!-- ESQUERDA — painel de soluções -->
+      <div class="demo-left">
+        <!-- topbar -->
+        <div class="demo-topbar">
+          <div class="demo-seller-info">
+            <div class="demo-seller-dot"></div>
+            <div>
+              <div class="demo-seller-name">loja-exemplo-br</div>
+              <div class="demo-seller-sub">Sync há 2 min</div>
+            </div>
+          </div>
+          <div class="demo-score-pill">⚠️ Score 65</div>
+        </div>
+
+        <!-- KPIs -->
+        <div class="demo-kpis">
+          <div class="demo-kpi">
+            <div class="demo-kpi-l">Pedidos pagos</div>
+            <div class="demo-kpi-v g">23</div>
+            <div class="demo-kpi-s">últimas 48h</div>
+          </div>
+          <div class="demo-kpi">
+            <div class="demo-kpi-l">Aguard. envio</div>
+            <div class="demo-kpi-v r">5</div>
+            <div class="demo-kpi-s">⚠️ urgente</div>
+          </div>
+          <div class="demo-kpi">
+            <div class="demo-kpi-l">Buy Box</div>
+            <div class="demo-kpi-v a">61%</div>
+            <div class="demo-kpi-s">meta: >80%</div>
+          </div>
+          <div class="demo-kpi">
+            <div class="demo-kpi-l">ACOS</div>
+            <div class="demo-kpi-v r">34%</div>
+            <div class="demo-kpi-s">meta: <10%</div>
+          </div>
+        </div>
+
+        <!-- Cards de alerta -->
+        <div class="demo-cards" id="demoCards">
+
+          <div class="demo-card" id="dc1">
+            <div class="demo-card-head">
+              <div class="demo-nivel dem-crit"><div class="ndot"></div>CRÍTICO</div>
+              <div class="demo-card-title">🌡️ Termômetro em risco</div>
+              <span class="demo-tag">Reputação</span>
+            </div>
+            <div class="demo-card-body">
+              <div class="demo-card-desc">3 mediações abertas há +24h. Taxa de reclamações em <strong style="color:#fca5a5">2.4%</strong> (limite: 2%). Penalidade automática em 48h.</div>
+              <div class="demo-acoes">
+                <div class="demo-acao" onclick="demoMarcar(this)"><div class="demo-acao-n">1</div><span>Responda as 3 mediações abertas antes das 18h hoje — ofereça solução direta</span></div>
+                <div class="demo-acao" onclick="demoMarcar(this)"><div class="demo-acao-n">2</div><span>Pause anúncios com mais devoluções para conter o impacto no termômetro</span></div>
+              </div>
+              <button class="demo-ask-btn" onclick="demoPerg('Como resolver as mediações abertas e proteger meu termômetro?')">💬 Perguntar ao Consultor</button>
+            </div>
+          </div>
+
+          <div class="demo-card" id="dc2">
+            <div class="demo-card-head">
+              <div class="demo-nivel dem-crit"><div class="ndot"></div>CRÍTICO</div>
+              <div class="demo-card-title">📉 ACOS de 34% destruindo margem</div>
+              <span class="demo-tag">ML Ads</span>
+            </div>
+            <div class="demo-card-body">
+              <div class="demo-card-desc">Você gastou <strong style="color:#fca5a5">R$482</strong> em ads esta semana. Para cada R$100 vendido, R$34 vão para o ML. Margem real está negativa.</div>
+              <div class="demo-acoes">
+                <div class="demo-acao" onclick="demoMarcar(this)"><div class="demo-acao-n">1</div><span>Reduza o lance máximo de todas as campanhas em 25% agora</span></div>
+                <div class="demo-acao" onclick="demoMarcar(this)"><div class="demo-acao-n">2</div><span>Pause os 3 produtos com ACOS acima de 50% — estão consumindo budget sem converter</span></div>
+              </div>
+              <button class="demo-ask-btn" onclick="demoPerg('Como baixar meu ACOS de 34% e parar de desperdiçar dinheiro em ads?')">💬 Perguntar ao Consultor</button>
+            </div>
+          </div>
+
+          <div class="demo-card" id="dc3">
+            <div class="demo-card-head">
+              <div class="demo-nivel dem-atc"><div class="ndot"></div>ATENÇÃO</div>
+              <div class="demo-card-title">📦 5 pedidos aguardando envio</div>
+              <span class="demo-tag">Logística</span>
+            </div>
+            <div class="demo-card-body">
+              <div class="demo-card-desc">2 pedidos vencem <strong style="color:#fde68a">hoje às 23h59</strong>. Cada atraso impacta diretamente o termômetro já em risco.</div>
+              <div class="demo-acoes">
+                <div class="demo-acao" onclick="demoMarcar(this)"><div class="demo-acao-n">1</div><span>Priorize pedidos #98231 e #98204 — imprima a etiqueta agora</span></div>
+              </div>
+              <button class="demo-ask-btn" onclick="demoPerg('Como evitar atrasos de envio no futuro e proteger meu SLA?')">💬 Perguntar ao Consultor</button>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- DIREITA — chat -->
+      <div class="demo-chat">
+        <div class="demo-chat-head">
+          <div class="ia-avatar">🤖</div>
+          <div>
+            <div class="ia-name">Consultor Platinum IA</div>
+            <div class="ia-status"><div class="live-dot"></div> Online agora</div>
+          </div>
+        </div>
+
+        <div class="demo-msgs" id="demoChatMsgs">
+          <div class="dmsg dmsg-ia">
+            <div class="dmsg-bubble">
+              Olá! Analisei sua conta agora. Encontrei <span class="dhl">2 problemas críticos</span> no painel ao lado que precisam de ação <b>hoje</b>. Posso te explicar o que está acontecendo? 👈
+            </div>
+            <div class="dmsg-time">Agora</div>
+          </div>
+        </div>
+
+        <!-- Quick perguntas -->
+        <div class="demo-quick">
+          <button class="dqp" onclick="demoPerg('O que é mais urgente na minha conta agora?')">🔴 O que é urgente?</button>
+          <button class="dqp" onclick="demoPerg('Por que meu ACOS está tão alto?')">📉 ACOS alto</button>
+          <button class="dqp" onclick="demoPerg('Por que perdi a Buy Box?')">🥊 Buy Box</button>
+          <button class="dqp" onclick="demoPerg('Meu termômetro está em risco de cair?')">🌡️ Termômetro</button>
+        </div>
+
+        <div class="demo-input-row">
+          <input class="demo-inp" id="demoInput" placeholder="Pergunte sobre sua conta..." onkeydown="if(event.key==='Enter')demoEnviar()"/>
+          <button class="demo-send" id="demoBtnSend" onclick="demoEnviar()">➤</button>
+        </div>
+      </div>
+
+    </div><!-- /demo-app -->
+  </div><!-- /demo-browser -->
+
+  <div class="demo-hint reveal">
+    <span>👆</span> <strong>Simulação interativa</strong> — clique nas perguntas rápidas ou escreva a sua. Marque as ações como feitas clicando nelas.
+  </div>
+</section>
+
+<section class="comp-section">
+  <div class="comp-inner">
+
+    <div class="comp-header reveal">
+      <div class="comp-tag">🔎 Comparativo de Mercado</div>
+      <h2 class="comp-title">
+        O que as outras ferramentas entregam<br>
+        <em>vs. o que você realmente precisa</em>
+      </h2>
+      <p class="comp-sub">Existem várias ferramentas para sellers no Brasil. Cada uma resolve um pedaço. Nenhuma resolve tudo — até agora.</p>
+    </div>
+
+    <!-- TABELA COMPARATIVA -->
+    <div class="comp-table-wrap reveal">
+      <div class="comp-table">
+
+        <!-- HEADER -->
+        <div class="ct-header">
+          <div class="ct-col-label">O que você precisa</div>
+          <div class="ct-col ct-col-bad">
+            <div class="ct-col-title">Ferramentas<br>de SAC / IA</div>
+            <div class="ct-col-sub">Atendimento automatizado</div>
+          </div>
+          <div class="ct-col ct-col-bad">
+            <div class="ct-col-title">Ferramentas<br>de Anúncio</div>
+            <div class="ct-col-sub">Criação e precificação</div>
+          </div>
+          <div class="ct-col ct-col-bad">
+            <div class="ct-col-title">ERP /<br>Gestão</div>
+            <div class="ct-col-sub">Operação e NF-e</div>
+          </div>
+          <div class="ct-col ct-col-good">
+            <div class="ct-col-title">Consultor<br>Platinum ML</div>
+            <div class="ct-col-sub">Diagnóstico + Proteção + IA</div>
+          </div>
+        </div>
+
+        <!-- LINHAS -->
+        <div class="ct-row">
+          <div class="ct-label">Alerta de conta em risco de suspensão</div>
+          <div class="ct-val bad">✗</div>
+          <div class="ct-val bad">✗</div>
+          <div class="ct-val bad">✗</div>
+          <div class="ct-val good">✓</div>
+        </div>
+        <div class="ct-row alt">
+          <div class="ct-label">Monitora termômetro e reputação 24/7</div>
+          <div class="ct-val bad">✗</div>
+          <div class="ct-val bad">✗</div>
+          <div class="ct-val partial">Parcial</div>
+          <div class="ct-val good">✓</div>
+        </div>
+        <div class="ct-row">
+          <div class="ct-label">Avisa mensagens sem resposta antes do prazo vencer</div>
+          <div class="ct-val partial">Parcial</div>
+          <div class="ct-val bad">✗</div>
+          <div class="ct-val bad">✗</div>
+          <div class="ct-val good">✓</div>
+        </div>
+        <div class="ct-row alt">
+          <div class="ct-label">Alerta envios com risco de atraso</div>
+          <div class="ct-val bad">✗</div>
+          <div class="ct-val bad">✗</div>
+          <div class="ct-val partial">Parcial</div>
+          <div class="ct-val good">✓</div>
+        </div>
+        <div class="ct-row">
+          <div class="ct-label">Detecta e orienta contestação de PPPI</div>
+          <div class="ct-val bad">✗</div>
+          <div class="ct-val bad">✗</div>
+          <div class="ct-val bad">✗</div>
+          <div class="ct-val good">✓</div>
+        </div>
+        <div class="ct-row alt">
+          <div class="ct-label">Diagnóstico de Buy Box em tempo real</div>
+          <div class="ct-val bad">✗</div>
+          <div class="ct-val partial">Parcial</div>
+          <div class="ct-val bad">✗</div>
+          <div class="ct-val good">✓</div>
+        </div>
+        <div class="ct-row">
+          <div class="ct-label">Auditoria de ML Ads e ACOS</div>
+          <div class="ct-val partial">Parcial</div>
+          <div class="ct-val bad">✗</div>
+          <div class="ct-val bad">✗</div>
+          <div class="ct-val good">✓</div>
+        </div>
+        <div class="ct-row alt">
+          <div class="ct-label">Cálculo de margem real por SKU</div>
+          <div class="ct-val bad">✗</div>
+          <div class="ct-val partial">Parcial</div>
+          <div class="ct-val good">✓</div>
+          <div class="ct-val good">✓</div>
+        </div>
+        <div class="ct-row">
+          <div class="ct-label">Chat com consultor IA sobre sua conta</div>
+          <div class="ct-val bad">✗</div>
+          <div class="ct-val bad">✗</div>
+          <div class="ct-val bad">✗</div>
+          <div class="ct-val good">✓</div>
+        </div>
+        <div class="ct-row alt">
+          <div class="ct-label">Responde em linguagem simples, sem jargão</div>
+          <div class="ct-val bad">✗</div>
+          <div class="ct-val bad">✗</div>
+          <div class="ct-val bad">✗</div>
+          <div class="ct-val good">✓</div>
+        </div>
+        <div class="ct-row">
+          <div class="ct-label">Visão 360° da operação em um só painel</div>
+          <div class="ct-val bad">✗</div>
+          <div class="ct-val bad">✗</div>
+          <div class="ct-val bad">✗</div>
+          <div class="ct-val good">✓</div>
+        </div>
+        <div class="ct-row alt">
+          <div class="ct-label">Acessível para o seller médio (sem setup caro)</div>
+          <div class="ct-val bad">✗ Setup R$2k+</div>
+          <div class="ct-val partial">Varia</div>
+          <div class="ct-val partial">Varia</div>
+          <div class="ct-val good">✓ A partir de R$97</div>
+        </div>
+
+        <!-- RODAPÉ -->
+        <div class="ct-footer">
+          <div class="ct-foot-label">Visão da operação</div>
+          <div class="ct-foot-val bad-foot">Parcial</div>
+          <div class="ct-foot-val bad-foot">Parcial</div>
+          <div class="ct-foot-val bad-foot">Parcial</div>
+          <div class="ct-foot-val good-foot">Integrada</div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- CONCLUSÃO -->
+    <div class="comp-conclusao reveal">
+      <div class="cc-icon">💡</div>
+      <div class="cc-body">
+        <div class="cc-title">A conclusão é simples</div>
+        <div class="cc-desc">As outras ferramentas resolvem <strong>um pedaço</strong> do problema. O Consultor Platinum te dá <strong>visão integrada da operação</strong> — com IA que conversa com você em tempo real, avisa antes de qualquer problema virar crise e protege sua conta 24 horas por dia.</div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════
+     RELATÓRIO GPS
+═══════════════════════════════════ -->
+<section class="gps-section">
+  <div class="gps-inner">
+    <div class="reveal" style="text-align:center;">
+      <div class="section-eyebrow" style="margin:0 auto 28px;">📄 Relatório Estratégico</div>
+      <h2 class="section-title" style="text-align:center;">Seu plano de ação, <em>por escrito</em></h2>
+      <p class="section-sub" style="margin:0 auto;">Não é só um painel. A qualquer momento você baixa um relatório executivo completo — diagnóstico da conta, plano de ação priorizado e o roteiro de execução. Leve para o seu time, seu contador, ou siga sozinho.</p>
+    </div>
+
+    <div class="gps-grid">
+      <!-- Mockup do documento -->
+      <div class="reveal">
+        <div class="gps-doc">
+          <div class="gps-doc-head">
+            <div>
+              <div class="gps-doc-logo">CONSULTOR<span>PLATINUM</span> ML</div>
+              <div class="gps-doc-tag">Relatório Estratégico da Operação</div>
+            </div>
+            <div class="gps-doc-date">Hoje<br>09:14</div>
+          </div>
+          <div class="gps-score">
+            <div class="gps-score-num">6/10</div>
+            <div class="gps-score-txt"><strong>Em Atenção</strong><br>2 alertas críticos · 4 ações pendentes</div>
+          </div>
+          <div style="font-size:.55rem;font-weight:800;text-transform:uppercase;letter-spacing:1px;color:#999;margin:12px 0 6px;">🧭 GPS de Execução — ordem de prioridade</div>
+          <div class="gps-step"><div class="gps-step-n">1</div><div class="gps-step-txt">Responder 3 mediações antes das 18h · <b>protege a reputação</b></div></div>
+          <div class="gps-step"><div class="gps-step-n">2</div><div class="gps-step-txt">Reduzir lance das campanhas em 25% · <b>recupera margem</b></div></div>
+          <div class="gps-step"><div class="gps-step-n">3</div><div class="gps-step-txt">Acelerar giro de 3 SKUs no Full · <b>evita tarifa de 60 dias</b></div></div>
+          <div class="gps-step"><div class="gps-step-n">4</div><div class="gps-step-txt">Identificar R$4.320 em reembolsos pendentes · <b>aumenta as chances de contestação</b></div></div>
+        </div>
+      </div>
+
+      <!-- Texto / benefícios -->
+      <div class="reveal">
+        <div class="gps-feat">
+          <div class="gps-feat-item">
+            <div class="gps-feat-ico">📊</div>
+            <div>
+              <div class="gps-feat-t">Diagnóstico da conta</div>
+              <div class="gps-feat-d">Nota de saúde de 0 a 10, o que está em risco e a leitura rápida do que mais importa agora.</div>
+            </div>
+          </div>
+          <div class="gps-feat-item">
+            <div class="gps-feat-ico">🧭</div>
+            <div>
+              <div class="gps-feat-t">GPS de execução priorizado</div>
+              <div class="gps-feat-d">As ações na ordem exata — da que mais protege seu dinheiro para a de menor urgência. Sem você precisar decidir sozinho.</div>
+            </div>
+          </div>
+          <div class="gps-feat-item">
+            <div class="gps-feat-ico">📅</div>
+            <div>
+              <div class="gps-feat-t">Roteiro: comece hoje / esta semana</div>
+              <div class="gps-feat-d">As tarefas distribuídas num cronograma claro, pra você saber por onde começar ao fechar o relatório.</div>
+            </div>
+          </div>
+          <div class="gps-feat-item">
+            <div class="gps-feat-ico">📄</div>
+            <div>
+              <div class="gps-feat-t">Baixe em PDF quando quiser</div>
+              <div class="gps-feat-d">Gerado pela IA com um clique no painel. Disponível em todos os planos.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════
+     COMO FUNCIONA
+═══════════════════════════════════ -->
+<section class="how-section">
+  <div class="how-inner">
+    <div class="how-header reveal">
+      <div class="section-eyebrow" style="margin:0 auto 20px;">🚀 Execução em 3 Passos</div>
+      <h2 class="section-title">Ativo em <em>30 segundos</em></h2>
+      <p class="section-sub" style="margin:0 auto;text-align:center;">Sem instalar nada. Sem digitar sua senha do ML. Sem setup complicado.</p>
+    </div>
+
+    <div class="steps-row reveal">
+      <div class="how-step">
+        <div class="how-step-num">01</div>
+        <div class="how-step-title">Conecte via OAuth</div>
+        <div class="how-step-desc">Clique em "Conectar" e o Mercado Livre abre no seu navegador. Você autoriza o acesso — sua senha fica no ML, não aqui.</div>
+      </div>
+      <div class="how-step">
+        <div class="how-step-num">02</div>
+        <div class="how-step-title">Diagnóstico em tempo real</div>
+        <div class="how-step-desc">O sistema roda análise completa: termômetro, ACOS, Buy Box, estoque Full, margem por SKU e SLA de envio.</div>
+      </div>
+      <div class="how-step">
+        <div class="how-step-num">03</div>
+        <div class="how-step-title">Consultor assume com você</div>
+        <div class="how-step-desc">Alertas em tempo real + IA para tirar dúvidas. Cada ação de escrita (ajuste de preço) só executa após seu "Aprovar". Controle sempre seu.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════
+     FUNDADOR
+═══════════════════════════════════ -->
+<section class="founder-section" id="missao">
+  <div class="founder-inner">
+
+    <div class="founder-content reveal">
+      <div class="founder-label">Por que o Consultor Platinum existe</div>
+      <div class="founder-name">Tecnologia<br>no seu lado</div>
+      <div class="founder-role">Uma plataforma independente, construída para o seller do Mercado Livre</div>
+
+      <p class="founder-bio">
+        O mercado de consultoria para sellers sempre funcionou do mesmo jeito: <strong>cobra caro, entrega um PDF e some</strong> — deixando você sozinho na hora de executar. Enquanto isso, sua conta perde dinheiro em silêncio: ads no prejuízo, reembolsos que o ML não credita, estoque parado pagando tarifa, termômetro caindo sem aviso.
+        <br><br>
+        O Consultor Platinum nasceu para virar esse jogo. Em vez de relatório, <strong>monitoramento 24/7 que encontra, protege e recupera o seu dinheiro</strong> — e te diz exatamente o que fazer, na ordem certa. Sem reunião, sem espera, sem depender de ninguém. Só você, seus dados e a ação certa na hora certa.
+      </p>
+
+      <div class="founder-stats">
+        <div class="founder-stat">
+          <div class="fstat-num">24/7</div>
+          <div class="fstat-label">Monitoramento ativo</div>
+        </div>
+        <div class="founder-stat">
+          <div class="fstat-num">7</div>
+          <div class="fstat-label">Frentes de prejuízo vigiadas</div>
+        </div>
+        <div class="founder-stat">
+          <div class="fstat-num">100%</div>
+          <div class="fstat-label">Independente do ML</div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════
+     PROVA SOCIAL
+═══════════════════════════════════ -->
+<section class="proof-section" id="depoimentos">
+  <div class="proof-inner">
+    <div class="proof-header reveal">
+      <div class="section-eyebrow">⭐ Resultados Reais</div>
+      <h2 class="section-title">Sellers que pararam de <em>adivinhar</em><br>e começaram a executar</h2>
+    </div>
+
+    <div class="proof-grid">
+
+      <div class="proof-card reveal">
+        <div class="proof-stars"><span>★</span><span>★</span><span>★</span><span>★</span><span>★</span></div>
+        <p class="proof-text">
+          "Estava com o termômetro no amarelo há 3 semanas sem entender o porquê. Em 24h com o Consultor identifiquei <strong>4 mediações abertas que eu nem sabia</strong> que existiam. Resolvi tudo e em 72h voltei ao verde."
+        </p>
+        <div class="proof-divider"></div>
+        <div class="proof-author">
+          <div class="proof-avatar">🧔</div>
+          <div>
+            <div class="proof-name">Ricardo M.</div>
+            <div class="proof-info">Seller Platinum · Eletrodomésticos · SP</div>
+            <div class="proof-result">✓ Termômetro verde em 72h</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="proof-card reveal">
+        <div class="proof-stars"><span>★</span><span>★</span><span>★</span><span>★</span><span>★</span></div>
+        <p class="proof-text">
+          "Meu ACOS estava em 34% e eu achava que era normal. O sistema apontou quais campanhas estavam destruindo minha margem. Em 1 semana <strong>caiu para 11%</strong> e meu lucro mensal aumentou R$4.200."
+        </p>
+        <div class="proof-divider"></div>
+        <div class="proof-author">
+          <div class="proof-avatar">👩</div>
+          <div>
+            <div class="proof-name">Fernanda K.</div>
+            <div class="proof-info">Seller Gold · Moda e Acessórios · RJ</div>
+            <div class="proof-result">✓ ACOS: 34% → 11% em 7 dias</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="proof-card reveal">
+        <div class="proof-stars"><span>★</span><span>★</span><span>★</span><span>★</span><span>★</span></div>
+        <p class="proof-text">
+          "Perdi a Buy Box do meu produto principal sem entender o motivo. O diagnóstico identificou que era o tempo de envio vs. Full do concorrente. <strong>Ativei o Full nos 5 produtos top e recuperei em 4 dias.</strong>"
+        </p>
+        <div class="proof-divider"></div>
+        <div class="proof-author">
+          <div class="proof-avatar">🧑</div>
+          <div>
+            <div class="proof-name">Lucas S.</div>
+            <div class="proof-info">Seller Platinum · Ferramentas · MG</div>
+            <div class="proof-result">✓ Buy Box recuperada em 4 dias</div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════
+     PLANOS
+═══════════════════════════════════ -->
+<!-- ═══════════════════════════════
+     ESTILOS EXTRAS — PLANOS 3 TIERS + MP CHECKOUT
+═══════════════════════════════ -->
+<style>
+/* Tier badges */
+.plan-tier-badge {
+  display:inline-block;
+  font-size:.6rem;font-weight:700;letter-spacing:1.5px;
+  text-transform:uppercase;padding:3px 10px;margin-bottom:10px;
+}
+/* MP Checkout modal */
+.mp-overlay {
+  display:none;position:fixed;inset:0;z-index:600;
+  background:rgba(4,8,18,.95);backdrop-filter:blur(16px);
+  align-items:center;justify-content:center;padding:20px;
+}
+.mp-overlay.open { display:flex; }
+.mp-modal {
+  background:#0d1d38;border:1px solid rgba(255,215,0,.2);
+  width:100%;max-width:480px;position:relative;
+  animation:mpSlide .3s cubic-bezier(.34,1.56,.64,1);
+}
+@keyframes mpSlide{from{transform:translateY(30px);opacity:0}to{transform:translateY(0);opacity:1}}
+.mp-modal::before{
+  content:'';position:absolute;top:0;left:0;right:0;height:2px;
+  background:linear-gradient(90deg,transparent,var(--platinum),transparent);
+}
+.mp-close{
+  position:absolute;top:12px;right:14px;
+  background:rgba(255,255,255,.08);border:none;color:#888;
+  width:28px;height:28px;border-radius:50%;cursor:pointer;
+  font-size:.85rem;display:flex;align-items:center;justify-content:center;
+  transition:all .2s;
+}
+.mp-close:hover{background:rgba(255,255,255,.15);color:#fff;}
+.mp-head{padding:28px 28px 0;}
+.mp-logo{font-family:'Bebas Neue',sans-serif;font-size:1rem;letter-spacing:2px;color:var(--gold);margin-bottom:16px;}
+.mp-logo span{color:#fff;}
+.mp-plan-name{font-size:1.2rem;font-weight:800;color:#fff;margin-bottom:4px;}
+.mp-plan-price{font-family:'Bebas Neue',sans-serif;font-size:2.4rem;color:var(--gold);line-height:1;margin-bottom:4px;}
+.mp-plan-period{font-size:.72rem;color:#555;margin-bottom:20px;}
+.mp-divider{height:1px;background:rgba(255,255,255,.06);margin:0 28px;}
+.mp-body{padding:24px 28px;}
+.mp-field{margin-bottom:14px;}
+.mp-field label{
+  display:block;font-size:.65rem;font-weight:700;
+  text-transform:uppercase;letter-spacing:.5px;color:#555;margin-bottom:5px;
+}
+.mp-field input,.mp-field select{
+  width:100%;background:#080e1c;border:1px solid #1a2f52;
+  padding:11px 14px;color:#fff;font-family:'Sora',sans-serif;
+  font-size:.83rem;outline:none;border-radius:6px;
+  transition:border-color .2s;
+}
+.mp-field input:focus,.mp-field select:focus{border-color:rgba(255,215,0,.45);}
+.mp-field input::placeholder{color:#2a3a52;}
+.mp-row{display:grid;grid-template-columns:1fr 1fr;gap:10px;}
+.mp-btn{
+  width:100%;background:var(--gold);color:#080e1c;
+  border:none;padding:14px;font-family:'Sora',sans-serif;
+  font-weight:900;font-size:.9rem;cursor:pointer;
+  border-radius:6px;transition:all .2s;margin-top:4px;
+  display:flex;align-items:center;justify-content:center;gap:8px;
+}
+.mp-btn:hover{background:#fff;transform:translateY(-1px);box-shadow:0 6px 20px rgba(255,215,0,.3);}
+.mp-btn:disabled{opacity:.5;cursor:not-allowed;transform:none;}
+.mp-enterprise-btn{
+  width:100%;background:rgba(167,139,250,.15);color:#a78bfa;
+  border:1px solid rgba(167,139,250,.35);padding:14px;
+  font-family:'Sora',sans-serif;font-weight:900;font-size:.9rem;
+  cursor:pointer;border-radius:6px;transition:all .2s;margin-top:4px;
+  display:flex;align-items:center;justify-content:center;gap:8px;
+}
+.mp-enterprise-btn:hover{background:rgba(167,139,250,.25);}
+.mp-security{
+  display:flex;align-items:center;gap:8px;
+  margin-top:14px;font-size:.65rem;color:#3a4a62;
+  justify-content:center;
+}
+.mp-security svg{flex-shrink:0;}
+.mp-err{
+  background:rgba(239,68,68,.08);border:1px solid rgba(239,68,68,.25);
+  color:#fca5a5;padding:10px 14px;border-radius:6px;
+  font-size:.72rem;margin-bottom:12px;display:none;
+}
+.mp-err.show{display:block;}
+.mp-success{
+  text-align:center;padding:32px 28px 28px;
+}
+.mp-success-icon{font-size:3rem;margin-bottom:16px;}
+.mp-success-title{font-size:1.2rem;font-weight:800;color:#fff;margin-bottom:8px;}
+.mp-success-sub{font-size:.82rem;color:#888;line-height:1.7;margin-bottom:24px;}
+.mp-success-btn{
+  display:block;background:var(--gold);color:#080e1c;
+  border:none;padding:13px;font-family:'Sora',sans-serif;
+  font-weight:800;font-size:.88rem;cursor:pointer;
+  border-radius:6px;transition:all .2s;text-decoration:none;
+  text-align:center;
+}
+.mp-success-btn:hover{background:#fff;}
+
+/* PIX section */
+.mp-pix-wrap{
+  background:rgba(34,197,94,.06);border:1px solid rgba(34,197,94,.2);
+  border-radius:8px;padding:16px;text-align:center;margin-bottom:14px;
+}
+.mp-pix-title{font-size:.75rem;font-weight:700;color:var(--green);margin-bottom:8px;}
+.mp-pix-code{
+  background:#080e1c;border:1px solid #1a2f52;border-radius:6px;
+  padding:10px 14px;font-family:monospace;font-size:.7rem;
+  color:#aaa;word-break:break-all;margin-bottom:10px;
+  text-align:left;
+}
+.mp-pix-copy{
+  background:rgba(34,197,94,.12);color:var(--green);
+  border:1px solid rgba(34,197,94,.25);padding:8px 16px;
+  border-radius:6px;font-size:.72rem;font-weight:700;
+  cursor:pointer;font-family:'Sora',sans-serif;transition:all .2s;
+}
+.mp-pix-copy:hover{background:rgba(34,197,94,.2);}
+.mp-or{
+  display:flex;align-items:center;gap:10px;
+  color:#2a3a52;font-size:.68rem;margin:16px 0;
+}
+.mp-or::before,.mp-or::after{content:'';flex:1;height:1px;background:#1a2f52;}
+/* Plan selector tabs */
+.mp-tabs{display:flex;gap:2px;margin-bottom:20px;}
+.mp-tab{
+  flex:1;padding:8px 6px;text-align:center;
+  background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.06);
+  font-size:.65rem;font-weight:700;color:#555;cursor:pointer;
+  transition:all .2s;text-transform:uppercase;letter-spacing:.5px;
+}
+.mp-tab.active.starter{background:rgba(34,197,94,.1);border-color:rgba(34,197,94,.3);color:#22c55e;}
+.mp-tab.active.platinum{background:rgba(255,215,0,.1);border-color:rgba(255,215,0,.3);color:var(--gold);}
+.mp-tab.active.enterprise{background:rgba(167,139,250,.1);border-color:rgba(167,139,250,.3);color:#a78bfa;}
+/* Plans grid 3-col */
+.plans-grid-3{
+  display:grid;grid-template-columns:repeat(3,1fr);
+  gap:3px;
+}
+@media(max-width:900px){.plans-grid-3{grid-template-columns:1fr;}}
+@media(max-width:480px){.mp-row{grid-template-columns:1fr;}}
+</style>
+
+<!-- ═══════════════════════════
+     MERCADO PAGO CHECKOUT MODAL
+═══════════════════════════ -->
+<div class="mp-overlay" id="mpOverlay" onclick="mpFecharSeFora(event)">
+  <div class="mp-modal" id="mpModal">
+    <button class="mp-close" onclick="mpFechar()">✕</button>
+
+    <!-- TELA DE ESCOLHA DE PLANO (mensal x anual) -->
+    <div id="mpFormView">
+      <div class="mp-head">
+        <div class="mp-logo">Consultor<span>Platinum</span> ML</div>
+        <div id="mpPlanName" class="mp-plan-name">Platinum</div>
+        <div id="mpPlanPrice" class="mp-plan-price">R$ 347</div>
+        <div id="mpPlanPeriod" class="mp-plan-period">/mês · Promoção de lançamento</div>
+      </div>
+      <div class="mp-divider"></div>
+      <div class="mp-body">
+
+        <div class="mp-choose-title">Escolha como prefere pagar:</div>
+
+        <!-- OPÇÃO MENSAL (assinatura) -->
+        <button class="mp-pay-option mp-pay-mensal" id="mpBtnMensal" onclick="mpIrPara('mensal')">
+          <div class="mp-pay-left">
+            <div class="mp-pay-name">Mensal</div>
+            <div class="mp-pay-desc">Cobrança automática no cartão · cancele quando quiser</div>
+          </div>
+          <div class="mp-pay-right">
+            <div class="mp-pay-price" id="mpMensalPreco">R$ 347</div>
+            <div class="mp-pay-per">/mês</div>
+          </div>
+        </button>
+
+        <!-- OPÇÃO ANUAL (à vista) -->
+        <button class="mp-pay-option mp-pay-anual" id="mpBtnAnual" onclick="mpIrPara('anual')">
+          <div class="mp-pay-badge">2 meses grátis</div>
+          <div class="mp-pay-left">
+            <div class="mp-pay-name">Anual <span style="color:#22c55e;">· economize</span></div>
+            <div class="mp-pay-desc">PIX, boleto ou cartão · pagamento único do ano</div>
+          </div>
+          <div class="mp-pay-right">
+            <div class="mp-pay-price" id="mpAnualPreco">R$ 3.470</div>
+            <div class="mp-pay-per">/ano</div>
+          </div>
+        </button>
+
+        <div class="mp-security">
+          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#3a4a62" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+          Você será levado ao ambiente seguro do Mercado Pago para concluir
+        </div>
+      </div>
+    </div>
+
+    <!-- TELA DE SUCESSO (mantida para retorno) -->
+    <div id="mpSuccessView" style="display:none;">
+      <div class="mp-success">
+        <div class="mp-success-icon">✅</div>
+        <div class="mp-success-title">Quase lá!</div>
+        <div class="mp-success-sub">
+          Após concluir o pagamento no Mercado Pago, você receberá um e-mail com o link de acesso.<br><br>
+          Já pagou? Acesse seu painel abaixo.
+        </div>
+        <a href="login.html" class="mp-success-btn">→ Acessar meu painel</a>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<!-- ═══════════════════════════
+     SEÇÃO DE PLANOS 3 EM 1
+═══════════════════════════ -->
+<section class="plans-section" id="planos">
+  <div class="plans-inner">
+    <div class="plans-header reveal">
+      <div class="section-eyebrow" style="margin:0 auto 20px;">💎 3 Planos — Starter · Platinum · Enterprise</div>
+      <h2 class="section-title" style="text-align:center;">Do iniciante ao <em>player de 7 dígitos</em></h2>
+      <p class="section-sub" style="text-align:center;margin:0 auto;">Cada plano resolve as dores do seu momento no ML. Cancele quando quiser. Garantia de 7 dias.</p>
+    </div>
+
+    <!-- Perfil labels -->
+    <div style="display:flex;gap:8px;justify-content:center;margin-bottom:36px;flex-wrap:wrap;" class="reveal">
+      <div style="display:flex;align-items:center;gap:6px;background:rgba(34,197,94,.06);border:1px solid rgba(34,197,94,.2);padding:7px 14px;font-size:.7rem;color:#22c55e;font-weight:600;">🌱 Starter — Até R$30k/mês</div>
+      <div style="display:flex;align-items:center;gap:6px;background:rgba(255,215,0,.06);border:1px solid rgba(255,215,0,.2);padding:7px 14px;font-size:.7rem;color:var(--gold);font-weight:600;">💎 Platinum — R$30k–R$300k/mês</div>
+      <div style="display:flex;align-items:center;gap:6px;background:rgba(167,139,250,.06);border:1px solid rgba(167,139,250,.2);padding:7px 14px;font-size:.7rem;color:#a78bfa;font-weight:600;">🏆 Enterprise — R$300k+/mês</div>
+    </div>
+
+    <div class="plans-grid-3 reveal">
+
+      <!-- ─── STARTER ─── -->
+      <div class="plan-card" style="border-top:2px solid #22c55e;">
+        <div class="plan-tier-badge" style="background:rgba(34,197,94,.1);color:#22c55e;">🌱 Starter</div>
+        <div style="font-size:.68rem;color:#3a4a62;margin-bottom:14px;">Até R$30k/mês · Iniciante e crescimento</div>
+        <div class="plan-price-was">De R$ 197,00/mês</div>
+        <div class="plan-price" style="color:#22c55e;"><sup>R$</sup>97<small>,00</small></div>
+        <div class="plan-period">/mês · Promoção de lançamento</div>
+        <div class="plan-annual" style="margin-top:8px;font-size:.68rem;color:#22c55e;background:rgba(34,197,94,.07);border:1px solid rgba(34,197,94,.18);border-radius:6px;padding:7px 10px;">💰 No anual: <strong>R$970/ano</strong> — 2 meses grátis (economize R$194)</div>
+        <ul class="plan-features">
+          <li>🎓 <strong style="color:#22c55e;">Curso ML do Zero ao Avançado</strong> (app incluso)</li>
+          <li><strong style="color:#22c55e;">1 conta ML</strong> · até <strong>100 SKUs</strong> monitorados</li>
+          <li>Consultor IA diário (até <strong style="color:#22c55e;">20 análises/dia</strong>)</li>
+          <li>🌡️ Monitor de termômetro — detecta sinais antes de cair para amarelo</li>
+          <li>⏰ Alerta de mediações abertas — avisa antes do prazo de 48h vencer</li>
+          <li>📦 Alerta de pedidos com risco de atraso de envio</li>
+          <li>📊 Calculadora de margem por SKU — detecta vendas abaixo do breakeven</li>
+          <li>🔎 Monitor de Buy Box — identifica quando você perde posição</li>
+          <li>🔔 Alertas no <strong style="color:#22c55e;">WhatsApp</strong> em tempo real</li>
+          <li>📄 Relatório estratégico semanal em PDF</li>
+          <li>📋 18 protocolos de resposta a mediações</li>
+          <li>🚀 Onboarding guiado (1º acesso)</li>
+          <li>💬 Suporte: Central de Ajuda + IA 24/7</li>
+          <li>Cancele quando quiser</li>
+        </ul>
+        <button onclick="mpAbrir('starter')" class="plan-cta" style="background:rgba(34,197,94,.1);color:#22c55e;border:1px solid rgba(34,197,94,.35);width:100%;font-family:'Sora',sans-serif;cursor:pointer;">
+          🌱 Assinar por R$97/mês →
+        </button>
+        <div class="plan-guarantee" style="color:#1a3a22;">🔒 Mercado Pago · 🛡️ 7 dias garantia</div>
+      </div>
+
+      <!-- ─── PLATINUM ─── -->
+      <div class="plan-card plan-card-featured">
+        <div class="plan-badge">⭐ MAIS POPULAR</div>
+        <div class="plan-tier-badge" style="background:rgba(255,215,0,.1);color:var(--gold);">💎 Platinum</div>
+        <div style="font-size:.68rem;color:#554a00;margin-bottom:14px;">R$30k–R$300k/mês · Escala com margem</div>
+        <div class="plan-price-was" style="color:#888;">De R$ 497,00/mês</div>
+        <div class="plan-price"><sup>R$</sup>347<small>,00</small></div>
+        <div class="plan-period" style="color:#aaa;">/mês · Promoção de lançamento</div>
+        <div class="plan-annual" style="margin-top:8px;font-size:.68rem;color:var(--gold);background:rgba(255,215,0,.07);border:1px solid rgba(255,215,0,.2);border-radius:6px;padding:7px 10px;">💰 No anual: <strong>R$3.470/ano</strong> — 2 meses grátis (economize R$694)</div>
+        <ul class="plan-features">
+          <li>✓ Tudo do Starter (curso incluído)</li>
+          <li><strong style="color:var(--gold);">1 conta ML</strong> · até <strong>1.000 SKUs</strong> monitorados</li>
+          <li>Consultor IA <strong style="color:var(--gold);">ilimitado</strong> 24/7</li>
+          <li>💹 <strong style="color:var(--gold);">Monitor ROAS/ML Ads</strong> — detecta campanhas consumindo margem sem retorno</li>
+          <li>🥊 <strong style="color:var(--gold);">Diagnóstico de Buy Box</strong> — identifica por que você perde para o concorrente</li>
+          <li>💰 Margem real por SKU + alerta quando produto cruza o breakeven</li>
+          <li>⚡ <strong style="color:var(--gold);">Alerta Estoque Zumbi Full</strong> — detecta risco de tarifa dos 60 dias antes de virar cobrança</li>
+          <li>🔄 <strong style="color:var(--gold);">Radar de Tarifas ML</strong> — avisa quando reajustes do ML impactam sua margem</li>
+          <li>🧬 Scanner anti-canibalização — detecta quando seus anúncios competem entre si</li>
+          <li>🏦 Monitor Simples Nacional — rastreia acúmulo de faturamento e risco de desenquadramento</li>
+          <li>📄 Relatório em PDF + <strong style="color:var(--gold);">histórico de alertas</strong></li>
+          <li>🔔 Alertas no <strong style="color:var(--gold);">WhatsApp</strong> em tempo real</li>
+          <li>💬 Suporte prioritário (e-mail/WhatsApp)</li>
+        </ul>
+        <button onclick="mpAbrir('platinum')" class="plan-cta plan-cta-solid" style="width:100%;font-family:'Sora',sans-serif;cursor:pointer;border:none;">
+          ⚡ Assinar Platinum por R$347/mês →
+        </button>
+        <div class="plan-guarantee">🔒 Mercado Pago · 🛡️ Garantia 7 dias · Cancele quando quiser</div>
+      </div>
+
+      <!-- ─── ENTERPRISE ─── -->
+      <div class="plan-card" style="border-top:2px solid #a78bfa;background:linear-gradient(135deg,rgba(167,139,250,.04) 0%,var(--surface) 100%);">
+        <div class="plan-tier-badge" style="background:rgba(167,139,250,.1);color:#a78bfa;">🏆 Enterprise</div>
+        <div style="font-size:.68rem;color:#3a2a5a;margin-bottom:14px;">R$300k+/mês · Governança e blindagem</div>
+        <div class="plan-price-was" style="color:#444;">De R$ 3.500,00/mês</div>
+        <div class="plan-price" style="color:#a78bfa;"><sup>R$</sup>1.997<small>,00</small></div>
+        <div class="plan-period">/mês · Early Access — vagas limitadas</div>
+        <div class="plan-annual" style="margin-top:8px;font-size:.68rem;color:#a78bfa;background:rgba(167,139,250,.07);border:1px solid rgba(167,139,250,.2);border-radius:6px;padding:7px 10px;">💰 No anual: <strong>R$19.970/ano</strong> — 2 meses grátis (economize R$3.994)</div>
+        <ul class="plan-features">
+          <li>✓ Tudo do Platinum</li>
+          <li><strong style="color:#a78bfa;">🛡️ Multicontas: até 5 contas/CNPJs</strong> num só painel</li>
+          <li><strong style="color:#a78bfa;">SKUs ilimitados</strong> monitorados</li>
+          <li><strong style="color:#a78bfa;">🔍 Monitor de Governança</strong> — detecta combinações de métricas que antecedem restrições operacionais</li>
+          <li><strong style="color:#a78bfa;">💰 Auditoria de Reembolsos</strong> — identifica reembolsos pendentes e orienta contestação dentro do prazo</li>
+          <li><strong style="color:#a78bfa;">📊 Fluxo de Caixa Preditivo</strong> — cruza retenção do MP com ciclo de compra de fornecedores</li>
+          <li><strong style="color:#a78bfa;">⚠️ Radar de Mudanças ML</strong> — monitora novas políticas, tarifas e regras antes de impactar a operação</li>
+          <li>Previsão de demanda + alertas de capital de giro insuficiente</li>
+          <li>Análise de concentração: detecta dependência excessiva de 1–2 SKUs ou fornecedores</li>
+          <li>📄 Relatório executivo semanal + reunião mensal de estratégia</li>
+          <li>💬 Suporte prioritário + automações dedicadas</li>
+        </ul>
+        <button onclick="mpAbrir('enterprise')" class="plan-cta" style="background:rgba(167,139,250,.12);color:#a78bfa;border:1px solid rgba(167,139,250,.35);width:100%;font-family:'Sora',sans-serif;cursor:pointer;">
+          🏆 Assinar Enterprise por R$1.997/mês →
+        </button>
+        <div class="plan-guarantee" style="color:#2a1a4a;">🔒 Mercado Pago · 🛡️ Garantia 7 dias</div>
+      </div>
+
+    </div>
+
+    <!-- Garantia + seals -->
+    <div class="reveal" style="text-align:center;margin-top:40px;">
+      <div style="display:inline-flex;align-items:center;gap:16px;background:rgba(255,215,0,.05);border:1px solid var(--border);padding:20px 32px;margin-bottom:20px;">
+        <span style="font-size:2rem;">🛡️</span>
+        <div style="text-align:left;">
+          <div style="font-size:.88rem;font-weight:700;color:#fff;">Garantia incondicional de 7 dias</div>
+          <div style="font-size:.75rem;color:var(--muted);margin-top:4px;">Se em 7 dias você não ver valor, devolvemos 100% sem perguntas. Sem burocracia.</div>
+        </div>
+      </div>
+      <div style="display:flex;gap:24px;justify-content:center;flex-wrap:wrap;">
+        <div style="display:flex;align-items:center;gap:6px;font-size:.68rem;color:#2a3a52;">
+          <img src="https://http2.mlstatic.com/frontend-assets/mp-brand/1.0.0/img/mercadopago.svg" alt="Mercado Pago" style="height:18px;opacity:.5;" onerror="this.style.display='none'"/>
+          <span>Checkout Mercado Pago</span>
+        </div>
+        <div style="font-size:.68rem;color:#2a3a52;">🔒 SSL · Dados criptografados</div>
+        <div style="font-size:.68rem;color:#2a3a52;">🏦 PIX disponível · Taxa zero</div>
+        <div style="font-size:.68rem;color:#2a3a52;">💳 Cartão em até 12x</div>
+      </div>
+    </div>
+
+    <!-- Já é cliente -->
+    <div class="reveal" style="text-align:center;margin-top:24px;">
+      <p style="font-size:.78rem;color:#3a4a62;">
+        Já é cliente? <a href="login.html" style="color:var(--gold);font-weight:700;text-decoration:none;">Clique aqui para acessar a plataforma →</a>
+      </p>
+    </div>
+
+  </div>
+</section>
+
+<!-- ═══ MERCADO PAGO JAVASCRIPT ═══ -->
+<script>
+// ─── CONFIG ─────────────────────────────────────────
+// Public Key de produção do Mercado Pago (conta CNPJ Consultor Platinum)
+const MP_PUBLIC_KEY = 'APP_USR-afa8a023-34e5-4c6d-b349-27b63b98953b';
+
+// Dados dos planos — com links reais do Mercado Pago
+// mensal = assinatura recorrente (cartão, cobra todo mês)
+// anual  = pagamento avulso (PIX/boleto/cartão à vista)
+const MP_PLANOS = {
+  starter: {
+    nome: '🌱 Starter',
+    preco: 'R$ 97',
+    periodo: '/mês · Promoção de lançamento',
+    valor: 97.00,
+    anualPreco: 'R$ 970',
+    descricao: 'Consultor Platinum ML — Plano Starter',
+    cor: '#22c55e',
+    linkMensal: 'https://www.mercadopago.com.br/subscriptions/checkout?preapproval_plan_id=3625bf995da6458eb215389d1dc59355',
+    linkAnual:  'https://mpago.la/1U2j49E'
+  },
+  platinum: {
+    nome: '💎 Platinum',
+    preco: 'R$ 347',
+    periodo: '/mês · Promoção de lançamento',
+    valor: 347.00,
+    anualPreco: 'R$ 3.470',
+    descricao: 'Consultor Platinum ML — Plano Platinum',
+    cor: '#FFD700',
+    linkMensal: 'https://www.mercadopago.com.br/subscriptions/checkout?preapproval_plan_id=f80861090902476788b1a02dd2ad9a66e',
+    linkAnual:  'https://mpago.la/2sj6c5r'
+  },
+  enterprise: {
+    nome: '🏆 Enterprise',
+    preco: 'R$ 1.997',
+    periodo: '/mês · Early Access',
+    valor: 1997.00,
+    anualPreco: 'R$ 19.970',
+    descricao: 'Consultor Platinum ML — Plano Enterprise',
+    cor: '#a78bfa',
+    linkMensal: 'https://www.mercadopago.com.br/subscriptions/checkout?preapproval_plan_id=2921f08d41cc4cafbf3f1cb7195e3a83',
+    linkAnual:  'https://mpago.la/2fZSVbv'
+  }
+};
+
+let mpPlanoAtual = 'platinum';
+
+// ─── ABRIR MODAL ────────────────────────────────────
+function mpAbrir(plano) {
+  mpPlanoAtual = plano || 'platinum';
+  const p = MP_PLANOS[mpPlanoAtual];
+
+  document.getElementById('mpPlanName').textContent  = p.nome;
+  document.getElementById('mpPlanPrice').textContent = p.preco;
+  document.getElementById('mpPlanPrice').style.color = p.cor;
+  document.getElementById('mpPlanPeriod').textContent = p.periodo;
+
+  // Preços das duas opções
+  document.getElementById('mpMensalPreco').textContent = p.preco;
+  document.getElementById('mpAnualPreco').textContent  = p.anualPreco;
+
+  // Reset views
+  document.getElementById('mpFormView').style.display    = 'block';
+  document.getElementById('mpSuccessView').style.display = 'none';
+
+  document.getElementById('mpOverlay').classList.add('open');
+}
+
+// ─── REDIRECIONA PARA O MERCADO PAGO ─────────────────
+function mpIrPara(periodo) {
+  const p = MP_PLANOS[mpPlanoAtual];
+  const url = periodo === 'anual' ? p.linkAnual : p.linkMensal;
+  // Abre o checkout seguro do Mercado Pago
+  window.open(url, '_blank');
+  // Mostra a tela de "quase lá" para quem voltar
+  document.getElementById('mpFormView').style.display    = 'none';
+  document.getElementById('mpSuccessView').style.display = 'block';
+}
+
+function mpFechar() {
+  document.getElementById('mpOverlay').classList.remove('open');
+}
+
+function mpFecharSeFora(e) {
+  if (e.target.id === 'mpOverlay') mpFechar();
+}
+
+document.addEventListener('keydown', e => { if (e.key === 'Escape') mpFechar(); });
+
+
+// Spin animation para o botão
+const spinStyle = document.createElement('style');
+spinStyle.textContent = '@keyframes mpSpin{to{transform:rotate(360deg)}}';
+document.head.appendChild(spinStyle);
+</script>
+
+<!-- ═══════════════════════════════════
+     FAQ
+═══════════════════════════════════ -->
+<section class="faq-section" id="faq">
+  <div class="faq-inner">
+    <div class="faq-header reveal">
+      <div class="section-eyebrow" style="margin:0 auto 20px;">❓ Perguntas Frequentes</div>
+      <h2 class="section-title" style="text-align:center;">Tudo o que você<br>precisa <em>saber antes</em></h2>
+    </div>
+
+    <div class="faq-list reveal">
+
+      <div class="faq-item">
+        <div class="faq-q" onclick="toggleFaq(this)">
+          <span class="faq-q-text">Preciso dar minha senha do Mercado Livre?</span>
+          <div class="faq-icon">+</div>
+        </div>
+        <div class="faq-a"><div class="faq-a-inner">Não. Nunca. Usamos OAuth 2.0 — o mesmo protocolo de bancos e grandes aplicativos. Você autoriza o acesso diretamente no site do Mercado Livre, sem digitar sua senha no nosso sistema. Sua senha fica no ML. Nós recebemos apenas um token com os escopos que você liberou.</div></div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-q" onclick="toggleFaq(this)">
+          <span class="faq-q-text">O sistema pode alterar preços ou pausar anúncios sem minha autorização?</span>
+          <div class="faq-icon">+</div>
+        </div>
+        <div class="faq-a"><div class="faq-a-inner">Nunca. O sistema é somente leitura por padrão. Para qualquer ação de escrita — como ajuste de preço — o sistema apresenta a sugestão no painel e aguarda você clicar em "Aprovar". A IA jamais toma decisões críticas sozinha. O controle final é sempre seu.</div></div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-q" onclick="toggleFaq(this)">
+          <span class="faq-q-text">Para quem é indicado o Consultor Platinum?</span>
+          <div class="faq-icon">+</div>
+        </div>
+        <div class="faq-a"><div class="faq-a-inner">Para sellers do Mercado Livre que já vendem e querem crescer com segurança — especialmente quem fatura a partir de R$10.000/mês e não pode se dar ao luxo de ter a conta suspensa ou a margem destruída por ACOS alto. Também é ideal para quem está começando e quer evitar os erros que quebram sellers iniciantes.</div></div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-q" onclick="toggleFaq(this)">
+          <span class="faq-q-text">Quando recebo o acesso após assinar?</span>
+          <div class="faq-icon">+</div>
+        </div>
+        <div class="faq-a"><div class="faq-a-inner">Imediatamente após a aprovação do pagamento pelo Mercado Pago. Você recebe o link de acesso direto no seu e-mail de forma automática — sem precisar enviar comprovante, sem esperar atendimento. O bônus do plano anual também é enviado automaticamente para o mesmo e-mail.</div></div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-q" onclick="toggleFaq(this)">
+          <span class="faq-q-text">Posso cancelar quando quiser?</span>
+          <div class="faq-icon">+</div>
+        </div>
+        <div class="faq-a"><div class="faq-a-inner">Sim. Sem fidelidade, sem multa. Você pode cancelar a qualquer momento direto no painel ou entrando em contato pelo WhatsApp. Além disso, temos garantia de 7 dias — se não ver valor, devolvemos 100%.</div></div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-q" onclick="toggleFaq(this)">
+          <span class="faq-q-text">Quanto tempo leva para ver resultados?</span>
+          <div class="faq-icon">+</div>
+        </div>
+        <div class="faq-a"><div class="faq-a-inner">Os alertas começam imediatamente após conectar. Sellers que agem nas primeiras 24h costumam ver resultados concretos em menos de 1 semana — ACOS caindo, Buy Box recuperada ou termômetro voltando ao verde. Tudo depende de quantos problemas existem na conta e com que velocidade você age.</div></div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════
+     FINAL CTA
+═══════════════════════════════════ -->
+<section class="final-cta">
+  <div class="reveal">
+    <div class="section-eyebrow" style="margin:0 auto 28px;">⚡ Ativação do Ecossistema</div>
+    <h2>
+      Chega de descobrir problemas<br>
+      <em>depois que já custaram caro.</em>
+    </h2>
+    <p>
+      Conecte agora e tenha um especialista Platinum olhando para sua conta 24 horas por dia — enquanto seus concorrentes ainda esperam a próxima reunião semanal.
+    </p>
+    <div class="hero-ctas" style="margin-bottom:0;">
+      <a href="https://consultorplatinum.com.br/#planos" class="btn-primary" style="font-size:1rem;padding:20px 48px;">
+        ⚡ Ativar e falar com o Consultor
+      </a>
+      <button class="btn-wpp" onclick="abrirChat()" style="font-size:.88rem;">
+        <svg viewBox="0 0 24 24" fill="currentColor" width="18" height="18"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+        Tirar dúvidas pelo WhatsApp
+      </button>
+    </div>
+    <div class="final-trust">
+      <div class="trust-item"><span>🔒</span><span>Conexão segura OAuth 2.0</span></div>
+      <div class="trust-item"><span>✓</span><span>Sem acesso à senha</span></div>
+      <div class="trust-item"><span>⚡</span><span>Ativo em 30 segundos</span></div>
+      <div class="trust-item"><span>🛡️</span><span>Garantia 7 dias</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════
+     CONTATO
+═══════════════════════════════════ -->
+<section class="contact-section" id="contato">
+  <div class="contact-inner">
+    <div class="reveal">
+      <div class="section-eyebrow" style="margin:0 auto 28px;">✉️ Fale com a gente</div>
+      <h2 class="section-title">Ainda tem <em>dúvidas?</em></h2>
+      <p class="section-sub" style="margin:0 auto;">Deixe seu contato e a equipe do Consultor Platinum responde rápido. Ou chame direto no WhatsApp.</p>
+    </div>
+
+    <form class="contact-form reveal" id="contatoForm" onsubmit="enviarContato(event)">
+      <div class="cf-row">
+        <div class="cf-field">
+          <label>Nome</label>
+          <input type="text" id="cfNome" placeholder="Seu nome" required>
+        </div>
+        <div class="cf-field">
+          <label>WhatsApp</label>
+          <input type="tel" id="cfWpp" placeholder="(00) 00000-0000" required>
+        </div>
+      </div>
+      <div class="cf-field">
+        <label>E-mail</label>
+        <input type="email" id="cfEmail" placeholder="seu@email.com" required>
+      </div>
+      <div class="cf-field">
+        <label>Mensagem (opcional)</label>
+        <textarea id="cfMsg" placeholder="Como podemos ajudar?"></textarea>
+      </div>
+      <button type="submit" class="cf-submit">Enviar mensagem →</button>
+      <div class="cf-ok" id="cfOk">✓ Recebido! Em breve a equipe entra em contato pelo seu WhatsApp ou e-mail.</div>
+    </form>
+
+    <div class="contact-alt reveal">
+      <a href="#" onclick="abrirChat();return false;">
+        <svg viewBox="0 0 24 24" fill="#25D366" width="18" height="18"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/></svg>
+        WhatsApp direto
+      </a>
+      <a href="mailto:contato@consultorplatinum.com.br">
+        <span>✉️</span> contato@consultorplatinum.com.br
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════
+     FOOTER
+═══════════════════════════════════ -->
+<footer>
+  <div class="footer-logo" style="display:flex;align-items:center;"><img src="logo.png" alt="Consultor Platinum · Intelligence 24 Horas" style="height:46px;width:auto;display:block;"></div>
+  <ul class="footer-links">
+    <li><a href="#">Termos de Uso</a></li>
+    <li><a href="#">Privacidade</a></li>
+    <li><a href="#planos">Planos</a></li>
+  </ul>
+  <p>© 2026 Consultor Platinum ML · Todos os direitos reservados</p>
+</footer>
+
+<!-- Float mobile CTA -->
+<a href="#planos" class="float-cta-mobile">⚡ Ver Planos</a>
+
+<!-- ═══════════════════════════════════
+     WHATSAPP CHATBOT WIDGET
+═══════════════════════════════════ -->
+
+<!-- Chat popup -->
+<div class="wpp-chat" id="wppChat">
+  <div class="wpp-chat-head">
+    <div class="wpp-agent-avatar">🤖</div>
+    <div>
+      <div class="wpp-agent-name">Consultor Platinum</div>
+      <div class="wpp-agent-status"><div class="wpp-status-dot"></div> Online agora · Responde em segundos</div>
+    </div>
+    <button class="wpp-close" onclick="fecharChat()">✕</button>
+  </div>
+
+  <div class="wpp-chat-body" id="wppMessages">
+    <!-- Messages injected by JS -->
+  </div>
+
+  <div class="wpp-options" id="wppOptions" style="display:none;">
+    <button class="wpp-option" onclick="escolherOpcao(1)">
+      <span class="wpp-option-icon">🌡️</span>
+      Meu termômetro está amarelando
+    </button>
+    <button class="wpp-option" onclick="escolherOpcao(2)">
+      <span class="wpp-option-icon">📉</span>
+      ACOS alto destruindo minha margem
+    </button>
+    <button class="wpp-option" onclick="escolherOpcao(3)">
+      <span class="wpp-option-icon">🥊</span>
+      Perdi a Buy Box sem saber por quê
+    </button>
+    <button class="wpp-option" onclick="escolherOpcao(4)">
+      <span class="wpp-option-icon">💰</span>
+      Quero conhecer os planos
+    </button>
+  </div>
+</div>
+
+<!-- WhatsApp bubble -->
+<div class="wpp-widget">
+  <button class="wpp-btn" id="wppBtn" onclick="toggleChat()" aria-label="Abrir chat WhatsApp">
+    <div class="wpp-ping"></div>
+    <div class="wpp-notif" id="wppNotif">1</div>
+    <svg viewBox="0 0 24 24" fill="#fff"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+  </button>
+</div>
+
+<!-- ═══════════════════════════════════
+     JAVASCRIPT
+═══════════════════════════════════ -->
+<script>
+// ─── COUNTDOWN REGRESSIVO ───────────────────────────
+// Data-alvo do fim da promoção. Ajuste conforme necessário.
+(function(){
+  const KEY = 'cp_launch_deadline';
+  let deadline;
+  try { deadline = localStorage.getItem(KEY); } catch(e) { deadline = null; }
+  if (!deadline) {
+    // 7 dias a partir da primeira visita
+    deadline = Date.now() + 7 * 24 * 60 * 60 * 1000;
+    try { localStorage.setItem(KEY, deadline); } catch(e) {}
+  } else {
+    deadline = parseInt(deadline, 10);
+  }
+  const el = document.getElementById('countdown');
+  function tick(){
+    if (!el) return;
+    let diff = deadline - Date.now();
+    if (diff <= 0) { el.textContent = 'encerrada'; return; }
+    const d = Math.floor(diff / 86400000);
+    const h = Math.floor((diff % 86400000) / 3600000);
+    const m = Math.floor((diff % 3600000) / 60000);
+    const s = Math.floor((diff % 60000) / 1000);
+    el.textContent = `${d}d ${String(h).padStart(2,'0')}h ${String(m).padStart(2,'0')}m ${String(s).padStart(2,'0')}s`;
+  }
+  tick();
+  setInterval(tick, 1000);
+})();
+
+// ─── CONFIGURAÇÃO ───────────────────────────────────
+// 🔧 SUBSTITUA o número abaixo pelo seu WhatsApp real
+const WPP_NUMBER = '5541985369390'; // formato: 55 + DDD + número (sem espaços)
+const WPP_BASE   = `https://wa.me/${WPP_NUMBER}`;
+
+// Mensagens pré-definidas por dor para direcionar para o WhatsApp
+const WPP_MSGS = {
+  1: encodeURIComponent('Olá! Vim pelo site do Consultor Platinum ML. Estou com meu termômetro amarelando e quero entender como resolver isso urgente.'),
+  2: encodeURIComponent('Olá! Vim pelo site do Consultor Platinum ML. Meu ACOS está acima de 25% e está destruindo minha margem. Quero ajuda para resolver.'),
+  3: encodeURIComponent('Olá! Vim pelo site do Consultor Platinum ML. Perdi a Buy Box do meu produto principal e não estou conseguindo identificar o motivo.'),
+  4: encodeURIComponent('Olá! Vim pelo site do Consultor Platinum ML. Quero conhecer os planos disponíveis e entender o que está incluso.')
+};
+
+// ─── ESTADO ─────────────────────────────────────────
+let chatOpen  = false;
+let chatInited = false;
+
+// ─── TOGGLE CHAT ────────────────────────────────────
+function toggleChat() {
+  chatOpen ? fecharChat() : abrirChat();
+}
+
+function abrirChat() {
+  chatOpen = true;
+  document.getElementById('wppChat').classList.add('open');
+  document.getElementById('wppNotif').style.display = 'none';
+  if (!chatInited) iniciarChatbot();
+}
+
+function fecharChat() {
+  chatOpen = false;
+  document.getElementById('wppChat').classList.remove('open');
+}
+
+// ─── CHATBOT FLOW ────────────────────────────────────
+function iniciarChatbot() {
+  chatInited = true;
+  const msgs = document.getElementById('wppMessages');
+  const opts = document.getElementById('wppOptions');
+
+  // Typing indicator
+  const typing = document.createElement('div');
+  typing.className = 'wpp-typing';
+  typing.innerHTML = '<span></span><span></span><span></span>';
+  msgs.appendChild(typing);
+
+  // First message
+  setTimeout(() => {
+    msgs.removeChild(typing);
+    addMsgBot(msgs, 'Olá! 👋 Sou o <strong>Consultor Platinum</strong>.<br>Estou aqui para ajudar você a proteger sua conta no Mercado Livre.');
+  }, 1000);
+
+  // Second message
+  setTimeout(() => {
+    const t2 = document.createElement('div');
+    t2.className = 'wpp-typing';
+    t2.innerHTML = '<span></span><span></span><span></span>';
+    msgs.appendChild(t2);
+    msgs.scrollTop = msgs.scrollHeight;
+
+    setTimeout(() => {
+      msgs.removeChild(t2);
+      addMsgBot(msgs, 'Qual é o maior problema na sua loja <strong>agora</strong>? 👇');
+      setTimeout(() => { opts.style.display = 'flex'; }, 300);
+    }, 1200);
+  }, 2600);
+}
+
+function addMsgBot(container, html) {
+  const d = document.createElement('div');
+  d.className = 'wpp-msg';
+  d.innerHTML = html + '<div class="wpp-msg-time">Agora ✓✓</div>';
+  container.appendChild(d);
+  container.scrollTop = container.scrollHeight;
+}
+
+// ─── ESCOLHA DO USUÁRIO ──────────────────────────────
+function escolherOpcao(n) {
+  const opts = document.getElementById('wppOptions');
+  const msgs = document.getElementById('wppMessages');
+  opts.style.display = 'none';
+
+  const labels = {
+    1: '🌡️ Meu termômetro está amarelando',
+    2: '📉 ACOS alto destruindo minha margem',
+    3: '🥊 Perdi a Buy Box',
+    4: '💰 Quero conhecer os planos'
+  };
+
+  // Msg do usuário (balão direito)
+  const u = document.createElement('div');
+  u.style.cssText = 'align-self:flex-end;max-width:88%;background:#dcf8c6;border-radius:8px 8px 0 8px;padding:10px 14px;font-size:.8rem;color:#111;box-shadow:0 1px 3px rgba(0,0,0,.1);animation:msgSlide .3s ease both;';
+  u.innerHTML = labels[n] + '<div style="font-size:.58rem;color:#999;text-align:right;margin-top:4px;">Agora ✓</div>';
+  msgs.appendChild(u);
+  msgs.scrollTop = msgs.scrollHeight;
+
+  // Typing
+  setTimeout(() => {
+    const t = document.createElement('div');
+    t.className = 'wpp-typing';
+    t.innerHTML = '<span></span><span></span><span></span>';
+    msgs.appendChild(t);
+    msgs.scrollTop = msgs.scrollHeight;
+
+    setTimeout(() => {
+      msgs.removeChild(t);
+
+      const respostas = {
+        1: 'Entendi! Termômetro amarelando é urgência máxima. 🚨<br><br>Pelo Consultor Platinum você identifica as mediações abertas e recebe o protocolo de contenção imediato.<br><br>Vou te conectar com nosso time agora! 👇',
+        2: 'ACOS acima de 25% está literalmente drenando seu lucro. 📉<br><br>O Consultor audita suas campanhas e identifica quais estão com ACOS >50% para cortar imediatamente.<br><br>Clique abaixo e resolva isso hoje! 👇',
+        3: 'Buy Box perdida = vendas indo para o concorrente. 🥊<br><br>O diagnóstico em tempo real aponta se o problema é Full, preço, reputação ou prazo de envio — e entrega o ajuste exato.<br><br>Bora resolver? 👇',
+        4: 'Ótimo! Temos 3 planos a partir de <strong>R$97/mês</strong> com garantia de 7 dias. 💎<br><br>Nosso time vai te explicar tudo e encontrar o plano ideal para o seu tamanho de operação. 👇'
+      };
+
+      addMsgBot(msgs, respostas[n]);
+
+      // CTA button para WhatsApp real
+      setTimeout(() => {
+        const cta = document.createElement('div');
+        cta.style.cssText = 'padding:0 0 8px;';
+        cta.innerHTML = `
+          <a href="${WPP_BASE}?text=${WPP_MSGS[n]}"
+             target="_blank" rel="noopener"
+             style="display:flex;align-items:center;justify-content:center;gap:10px;
+                    background:#25D366;color:#fff;border-radius:8px;
+                    padding:14px;font-size:.82rem;font-weight:700;
+                    text-decoration:none;transition:all .2s;font-family:'Sora',sans-serif;">
+            <svg viewBox="0 0 24 24" fill="#fff" width="18" height="18"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+            Falar com o Consultor agora
+          </a>`;
+        msgs.appendChild(cta);
+        msgs.scrollTop = msgs.scrollHeight;
+      }, 400);
+
+    }, 1400);
+  }, 600);
+}
+
+// ─── NAV SCROLL ──────────────────────────────────────
+window.addEventListener('scroll', () => {
+  const nav = document.getElementById('mainNav');
+  nav.classList.toggle('scrolled', window.scrollY > 60);
+}, { passive: true });
+
+// ─── MOBILE MENU ─────────────────────────────────────
+document.getElementById('mobileMenuBtn').addEventListener('click', () => {
+  document.getElementById('navLinks').classList.toggle('mobile-open');
+});
+
+// ─── FAQ ─────────────────────────────────────────────
+function toggleFaq(el) {
+  const item = el.closest('.faq-item');
+  const isOpen = item.classList.contains('open');
+  document.querySelectorAll('.faq-item.open').forEach(i => i.classList.remove('open'));
+  if (!isOpen) item.classList.add('open');
+}
+
+// ─── SCROLL REVEAL ───────────────────────────────────
+if ('IntersectionObserver' in window) {
+  const obs = new IntersectionObserver(entries => {
+    entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+  }, { threshold: 0.08 });
+  document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
+} else {
+  document.querySelectorAll('.reveal').forEach(el => el.classList.add('visible'));
+}
+
+// ─── AUTO-OPEN CHAT após 8s ──────────────────────────
+setTimeout(() => {
+  if (!chatOpen) {
+    // Mostra tooltip label
+    const label = document.createElement('div');
+    label.className = 'wpp-label';
+    label.textContent = '💬 Fale com um consultor';
+    document.querySelector('.wpp-widget').insertBefore(label, document.querySelector('.wpp-btn'));
+    setTimeout(() => { if (label.parentNode) label.parentNode.removeChild(label); }, 4000);
+  }
+}, 8000);
+
+// ─── FLOATING PARTICLES ──────────────────────────────
+(function() {
+  const canvas = document.getElementById('floatCanvas');
+  if (!canvas) return;
+
+  // Partículas douradas
+  const pColors = [
+    'rgba(255,215,0,VAR)',
+    'rgba(255,193,7,VAR)',
+    'rgba(245,158,11,VAR)',
+    'rgba(255,255,255,VAR)'
+  ];
+
+  for (let i = 0; i < 28; i++) {
+    const p = document.createElement('div');
+    p.className = 'fp';
+    const size = Math.random() * 4 + 1.5;
+    const left = Math.random() * 100;
+    const duration = Math.random() * 18 + 12;
+    const delay   = Math.random() * 20;
+    const color   = pColors[Math.floor(Math.random() * pColors.length)];
+    const opacity = (Math.random() * 0.25 + 0.08).toFixed(2);
+    p.style.cssText = `
+      left:${left}%;
+      bottom:-10px;
+      width:${size}px;
+      height:${size}px;
+      background:${color.replace('VAR', opacity)};
+      animation-duration:${duration}s;
+      animation-delay:-${delay}s;
+    `;
+    canvas.appendChild(p);
+  }
+
+  // Losangos flutuantes
+  const diamondPositions = [
+    { top:'12%', left:'3%',  size:18, dur:9,  del:0   },
+    { top:'28%', right:'4%', size:12, dur:13, del:2   },
+    { top:'55%', left:'7%',  size:24, dur:11, del:4   },
+    { top:'70%', right:'8%', size:16, dur:15, del:1   },
+    { top:'42%', left:'92%', size:10, dur:10, del:3   },
+    { top:'85%', left:'15%', size:20, dur:12, del:5   },
+    { top:'8%',  right:'18%',size:14, dur:17, del:6   },
+    { top:'90%', right:'22%',size:8,  dur:8,  del:2.5 },
+  ];
+
+  diamondPositions.forEach(d => {
+    const el = document.createElement('div');
+    el.className = 'fd';
+    const s = Object.assign({
+      position:'absolute',
+      width: d.size+'px',
+      height: d.size+'px',
+      border: '1px solid rgba(255,215,0,0.2)',
+      transform: 'rotate(45deg)',
+      animationDuration: d.dur+'s',
+      animationDelay: '-'+d.del+'s',
+      background: Math.random() > .6 ? 'rgba(255,215,0,0.04)' : 'transparent'
+    }, d.top    ? {top:d.top}    : {},
+       d.left   ? {left:d.left}  : {},
+       d.right  ? {right:d.right}: {}
+    );
+    Object.assign(el.style, s);
+    canvas.appendChild(el);
+  });
+
+  // Linhas de acento
+  const lineData = [
+    { top:'35%', left:'0',    width:'120px', angle:'-8deg',  opacity:.12 },
+    { top:'65%', right:'0',   width:'90px',  angle:'12deg',  opacity:.1  },
+    { top:'50%', left:'0',    width:'60px',  angle:'-4deg',  opacity:.08 },
+    { top:'20%', right:'0',   width:'150px', angle:'6deg',   opacity:.09 },
+  ];
+
+  lineData.forEach(l => {
+    const el = document.createElement('div');
+    el.className = 'fl';
+    const s = {
+      position:'absolute',
+      height: '1px',
+      background: 'linear-gradient(90deg, transparent, rgba(255,215,0,0.6), transparent)',
+      width: l.width,
+      transform: `rotate(${l.angle})`,
+      animationDuration: (8 + Math.random()*6)+'s',
+      animationDelay: '-'+(Math.random()*5)+'s',
+    };
+    if (l.top)    s.top    = l.top;
+    if (l.left)   s.left   = l.left;
+    if (l.right)  s.right  = l.right;
+    Object.assign(el.style, s);
+    canvas.appendChild(el);
+  });
+})();
+document.querySelectorAll('.pain-card').forEach((c, i) => {
+  c.style.transitionDelay = `${(i % 3) * 0.08}s`;
+});
+document.querySelectorAll('.diff-card').forEach((c, i) => {
+  c.style.transitionDelay = `${i * 0.1}s`;
+});
+document.querySelectorAll('.proof-card').forEach((c, i) => {
+  c.style.transitionDelay = `${i * 0.1}s`;
+});
+</script>
+
+
+<!-- ═══ JS SIMULAÇÃO INTERATIVA (portado da landing) ═══ -->
+<script>
+
+  // ═══════════════════════════════════
+  // DEMO INTERATIVA
+  // ═══════════════════════════════════
+  const demoRespostas = {
+    'O que é mais urgente na minha conta agora?': {
+      texto: 'Sua conta tem <b>2 urgências críticas</b> para hoje:\n\n<span class="dhl">🔴 1. Mediações</span> — Você tem 3 reclamações sem resposta há +24h. O ML penaliza em 48h automaticamente. Isso pode derrubar seu termômetro para o vermelho.\n\n<span class="dhl">🔴 2. ACOS de 34%</span> — Você está gastando R$34 para cada R$100 vendido em Ads. Sua margem está negativa. Precisa cortar o lance hoje mesmo.',
+      sol: null, flash: 'dc1'
+    },
+    'Por que meu ACOS está tão alto?': {
+      texto: 'Seu ACOS de <span class="dhl">34%</span> está bem acima do ideal de 10%.\n\nDiagnóstico: você tem campanhas rodando em <b>produtos com margem insuficiente</b>. Os 3 piores estão com ACOS acima de 50% — veja o plano no card ao lado 👈',
+      sol: { titulo: '🎯 Como baixar seu ACOS agora', itens: ['Reduza o lance máximo em 25% em todas as campanhas','Pause os produtos com ACOS >50% identificados no painel','Concentre o budget nos 2 produtos com ACOS <15%'] },
+      flash: 'dc2'
+    },
+    'Por que perdi a Buy Box?': {
+      texto: 'Sua Buy Box caiu para <span class="dhl">61%</span>. O ideal é acima de 80%.\n\nO problema: seu concorrente principal <b>ativou o Full ML</b> e agora entrega no dia seguinte. Mesmo com preço igual, ele leva a venda pelo tempo de entrega.',
+      sol: { titulo: '🥊 Como recuperar a Buy Box', itens: ['Ative o Full nos seus 5 produtos mais vendidos','Se não puder fazer Full, use Flex na sua cidade','Nos demais, baixe R$2 no preço para compensar'] },
+      flash: null
+    },
+    'Meu termômetro está em risco de cair?': {
+      texto: 'Sim, está em <span class="dhl">zona amarela</span>. Sua taxa de reclamações está em 2.4% — o limite é 2%.\n\nAs <b>3 mediações abertas</b> são o sinal de risco mais crítico agora. Cada uma sem resposta aumenta o risco de penalização do termômetro. Veja o protocolo no card 👈',
+      sol: { titulo: '🌡️ Protocolo de proteção', itens: ['Responda as 3 mediações abertas antes das 18h hoje','Ofereça solução direta: reenvio ou reembolso imediato','Não deixe nenhuma mediação sem resposta por +24h'] },
+      flash: 'dc1'
+    },
+    'Como resolver as mediações abertas e proteger meu termômetro?': {
+      texto: 'Para resolver as mediações e proteger o termômetro, siga este protocolo:\n\n1. Entre no app do ML agora mesmo\n2. Para cada mediação: não peça mais informações — ofereça <b>solução direta</b>\n3. Reenvio ou reembolso resolve 90% dos casos sem escalada\n\nIsso para o sangramento no termômetro nas próximas horas.',
+      sol: { titulo: '✅ Protocolo mediação', itens: ['Abra o ML agora e filtre por "Reclamações"','Responda cada uma com oferta de solução imediata','Registre o acordo no chat da mediação para o ML ver'] },
+      flash: 'dc1'
+    },
+    'Como baixar meu ACOS de 34% e parar de desperdiçar dinheiro em ads?': {
+      texto: 'ACOS de 34% significa que você <b>está perdendo dinheiro</b> em ads. Passo a passo:\n\n1. Acesse o Gerenciador de Ads do ML\n2. Ordene por ACOS decrescente\n3. Pause tudo acima de 50%\n4. Reduza lances do restante em 25%\n\nEm 7 dias você já verá o ACOS caindo. O painel vai monitorar pra você.',
+      sol: { titulo: '📉 Corte de ACOS — 3 passos', itens: ['Pause campanhas com ACOS >50% agora','Reduza lance máximo em 25% no restante','Reinvista o budget nos 2 produtos que convertem'] },
+      flash: 'dc2'
+    },
+    'Como evitar atrasos de envio no futuro e proteger meu SLA?': {
+      texto: 'Para nunca mais atrasar um envio:\n\n1. <b>Configure alertas no ML</b> para novos pedidos pagos\n2. Defina uma rotina: todo dia às 9h, abra o Mercado Livre e processe os pedidos do dia anterior\n3. O sistema aqui vai te avisar quando o prazo está chegando\n\nOs 2 pedidos de hoje: imprima a etiqueta agora antes que vença.',
+      sol: { titulo: '📦 Rotina anti-atraso', itens: ['Ative notificações push do ML no celular','Processe pedidos todo dia às 9h — crie o hábito','O Consultor vai te alertar antes do prazo vencer'] },
+      flash: 'dc3'
+    }
+  };
+
+  function demoGetResposta(msg) {
+    if (demoRespostas[msg]) return demoRespostas[msg];
+    const m = msg.toLowerCase();
+    if (m.includes('termômetro') || m.includes('mediação') || m.includes('reputação') || m.includes('mediações'))
+      return demoRespostas['Meu termômetro está em risco de cair?'];
+    if (m.includes('acos') || m.includes('ads') || m.includes('campanha') || m.includes('anúncio'))
+      return demoRespostas['Por que meu ACOS está tão alto?'];
+    if (m.includes('buy box') || m.includes('buybox') || m.includes('concorrente') || m.includes('full'))
+      return demoRespostas['Por que perdi a Buy Box?'];
+    if (m.includes('urgente') || m.includes('urgência') || m.includes('primeiro') || m.includes('começar'))
+      return demoRespostas['O que é mais urgente na minha conta agora?'];
+    return {
+      texto: `Entendi sua pergunta sobre <b>"${msg}"</b>.\n\nCom base na análise da sua conta, as <span class="dhl">2 urgências críticas</span> do painel precisam ser resolvidas primeiro. Quer que eu detalhe o termômetro ou o ACOS?`,
+      sol: null, flash: null
+    };
+  }
+
+  function demoEnviar() {
+    const inp = document.getElementById('demoInput');
+    if(!inp) return;
+    const msg = inp.value.trim();
+    if (!msg) return;
+    inp.value = '';
+    demoPerg(msg);
+  }
+
+  function demoPerg(msg) {
+    const chat = document.getElementById('demoChatMsgs');
+    const btn  = document.getElementById('demoBtnSend');
+    btn.disabled = true;
+
+    // Mensagem do usuário
+    const u = document.createElement('div');
+    u.className = 'dmsg dmsg-usr';
+    u.innerHTML = `<div class="dmsg-bubble">${msg}</div><div class="dmsg-time">Agora</div>`;
+    chat.appendChild(u);
+    chat.scrollTop = chat.scrollHeight;
+
+    // Typing
+    const t = document.createElement('div');
+    t.className = 'dmsg dmsg-ia typing-ind';
+    t.innerHTML = `<div class="typing-bub"><div class="tdot"></div><div class="tdot"></div><div class="tdot"></div></div>`;
+    chat.appendChild(t);
+    chat.scrollTop = chat.scrollHeight;
+
+    const delay = 900 + Math.random() * 600;
+    setTimeout(() => {
+      chat.removeChild(t);
+      const resp = demoGetResposta(msg);
+      const textoFmt = resp.texto.replace(/\n\n/g,'<br><br>').replace(/\n/g,'<br>');
+
+      let solHTML = '';
+      if (resp.sol) {
+        solHTML = `<div class="inline-sol">
+          <div class="inline-sol-title">${resp.sol.titulo}</div>
+          ${resp.sol.itens.map(i=>`<div class="inline-sol-item"><span>→</span><span>${i}</span></div>`).join('')}
+          <button class="btn-painel" onclick="demoScrollPainel()">📊 Ver no painel ao lado →</button>
+        </div>`;
+      }
+
+      const ia = document.createElement('div');
+      ia.className = 'dmsg dmsg-ia';
+      ia.innerHTML = `<div class="dmsg-bubble">${textoFmt}${solHTML}</div><div class="dmsg-time">Agora</div>`;
+      chat.appendChild(ia);
+      chat.scrollTop = chat.scrollHeight;
+
+      if (resp.flash) {
+        const card = document.getElementById(resp.flash);
+        if (card) {
+          card.classList.add('highlighted');
+          card.scrollIntoView({ behavior:'smooth', block:'nearest' });
+          setTimeout(() => card.classList.remove('highlighted'), 3000);
+        }
+      }
+      btn.disabled = false;
+    }, delay);
+  }
+
+  function demoMarcar(el) {
+    if(!el) return;
+    el.classList.toggle('done');
+    const n = el.querySelector('.demo-acao-n');
+    const all = el.parentElement ? el.parentElement.querySelectorAll('.demo-acao') : [];
+    if(n) n.textContent = el.classList.contains('done') ? '✓' : (Array.from(all).indexOf(el)+1);
+  }
+
+  function demoScrollPainel() {
+    const el = document.getElementById('demoCards');
+    if(el) el.scrollTo({ top: 0, behavior: 'smooth' });
+  }
+
+  // Mensagem automática após 2.5s
+  setTimeout(() => {
+    const chat = document.getElementById('demoChatMsgs');
+    if (!chat) return;
+    const t = document.createElement('div');
+    t.className = 'dmsg dmsg-ia typing-ind';
+    t.innerHTML = `<div class="typing-bub"><div class="tdot"></div><div class="tdot"></div><div class="tdot"></div></div>`;
+    chat.appendChild(t);
+    chat.scrollTop = chat.scrollHeight;
+    setTimeout(() => {
+      chat.removeChild(t);
+      const ia = document.createElement('div');
+      ia.className = 'dmsg dmsg-ia';
+      ia.innerHTML = `<div class="dmsg-bubble">Vou direto ao ponto: seu <b>termômetro está amarelando</b>. Você tem <span class="dhl">3 mediações sem resposta</span> — se não agir hoje, o ML decide contra você automaticamente.<br><br>Clique em <b>"Como resolver as mediações"</b> abaixo do card para ver o protocolo completo. 👆</div><div class="dmsg-time">Agora</div>`;
+      chat.appendChild(ia);
+      chat.scrollTop = chat.scrollHeight;
+      // Flash no card 1
+      const c1 = document.getElementById('dc1');
+      if (c1) { c1.classList.add('highlighted'); setTimeout(()=>c1.classList.remove('highlighted'),3000); }
+    }, 1400);
+  }, 2500);
+
+  // ═══════════════════════════════════
+  // Scroll reveal (with fallback for unsupported browsers)
+  if ('IntersectionObserver' in window) {
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(e => {
+        if (e.isIntersecting) {
+          e.target.classList.add('visible');
+        }
+      });
+    }, { threshold: 0.08 });
+    document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+  } else {
+    // Fallback: show all reveal elements immediately
+    document.querySelectorAll('.reveal').forEach(el => el.classList.add('visible'));
+  }
+
+  // Stagger dor cards
+  document.querySelectorAll('.dor-card').forEach((card, i) => {
+    card.style.transitionDelay = `${(i % 3) * 0.08}s`;
+  });
+
+  // Float CTA: show after hero scroll
+  const floatCTA = document.querySelector('.float-cta');
+  if(floatCTA) {
+    window.addEventListener('scroll', () => {
+      floatCTA.style.display = window.scrollY > 600 ? 'block' : '';
+    }, { passive: true });
+  }
+
+
+function enviarContato(e){
+  e.preventDefault();
+  var nome = document.getElementById('cfNome').value.trim();
+  var wpp  = document.getElementById('cfWpp').value.trim();
+  var email= document.getElementById('cfEmail').value.trim();
+  var msg  = document.getElementById('cfMsg').value.trim();
+  // Encaminha via WhatsApp da marca (substituir WPP_NUMBER no deploy)
+  var texto = encodeURIComponent('Novo contato pelo site:%0aNome: '+nome+'%0aWhatsApp: '+wpp+'%0aE-mail: '+email+'%0aMensagem: '+(msg||'-'));
+  try { localStorage.setItem('cp_lead', JSON.stringify({nome:nome,wpp:wpp,email:email,msg:msg,data:Date.now()})); } catch(_){}
+  document.getElementById('cfOk').classList.add('show');
+  document.getElementById('contatoForm').reset();
+  // Abre o WhatsApp da empresa com o lead preenchido
+  window.open((typeof WPP_BASE!=='undefined'?WPP_BASE:'https://wa.me/5541985369390')+'?text='+texto, '_blank');
+}
+</script>
+<script>
+/* ═══ FUNDO IA — rede neural animada no hero ═══ */
+(function(){
+  var prefersReduced = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var cv = document.getElementById('heroNet');
+  if(!cv || prefersReduced) return;
+  var hero = cv.parentElement;
+  var ctx = cv.getContext('2d');
+  var dpr = Math.min(window.devicePixelRatio || 1, 2);
+  var w = 0, h = 0, nodes = [], raf = null;
+  var GOLD = 'rgba(255,215,0,', LIGHT = 'rgba(216,222,233,';
+
+  function resize(){
+    w = hero.clientWidth; h = hero.clientHeight;
+    cv.width = Math.floor(w * dpr); cv.height = Math.floor(h * dpr);
+    cv.style.width = w + 'px'; cv.style.height = h + 'px';
+    ctx.setTransform(dpr,0,0,dpr,0,0);
+    var target = Math.min(130, Math.max(36, Math.floor(w * h / 12000)));
+    nodes = [];
+    for (var i = 0; i < target; i++){
+      nodes.push({
+        x: Math.random()*w, y: Math.random()*h,
+        vx: (Math.random()-.5)*0.35, vy: (Math.random()-.5)*0.35,
+        gold: Math.random() < 0.28
+      });
+    }
+  }
+
+  function step(){
+    ctx.clearRect(0,0,w,h);
+    for (var i=0;i<nodes.length;i++){
+      var n = nodes[i];
+      n.x += n.vx; n.y += n.vy;
+      if (n.x < 0 || n.x > w) n.vx *= -1;
+      if (n.y < 0 || n.y > h) n.vy *= -1;
+    }
+    // linhas
+    for (var a=0;a<nodes.length;a++){
+      for (var b=a+1;b<nodes.length;b++){
+        var dx = nodes[a].x - nodes[b].x, dy = nodes[a].y - nodes[b].y;
+        var d = Math.sqrt(dx*dx + dy*dy);
+        if (d < 140){
+          var al = (1 - d/140) * 0.18;
+          ctx.strokeStyle = (nodes[a].gold || nodes[b].gold ? GOLD : LIGHT) + al + ')';
+          ctx.lineWidth = 1;
+          ctx.beginPath();
+          ctx.moveTo(nodes[a].x, nodes[a].y);
+          ctx.lineTo(nodes[b].x, nodes[b].y);
+          ctx.stroke();
+        }
+      }
+    }
+    // nós
+    for (var k=0;k<nodes.length;k++){
+      var nn = nodes[k];
+      ctx.fillStyle = (nn.gold ? GOLD + '0.85)' : LIGHT + '0.6)');
+      ctx.beginPath();
+      ctx.arc(nn.x, nn.y, nn.gold ? 2.2 : 1.6, 0, Math.PI*2);
+      ctx.fill();
+    }
+    raf = requestAnimationFrame(step);
+  }
+
+  function start(){ if(!raf) step(); }
+  function stop(){ if(raf){ cancelAnimationFrame(raf); raf = null; } }
+
+  resize();
+  start();
+  var rt;
+  window.addEventListener('resize', function(){ clearTimeout(rt); rt = setTimeout(resize, 200); });
+  // pausa quando a aba não está visível (economia)
+  document.addEventListener('visibilitychange', function(){ document.hidden ? stop() : start(); });
+})();
+</script>
+</body>
+</html>

@@ -1,0 +1,9 @@
+User-agent: *
+Allow: /
+
+# Áreas privadas (sem valor de busca)
+Disallow: /app.html
+Disallow: /onboarding.html
+Disallow: /obrigado.html
+
+Sitemap: https://consultorplatinum.com.br/sitemap.xml

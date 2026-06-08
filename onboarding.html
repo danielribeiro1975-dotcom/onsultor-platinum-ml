@@ -1,0 +1,496 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<script>
+/* Safe storage shim — evita crash em modo privado/cookies bloqueados */
+(function(){
+  try {
+    var t='__cp_test__'; window.localStorage.setItem(t,'1'); window.localStorage.removeItem(t);
+  } catch(e){
+    var mem={};
+    try {
+      Object.defineProperty(window,'localStorage',{value:{
+        getItem:function(k){return mem.hasOwnProperty(k)?mem[k]:null;},
+        setItem:function(k,v){mem[k]=String(v);},
+        removeItem:function(k){delete mem[k];},
+        clear:function(){mem={};}
+      },configurable:true});
+    } catch(_){}
+  }
+})();
+</script>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Configurando sua conta — Consultor Platinum ML</title>
+<link rel="icon" type="image/png" href="data:image/png;base64,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">
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@300;400;600;700;800&family=Bebas+Neue&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box;}
+:root{
+  --bg:#0a1628;--surface:#0f1f3d;--border:#1a2f52;
+  --gold:#FFD700;--text:#e2e8f0;--muted:#64748b;
+  --green:#22c55e;--red:#ef4444;--blue:#3b82f6;
+}
+body{background:var(--bg);color:var(--text);font-family:'Sora',sans-serif;min-height:100vh;overflow-x:hidden;}
+
+/* TOP BAR */
+.topbar{
+  background:var(--surface);border-bottom:1px solid var(--border);
+  padding:14px 24px;display:flex;align-items:center;justify-content:space-between;
+}
+.logo{font-size:1rem;font-weight:800;background:linear-gradient(135deg,#f4f6fa 0%,#aeb8c8 45%,#e8edf4 55%,#8995a8 100%);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;}
+.logo span{color:#fff;}
+.step-counter{font-size:0.72rem;color:var(--muted);}
+.step-counter b{color:var(--gold);}
+
+/* PROGRESS */
+.progress-bar{height:3px;background:var(--border);}
+.progress-fill{height:100%;background:var(--gold);transition:width 0.6s ease;}
+
+/* CONTAINER */
+.container{
+  max-width:640px;margin:0 auto;
+  padding:48px 24px;
+  display:flex;flex-direction:column;align-items:center;
+}
+
+/* STEPS NAV */
+.steps-nav{
+  display:flex;align-items:center;gap:0;
+  margin-bottom:48px;width:100%;
+}
+.snav{
+  display:flex;flex-direction:column;align-items:center;gap:6px;
+  flex:1;cursor:pointer;
+}
+.snav-circle{
+  width:36px;height:36px;border-radius:50%;
+  border:2px solid var(--border);background:var(--bg);
+  display:flex;align-items:center;justify-content:center;
+  font-size:0.8rem;font-weight:700;color:var(--muted);
+  transition:all 0.3s;
+}
+.snav.active .snav-circle{border-color:var(--gold);background:rgba(255,215,0,0.12);color:var(--gold);}
+.snav.done .snav-circle{border-color:var(--green);background:rgba(34,197,94,0.12);color:var(--green);}
+.snav-label{font-size:0.62rem;text-transform:uppercase;letter-spacing:1px;color:var(--muted);font-weight:600;}
+.snav.active .snav-label{color:var(--gold);}
+.snav.done .snav-label{color:var(--green);}
+.snav-line{flex:none;width:60px;height:1px;background:var(--border);margin-bottom:22px;}
+.snav-line.done{background:var(--green);}
+
+/* PASSO */
+.step{display:none;width:100%;animation:fadeUp 0.4s ease both;}
+.step.active{display:flex;flex-direction:column;align-items:center;text-align:center;}
+@keyframes fadeUp{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:translateY(0)}}
+
+.step-emoji{font-size:3.5rem;margin-bottom:20px;}
+.step-title{font-size:1.6rem;font-weight:800;color:#fff;margin-bottom:12px;line-height:1.25;}
+.step-title em{font-style:normal;color:var(--gold);}
+.step-sub{font-size:0.88rem;color:var(--muted);max-width:480px;line-height:1.7;margin-bottom:32px;}
+
+/* Cards de benefício (passo 1) */
+.benefit-grid{
+  display:grid;grid-template-columns:1fr 1fr;gap:10px;
+  width:100%;margin-bottom:32px;text-align:left;
+}
+.bcard{
+  background:var(--surface);border:1px solid var(--border);
+  padding:16px;border-radius:8px;
+  transition:border-color 0.2s;
+}
+.bcard:hover{border-color:rgba(255,215,0,0.25);}
+.bcard-icon{font-size:1.4rem;margin-bottom:8px;}
+.bcard-title{font-size:0.78rem;font-weight:700;color:#fff;margin-bottom:4px;}
+.bcard-desc{font-size:0.68rem;color:var(--muted);line-height:1.5;}
+
+/* Conectar ML (passo 2) */
+.connect-box{
+  background:var(--surface);border:1px solid var(--border);
+  padding:28px;border-radius:10px;width:100%;
+  margin-bottom:24px;text-align:left;
+}
+.connect-box-title{
+  font-size:0.85rem;font-weight:700;color:#fff;
+  margin-bottom:16px;display:flex;align-items:center;gap:8px;
+}
+.connect-step-list{list-style:none;display:flex;flex-direction:column;gap:10px;}
+.connect-step-list li{
+  display:flex;align-items:flex-start;gap:12px;
+  font-size:0.78rem;color:#aaa;line-height:1.5;
+  padding:10px;background:rgba(255,255,255,0.02);
+  border:1px solid rgba(255,255,255,0.04);border-radius:6px;
+}
+.csl-num{
+  width:22px;height:22px;border-radius:50%;
+  background:rgba(255,215,0,0.1);border:1px solid rgba(255,215,0,0.25);
+  color:var(--gold);font-size:0.65rem;font-weight:700;
+  display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:1px;
+}
+
+.security-note{
+  display:flex;align-items:flex-start;gap:10px;
+  background:rgba(34,197,94,0.06);
+  border:1px solid rgba(34,197,94,0.2);
+  padding:14px;border-radius:8px;width:100%;
+  margin-bottom:24px;text-align:left;font-size:0.75rem;color:#aaa;line-height:1.5;
+}
+.security-note .sn-icon{font-size:1.2rem;flex-shrink:0;}
+.security-note b{color:var(--green);}
+
+.skip-link{font-size:0.72rem;color:var(--muted);text-align:center;margin-top:12px;cursor:pointer;}
+.skip-link:hover{color:var(--gold);}
+.skip-link a{color:inherit;text-decoration:underline;}
+
+/* Diagnóstico (passo 3) */
+.diag-box{
+  width:100%;background:var(--surface);
+  border:1px solid var(--border);border-radius:10px;
+  overflow:hidden;margin-bottom:24px;
+}
+.diag-title{
+  padding:14px 18px;border-bottom:1px solid var(--border);
+  font-size:0.8rem;font-weight:700;color:#fff;
+  display:flex;align-items:center;gap:8px;
+}
+.diag-scanning{
+  padding:24px 18px;
+  display:flex;flex-direction:column;gap:12px;
+}
+.scan-item{
+  display:flex;align-items:center;gap:12px;
+  font-size:0.78rem;color:#aaa;
+}
+.scan-dot{
+  width:8px;height:8px;border-radius:50%;
+  background:var(--border);flex-shrink:0;
+  transition:all 0.4s;
+}
+.scan-dot.checking{background:var(--gold);animation:pulse 1s infinite;}
+.scan-dot.ok{background:var(--green);animation:none;}
+.scan-dot.warn{background:var(--red);animation:none;}
+@keyframes pulse{0%,100%{opacity:1}50%{opacity:0.3}}
+
+.scan-label{flex:1;}
+.scan-result{font-size:0.7rem;font-weight:700;opacity:0;transition:opacity 0.3s;}
+.scan-result.show{opacity:1;}
+.scan-result.ok{color:var(--green);}
+.scan-result.warn{color:var(--red);}
+.scan-result.neutral{color:var(--gold);}
+
+/* Botões */
+.btn-primary{
+  width:100%;background:var(--gold);color:#0a1628;
+  border:none;padding:14px;font-family:'Sora',sans-serif;
+  font-weight:800;font-size:0.9rem;cursor:pointer;border-radius:6px;
+  transition:all 0.2s;display:flex;align-items:center;justify-content:center;gap:8px;
+}
+.btn-primary:hover{background:#ffdc6b;transform:translateY(-1px);box-shadow:0 6px 20px rgba(255,215,0,0.3);}
+.btn-primary:disabled{opacity:0.5;cursor:not-allowed;transform:none;box-shadow:none;}
+.btn-secondary{
+  width:100%;background:transparent;color:var(--muted);
+  border:1px solid var(--border);padding:12px;
+  font-family:'Sora',sans-serif;font-weight:600;font-size:0.82rem;
+  cursor:pointer;border-radius:6px;transition:all 0.2s;margin-top:10px;
+}
+.btn-secondary:hover{border-color:rgba(255,215,0,0.3);color:var(--gold);}
+
+/* Loading */
+.loading-overlay{display:none;position:fixed;inset:0;background:rgba(10,22,40,0.92);z-index:100;flex-direction:column;align-items:center;justify-content:center;gap:20px;text-align:center;padding:24px;}
+.loading-overlay.show{display:flex;}
+.spinner{width:48px;height:48px;border:3px solid rgba(255,215,0,0.2);border-top-color:var(--gold);border-radius:50%;animation:spin 0.8s linear infinite;}
+@keyframes spin{to{transform:rotate(360deg)}}
+.loading-title{font-size:1.1rem;font-weight:700;color:#fff;}
+.loading-sub{font-size:0.8rem;color:var(--muted);}
+</style>
+  <!-- ══ FIREBASE AUTH SDK ══════════════════════════════ -->
+  <script src="https://www.gstatic.com/firebasejs/10.12.0/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/10.12.0/firebase-auth-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/10.12.0/firebase-firestore-compat.js"></script>
+  <script>
+    const firebaseConfig = {
+      apiKey:            "AIzaSyBQO4D_j8qeuE-M94FUgpqpG9rvyYUlM-M",
+      authDomain:        "seller-guardian.firebaseapp.com",
+      projectId:         "seller-guardian",
+      storageBucket:     "seller-guardian.firebasestorage.app",
+      messagingSenderId: "485816142226",
+      appId:             "1:485816142226:web:c042b5f008b91cf51c994b"
+    };
+    firebase.initializeApp(firebaseConfig);
+    const auth = firebase.auth();
+    const db   = firebase.firestore();
+  </script>
+  <!-- ══ FIM FIREBASE ════════════════════════════════════ -->
+</head>
+<body>
+
+<div class="loading-overlay" id="loadingOverlay">
+  <div class="spinner"></div>
+  <div class="loading-title" id="loadingTitle">Conectando ao Mercado Livre...</div>
+  <div class="loading-sub" id="loadingSub">Isso leva apenas alguns segundos</div>
+</div>
+
+<!-- TOP BAR -->
+<div class="topbar">
+  <div class="logo"><span style="display:inline-flex;align-items:center;"><svg viewBox="0 0 240 240" width="26" height="26" fill="none" xmlns="http://www.w3.org/2000/svg" style="vertical-align:middle;margin-right:7px;">
+  <defs><linearGradient id="cpI" x1="0" y1="0" x2="0.7" y2="1"><stop offset="0%" stop-color="#ffffff"/><stop offset="42%" stop-color="#aeb8c8"/><stop offset="55%" stop-color="#f2f5f9"/><stop offset="100%" stop-color="#6b7585"/></linearGradient></defs>
+  <path d="M150 70 A58 58 0 1 0 150 170" fill="none" stroke="url(#cpI)" stroke-width="20" stroke-linecap="round"/>
+  <path d="M120 64 L120 176" fill="none" stroke="url(#cpI)" stroke-width="20" stroke-linecap="round"/>
+  <path d="M120 64 L150 64 A32 32 0 0 1 150 128 L120 128" fill="none" stroke="url(#cpI)" stroke-width="20" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M100 156 L100 88 M100 88 L84 106 M100 88 L116 106" fill="none" stroke="url(#cpI)" stroke-width="15" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M158 66 l3.5 8 8.5.8 -6.3 5.7 1.7 8.4 -7.4-4.2 -7.4 4.2 1.7-8.4 -6.3-5.7 8.5-.8z" fill="#fff"/>
+</svg></span>Consultor<span>Platinum</span> ML</div>
+  <div class="step-counter">Passo <b id="stepCounter">1</b> de 3</div>
+</div>
+
+<!-- PROGRESS -->
+<div class="progress-bar">
+  <div class="progress-fill" id="progressFill" style="width:33%"></div>
+</div>
+
+<div class="container">
+
+  <!-- STEPS NAV -->
+  <div class="steps-nav">
+    <div class="snav active" id="snav1">
+      <div class="snav-circle">1</div>
+      <div class="snav-label">Boas-vindas</div>
+    </div>
+    <div class="snav-line" id="sline1"></div>
+    <div class="snav" id="snav2">
+      <div class="snav-circle">2</div>
+      <div class="snav-label">Conectar ML</div>
+    </div>
+    <div class="snav-line" id="sline2"></div>
+    <div class="snav" id="snav3">
+      <div class="snav-circle">3</div>
+      <div class="snav-label">Diagnóstico</div>
+    </div>
+  </div>
+
+  <!-- ═══ PASSO 1 — Boas-vindas ═══ -->
+  <div class="step active" id="step1">
+    <div class="step-emoji">🎉</div>
+    <h1 class="step-title">Sua conta <em>Platinum</em> está pronta!</h1>
+    <p class="step-sub">Em menos de 2 minutos você vai ter o Consultor IA monitorando sua conta do Mercado Livre 24h por dia. Veja o que você desbloqueou:</p>
+
+    <div class="benefit-grid">
+      <div class="bcard">
+        <div class="bcard-icon">🤖</div>
+        <div class="bcard-title">Consultor IA 24/7</div>
+        <div class="bcard-desc">Responde em segundos sobre qualquer dúvida da sua operação</div>
+      </div>
+      <div class="bcard">
+        <div class="bcard-icon">🔴</div>
+        <div class="bcard-title">Alertas em tempo real</div>
+        <div class="bcard-desc">Termômetro, ACOS, Buy Box e estoque monitorados automaticamente</div>
+      </div>
+      <div class="bcard">
+        <div class="bcard-icon">📊</div>
+        <div class="bcard-title">Diagnóstico completo</div>
+        <div class="bcard-desc">Sua conta analisada agora — sem esperar reunião</div>
+      </div>
+      <div class="bcard">
+        <div class="bcard-icon">⚡</div>
+        <div class="bcard-title">18 protocolos</div>
+        <div class="bcard-desc">Solução imediata para cada dor do seller no ML</div>
+      </div>
+    </div>
+
+    <button class="btn-primary" onclick="irParaPasso(2)">
+      Vamos começar →
+    </button>
+  </div>
+
+  <!-- ═══ PASSO 2 — Conectar ML ═══ -->
+  <div class="step" id="step2">
+    <div class="step-emoji">🔗</div>
+    <h1 class="step-title">Conecte sua conta do<br><em>Mercado Livre</em></h1>
+    <p class="step-sub">Vamos conectar sua conta para que o sistema possa monitorar sua operação em tempo real. É seguro e leva 30 segundos.</p>
+
+    <div class="connect-box">
+      <div class="connect-box-title">📋 Como funciona a conexão</div>
+      <ul class="connect-step-list">
+        <li><div class="csl-num">1</div><span>Você clica no botão abaixo e o Mercado Livre abre numa nova tela</span></li>
+        <li><div class="csl-num">2</div><span>Faz login com sua conta de seller normalmente</span></li>
+        <li><div class="csl-num">3</div><span>Clica em <b style="color:#fff">"Autorizar"</b> — o ML confirma que você está permitindo o acesso</span></li>
+        <li><div class="csl-num">4</div><span>Pronto! Você volta automaticamente para cá e o diagnóstico começa</span></li>
+      </ul>
+    </div>
+
+    <div class="security-note">
+      <span class="sn-icon">🔒</span>
+      <span><b>100% seguro:</b> Usamos a API oficial do Mercado Livre (OAuth 2.0). Nunca vemos nem armazenamos sua senha. Você pode revogar o acesso a qualquer momento nas configurações do ML.</span>
+    </div>
+
+    <button class="btn-primary" onclick="conectarML()" id="btnConectarML">
+      🔗 Conectar minha conta do ML
+    </button>
+    <button class="btn-secondary" onclick="irParaPasso(3)">
+      Pular por agora — conectar depois
+    </button>
+  </div>
+
+  <!-- ═══ PASSO 3 — Diagnóstico ═══ -->
+  <div class="step" id="step3">
+    <div class="step-emoji">🔍</div>
+    <h1 class="step-title">Rodando seu<br><em>primeiro diagnóstico</em></h1>
+    <p class="step-sub">O sistema está analisando sua conta agora. Isso leva alguns segundos.</p>
+
+    <div class="diag-box">
+      <div class="diag-title">⚙️ Analisando sua operação...</div>
+      <div class="diag-scanning">
+        <div class="scan-item" id="si1">
+          <div class="scan-dot" id="sd1"></div>
+          <div class="scan-label">Verificando reputação e termômetro</div>
+          <div class="scan-result" id="sr1"></div>
+        </div>
+        <div class="scan-item" id="si2">
+          <div class="scan-dot" id="sd2"></div>
+          <div class="scan-label">Analisando pedidos e SLA de envio</div>
+          <div class="scan-result" id="sr2"></div>
+        </div>
+        <div class="scan-item" id="si3">
+          <div class="scan-dot" id="sd3"></div>
+          <div class="scan-label">Verificando anúncios e Buy Box</div>
+          <div class="scan-result" id="sr3"></div>
+        </div>
+        <div class="scan-item" id="si4">
+          <div class="scan-dot" id="sd4"></div>
+          <div class="scan-label">Calculando ACOS e performance de Ads</div>
+          <div class="scan-result" id="sr4"></div>
+        </div>
+        <div class="scan-item" id="si5">
+          <div class="scan-dot" id="sd5"></div>
+          <div class="scan-label">Montando painel de alertas personalizado</div>
+          <div class="scan-result" id="sr5"></div>
+        </div>
+      </div>
+    </div>
+
+    <button class="btn-primary" id="btnAbrirPainel" style="display:none" onclick="abrirPainel()">
+      ⚡ Abrir meu painel agora →
+    </button>
+  </div>
+
+</div><!-- /container -->
+
+<script>
+// ─── PROTEÇÃO DE ROTA ───
+const _u = localStorage.getItem('cp_user');
+if(!_u){ window.location.href='login.html'; }
+
+let currentStep = 1;
+const user = JSON.parse(_u||'{}');
+
+// Saudação personalizada
+window.onload = ()=>{
+  if(user.nome){
+    document.querySelector('#step1 .step-title').innerHTML =
+      `Olá, <em>${user.nome.split(' ')[0]}!</em><br>Sua conta Platinum está pronta`;
+  }
+  // Voltou do Mercado Livre já conectado → vai direto pro diagnóstico
+  const _p = new URLSearchParams(window.location.search);
+  if (_p.get('ml') === 'ok') {
+    localStorage.setItem('cp_ml_connected','true');
+    irParaPasso(3);
+  }
+};
+
+function irParaPasso(n){
+  // Esconde atual
+  document.getElementById('step'+currentStep).classList.remove('active');
+  document.getElementById('snav'+currentStep).classList.remove('active');
+  document.getElementById('snav'+currentStep).classList.add('done');
+
+  // Ativa linha anterior
+  if(n>1) document.getElementById('sline'+(n-1)).classList.add('done');
+
+  currentStep = n;
+
+  // Mostra novo
+  document.getElementById('step'+n).classList.add('active');
+  document.getElementById('snav'+n).classList.add('active');
+
+  // Progress
+  const pct = n===1?33:n===2?66:100;
+  document.getElementById('progressFill').style.width = pct+'%';
+  document.getElementById('stepCounter').textContent = n;
+
+  // Se passo 3, inicia scan
+  if(n===3) setTimeout(iniciarScan, 600);
+
+  window.scrollTo({top:0,behavior:'smooth'});
+}
+
+// ⚙️ CLIENT ID do seu app do Mercado Livre (pode ficar público — o SEGREDO fica no servidor).
+//    Pegue em developers.mercadolivre.com.br → suas aplicações. Substitua abaixo:
+const ML_CLIENT_ID = '5150536002125767';
+
+function conectarML(){
+  if (ML_CLIENT_ID === 'SEU_CLIENT_ID_ML') {
+    alert('Falta configurar o CLIENT ID do Mercado Livre no onboarding.html.');
+    return;
+  }
+  document.getElementById('loadingOverlay').classList.add('show');
+
+  // state aleatório (proteção CSRF) guardado pra conferir no retorno
+  const state = (crypto && crypto.randomUUID) ? crypto.randomUUID()
+              : (Date.now() + '-' + Math.random().toString(36).slice(2));
+  sessionStorage.setItem('ml_oauth_state', state);
+
+  const REDIRECT_URI = encodeURIComponent(window.location.origin + '/ml-oauth-callback.html');
+  const mlAuthUrl = 'https://auth.mercadolivre.com.br/authorization'
+    + '?response_type=code'
+    + '&client_id=' + encodeURIComponent(ML_CLIENT_ID)
+    + '&redirect_uri=' + REDIRECT_URI
+    + '&state=' + encodeURIComponent(state);
+
+  window.location.href = mlAuthUrl; // redireciona pro Mercado Livre (login real do seller)
+}
+
+// Scan animado
+const scanData = [
+  {delay:400,  result:'✓ Verde', tipo:'ok'},
+  {delay:900,  result:'⚠️ 3 atrasados', tipo:'warn'},
+  {delay:1400, result:'⚠️ Buy Box 61%', tipo:'warn'},
+  {delay:1900, result:'⚠️ ACOS 34%', tipo:'warn'},
+  {delay:2600, result:'✓ Pronto', tipo:'neutral'},
+];
+
+function iniciarScan(){
+  scanData.forEach((item,i)=>{
+    const idx = i+1;
+    // Ativa checking
+    setTimeout(()=>{
+      document.getElementById('sd'+idx).className='scan-dot checking';
+    }, idx===1?0:scanData[i-1].delay);
+
+    // Mostra resultado
+    setTimeout(()=>{
+      document.getElementById('sd'+idx).className='scan-dot '+(item.tipo==='ok'?'ok':item.tipo==='warn'?'warn':'ok');
+      const el = document.getElementById('sr'+idx);
+      el.textContent = item.result;
+      el.className = 'scan-result show '+item.tipo;
+
+      // Último item
+      if(idx===5){
+        setTimeout(()=>{
+          document.querySelector('#step3 .step-sub').textContent = 'Diagnóstico concluído! Encontramos 3 pontos de atenção na sua conta. Clique para ver o painel completo.';
+          document.getElementById('btnAbrirPainel').style.display='flex';
+        }, 600);
+      }
+    }, item.delay);
+  });
+}
+
+function abrirPainel(){
+  localStorage.setItem('cp_onboarded','true');
+  document.getElementById('loadingOverlay').classList.add('show');
+  document.getElementById('loadingTitle').textContent = 'Abrindo seu painel...';
+  document.getElementById('loadingSub').textContent = 'Preparando alertas personalizados';
+  setTimeout(()=>{ window.location.href='app.html'; }, 1500);
+}
+</script>
+</body>
+</html>
