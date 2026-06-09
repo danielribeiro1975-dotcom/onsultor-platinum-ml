@@ -3857,644 +3857,326 @@ document.head.appendChild(spinStyle);
 <!-- Float mobile CTA -->
 <a href="#planos" class="float-cta-mobile">⚡ Ver Planos</a>
 
-<!-- ═══════════════════════════════════
-     WHATSAPP CHATBOT WIDGET
-═══════════════════════════════════ -->
 
-<!-- Chat popup -->
-<div class="wpp-chat" id="wppChat">
-  <div class="wpp-chat-head">
-    <div class="wpp-agent-avatar">🤖</div>
-    <div>
-      <div class="wpp-agent-name">Consultor Platinum</div>
-      <div class="wpp-agent-status"><div class="wpp-status-dot"></div> Online agora · Responde em segundos</div>
+
+<!-- ════════════════════════════════════════════
+     CHATBOT WHATSAPP — CONSULTOR PLATINUM ML
+     ════════════════════════════════════════════ -->
+<style>
+.wpp-fab{position:fixed;bottom:24px;right:24px;width:60px;height:60px;border-radius:50%;background:#25D366;box-shadow:0 4px 20px rgba(37,211,102,0.45);display:flex;align-items:center;justify-content:center;cursor:pointer;z-index:9998;transition:all 0.3s;border:none;}
+.wpp-fab:hover{transform:scale(1.08);background:#20c05a;}
+.wpp-fab svg{width:32px;height:32px;fill:#fff;}
+.wpp-badge{position:absolute;top:-4px;right:-4px;width:20px;height:20px;border-radius:50%;background:#ef4444;color:#fff;font-size:11px;font-weight:700;display:flex;align-items:center;justify-content:center;border:2px solid #0a1628;animation:wBadge 2s infinite;}
+@keyframes wBadge{0%,100%{transform:scale(1)}50%{transform:scale(1.18)}}
+.wpp-tip{position:fixed;bottom:94px;right:24px;background:#fff;color:#1a1a1a;padding:10px 14px;border-radius:10px;font-size:13px;font-weight:500;box-shadow:0 4px 20px rgba(0,0,0,0.18);white-space:nowrap;z-index:9997;cursor:pointer;font-family:-apple-system,sans-serif;transition:opacity 0.4s;}
+.wpp-tip::after{content:'';position:absolute;bottom:-6px;right:22px;width:12px;height:12px;background:#fff;transform:rotate(45deg);}
+.wpp-win{position:fixed;bottom:24px;right:24px;width:360px;max-height:580px;background:#fff;border-radius:16px;box-shadow:0 8px 40px rgba(0,0,0,0.28);z-index:9999;display:none;flex-direction:column;overflow:hidden;}
+.wpp-win.open{display:flex;animation:wOpen 0.3s cubic-bezier(.34,1.56,.64,1);}
+@keyframes wOpen{from{opacity:0;transform:scale(0.85) translateY(20px)}to{opacity:1;transform:scale(1) translateY(0)}}
+.wpp-hd{background:#128C7E;padding:12px 16px;display:flex;align-items:center;gap:10px;flex-shrink:0;}
+.wpp-av{width:42px;height:42px;border-radius:50%;background:rgba(255,255,255,0.15);display:flex;align-items:center;justify-content:center;font-size:20px;flex-shrink:0;}
+.wpp-nm{color:#fff;font-size:14px;font-weight:700;font-family:-apple-system,sans-serif;}
+.wpp-st{color:rgba(255,255,255,0.75);font-size:11px;font-family:-apple-system,sans-serif;display:flex;align-items:center;gap:4px;}
+.wpp-st::before{content:'';width:7px;height:7px;border-radius:50%;background:#25D366;display:inline-block;}
+.wpp-x{background:transparent;border:none;color:rgba(255,255,255,0.7);font-size:20px;cursor:pointer;padding:4px;line-height:1;}
+.wpp-x:hover{color:#fff;}
+.wpp-bd{flex:1;overflow-y:auto;padding:14px 12px;background:#ece5dd;display:flex;flex-direction:column;gap:8px;min-height:200px;max-height:380px;}
+.wpp-bd::-webkit-scrollbar{width:3px;}.wpp-bd::-webkit-scrollbar-thumb{background:#ccc;}
+.wm{max-width:85%;font-family:-apple-system,sans-serif;font-size:13px;line-height:1.5;position:relative;}
+.wm-b{background:#fff;color:#1a1a1a;padding:8px 12px;border-radius:0 10px 10px 10px;box-shadow:0 1px 2px rgba(0,0,0,0.12);align-self:flex-start;}
+.wm-b::before{content:'';position:absolute;top:0;left:-6px;width:0;height:0;border-top:8px solid #fff;border-left:6px solid transparent;}
+.wm-u{background:#dcf8c6;color:#1a1a1a;padding:8px 12px;border-radius:10px 10px 0 10px;box-shadow:0 1px 2px rgba(0,0,0,0.1);align-self:flex-end;}
+.wm-t{font-size:10px;color:#888;margin-top:3px;text-align:right;}
+.wm-b .wm-t{text-align:left;}
+.wtyp{background:#fff;padding:10px 14px;border-radius:0 10px 10px 10px;align-self:flex-start;box-shadow:0 1px 2px rgba(0,0,0,0.12);display:none;}
+.wtyp span{display:inline-block;width:7px;height:7px;border-radius:50%;background:#999;margin:0 2px;animation:wDot 1.2s infinite;}
+.wtyp span:nth-child(2){animation-delay:0.2s;}.wtyp span:nth-child(3){animation-delay:0.4s;}
+@keyframes wDot{0%,60%,100%{transform:translateY(0);opacity:.4}30%{transform:translateY(-5px);opacity:1}}
+.wopts{display:flex;flex-direction:column;gap:6px;margin-top:4px;align-self:flex-start;width:100%;}
+.wopt{background:#fff;border:1px solid #25D366;color:#075E54;padding:9px 12px;border-radius:8px;font-size:12.5px;font-weight:500;font-family:-apple-system,sans-serif;cursor:pointer;text-align:left;transition:all 0.15s;display:flex;align-items:center;gap:8px;}
+.wopt:hover{background:#dcf8c6;border-color:#128C7E;}
+.wopt .wi{font-size:16px;flex-shrink:0;}
+.wpp-ft{padding:10px 12px;background:#f0f0f0;border-top:1px solid #ddd;display:flex;gap:8px;align-items:center;flex-shrink:0;}
+.wpp-in{flex:1;border:none;background:#fff;border-radius:20px;padding:9px 14px;font-size:13px;font-family:-apple-system,sans-serif;outline:none;color:#1a1a1a;}
+.wpp-sd{width:38px;height:38px;border-radius:50%;background:#128C7E;border:none;cursor:pointer;display:flex;align-items:center;justify-content:center;flex-shrink:0;}
+.wpp-sd:hover{background:#0a7a6e;}
+.wpp-sd svg{width:18px;height:18px;fill:#fff;}
+.wcta{background:linear-gradient(135deg,#25D366,#128C7E);color:#fff;border:none;padding:12px 16px;border-radius:10px;font-size:13px;font-weight:700;font-family:-apple-system,sans-serif;cursor:pointer;width:100%;text-align:center;margin-top:4px;transition:all 0.2s;box-shadow:0 3px 12px rgba(37,211,102,0.35);}
+.wcta:hover{transform:translateY(-1px);box-shadow:0 5px 16px rgba(37,211,102,0.45);}
+.wcard{background:#fff;border:1px solid #ddd;border-radius:10px;padding:10px 12px;margin:4px 0;font-family:-apple-system,sans-serif;}
+.wcard-n{font-size:13px;font-weight:700;color:#075E54;margin-bottom:4px;}
+.wcard-p{font-size:18px;font-weight:800;color:#1a1a1a;margin-bottom:6px;}
+.wcard-p span{font-size:12px;font-weight:400;color:#666;}
+.wcard-f{list-style:none;font-size:11.5px;color:#444;line-height:1.8;}
+.wcard-f li::before{content:"✓ ";color:#25D366;font-weight:700;}
+@media(max-width:420px){.wpp-win{width:calc(100vw - 16px);right:8px;bottom:8px;}.wpp-fab{bottom:16px;right:16px;}.wpp-tip{right:8px;bottom:86px;}}
+</style>
+
+<!-- Tooltip -->
+<div class="wpp-tip" id="wppTip" onclick="wAbrir()">💬 Tire suas dúvidas antes de comprar</div>
+
+<!-- Botão flutuante -->
+<button class="wpp-fab" onclick="wAbrir()" aria-label="Abrir chat">
+  <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+  <div class="wpp-badge">1</div>
+</button>
+
+<!-- Janela do chat -->
+<div class="wpp-win" id="wppWin">
+  <div class="wpp-hd">
+    <div class="wpp-av">🤖</div>
+    <div style="flex:1;">
+      <div class="wpp-nm">Consultor Platinum ML</div>
+      <div class="wpp-st">Online agora · responde na hora</div>
     </div>
-    <button class="wpp-close" onclick="fecharChat()">✕</button>
+    <button class="wpp-x" onclick="wFechar()">✕</button>
   </div>
-
-  <div class="wpp-chat-body" id="wppMessages">
-    <!-- Messages injected by JS -->
+  <div class="wpp-bd" id="wppBd">
+    <div class="wtyp" id="wTyp"><span></span><span></span><span></span></div>
   </div>
-
-  <div class="wpp-options" id="wppOptions" style="display:none;">
-    <button class="wpp-option" onclick="escolherOpcao(1)">
-      <span class="wpp-option-icon">🌡️</span>
-      Meu termômetro está amarelando
-    </button>
-    <button class="wpp-option" onclick="escolherOpcao(2)">
-      <span class="wpp-option-icon">📉</span>
-      ACOS alto destruindo minha margem
-    </button>
-    <button class="wpp-option" onclick="escolherOpcao(3)">
-      <span class="wpp-option-icon">🥊</span>
-      Perdi a Buy Box sem saber por quê
-    </button>
-    <button class="wpp-option" onclick="escolherOpcao(4)">
-      <span class="wpp-option-icon">💰</span>
-      Quero conhecer os planos
+  <div class="wpp-ft">
+    <input class="wpp-in" id="wppIn" type="text" placeholder="Digite sua mensagem..." onkeydown="if(event.key==='Enter')wEnviar()">
+    <button class="wpp-sd" onclick="wEnviar()" aria-label="Enviar">
+      <svg viewBox="0 0 24 24"><path d="M2.01 21L23 12 2.01 3 2 10l15 2-15 2z"/></svg>
     </button>
   </div>
 </div>
 
-<!-- WhatsApp bubble -->
-<div class="wpp-widget">
-  <button class="wpp-btn" id="wppBtn" onclick="toggleChat()" aria-label="Abrir chat WhatsApp">
-    <div class="wpp-ping"></div>
-    <div class="wpp-notif" id="wppNotif">1</div>
-    <svg viewBox="0 0 24 24" fill="#fff"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
-  </button>
-</div>
-
-<!-- ═══════════════════════════════════
-     JAVASCRIPT
-═══════════════════════════════════ -->
 <script>
-// ─── COUNTDOWN REGRESSIVO ───────────────────────────
-// Data-alvo do fim da promoção. Ajuste conforme necessário.
 (function(){
-  const KEY = 'cp_launch_deadline';
-  let deadline;
-  try { deadline = localStorage.getItem(KEY); } catch(e) { deadline = null; }
-  if (!deadline) {
-    // 7 dias a partir da primeira visita
-    deadline = Date.now() + 7 * 24 * 60 * 60 * 1000;
-    try { localStorage.setItem(KEY, deadline); } catch(e) {}
-  } else {
-    deadline = parseInt(deadline, 10);
-  }
-  const el = document.getElementById('countdown');
-  function tick(){
-    if (!el) return;
-    let diff = deadline - Date.now();
-    if (diff <= 0) { el.textContent = 'encerrada'; return; }
-    const d = Math.floor(diff / 86400000);
-    const h = Math.floor((diff % 86400000) / 3600000);
-    const m = Math.floor((diff % 3600000) / 60000);
-    const s = Math.floor((diff % 60000) / 1000);
-    el.textContent = `${d}d ${String(h).padStart(2,'0')}h ${String(m).padStart(2,'0')}m ${String(s).padStart(2,'0')}s`;
-  }
-  tick();
-  setInterval(tick, 1000);
-})();
+  const WN='5541985369390';
+  const C_S='https://consultorplatinum.com.br/cadastro.html?plano=starter';
+  const C_P='https://consultorplatinum.com.br/cadastro.html?plano=platinum';
+  const C_E='https://consultorplatinum.com.br/cadastro.html?plano=enterprise';
+  let iniciado=false, tipTimer;
 
-// ─── CONFIGURAÇÃO ───────────────────────────────────
-// 🔧 SUBSTITUA o número abaixo pelo seu WhatsApp real
-const WPP_NUMBER = '5541985369390'; // formato: 55 + DDD + número (sem espaços)
-const WPP_BASE   = `https://wa.me/${WPP_NUMBER}`;
+  // Tooltip some após 8s
+  tipTimer=setTimeout(()=>{
+    const t=document.getElementById('wppTip');
+    if(t){t.style.opacity='0';setTimeout(()=>t.style.display='none',400);}
+  },8000);
 
-// Mensagens pré-definidas por dor para direcionar para o WhatsApp
-const WPP_MSGS = {
-  1: encodeURIComponent('Olá! Vim pelo site do Consultor Platinum ML. Estou com meu termômetro amarelando e quero entender como resolver isso urgente.'),
-  2: encodeURIComponent('Olá! Vim pelo site do Consultor Platinum ML. Meu ACOS está acima de 25% e está destruindo minha margem. Quero ajuda para resolver.'),
-  3: encodeURIComponent('Olá! Vim pelo site do Consultor Platinum ML. Perdi a Buy Box do meu produto principal e não estou conseguindo identificar o motivo.'),
-  4: encodeURIComponent('Olá! Vim pelo site do Consultor Platinum ML. Quero conhecer os planos disponíveis e entender o que está incluso.')
-};
-
-// ─── ESTADO ─────────────────────────────────────────
-let chatOpen  = false;
-let chatInited = false;
-
-// ─── TOGGLE CHAT ────────────────────────────────────
-function toggleChat() {
-  chatOpen ? fecharChat() : abrirChat();
-}
-
-function abrirChat() {
-  chatOpen = true;
-  document.getElementById('wppChat').classList.add('open');
-  document.getElementById('wppNotif').style.display = 'none';
-  if (!chatInited) iniciarChatbot();
-}
-
-function fecharChat() {
-  chatOpen = false;
-  document.getElementById('wppChat').classList.remove('open');
-}
-
-// ─── CHATBOT FLOW ────────────────────────────────────
-function iniciarChatbot() {
-  chatInited = true;
-  const msgs = document.getElementById('wppMessages');
-  const opts = document.getElementById('wppOptions');
-
-  // Typing indicator
-  const typing = document.createElement('div');
-  typing.className = 'wpp-typing';
-  typing.innerHTML = '<span></span><span></span><span></span>';
-  msgs.appendChild(typing);
-
-  // First message
-  setTimeout(() => {
-    msgs.removeChild(typing);
-    addMsgBot(msgs, 'Olá! 👋 Sou o <strong>Consultor Platinum</strong>.<br>Estou aqui para ajudar você a proteger sua conta no Mercado Livre.');
-  }, 1000);
-
-  // Second message
-  setTimeout(() => {
-    const t2 = document.createElement('div');
-    t2.className = 'wpp-typing';
-    t2.innerHTML = '<span></span><span></span><span></span>';
-    msgs.appendChild(t2);
-    msgs.scrollTop = msgs.scrollHeight;
-
-    setTimeout(() => {
-      msgs.removeChild(t2);
-      addMsgBot(msgs, 'Qual é o maior problema na sua loja <strong>agora</strong>? 👇');
-      setTimeout(() => { opts.style.display = 'flex'; }, 300);
-    }, 1200);
-  }, 2600);
-}
-
-function addMsgBot(container, html) {
-  const d = document.createElement('div');
-  d.className = 'wpp-msg';
-  d.innerHTML = html + '<div class="wpp-msg-time">Agora ✓✓</div>';
-  container.appendChild(d);
-  container.scrollTop = container.scrollHeight;
-}
-
-// ─── ESCOLHA DO USUÁRIO ──────────────────────────────
-function escolherOpcao(n) {
-  const opts = document.getElementById('wppOptions');
-  const msgs = document.getElementById('wppMessages');
-  opts.style.display = 'none';
-
-  const labels = {
-    1: '🌡️ Meu termômetro está amarelando',
-    2: '📉 ACOS alto destruindo minha margem',
-    3: '🥊 Perdi a Buy Box',
-    4: '💰 Quero conhecer os planos'
+  window.wAbrir=function(){
+    document.getElementById('wppWin').classList.add('open');
+    const t=document.getElementById('wppTip');
+    if(t)t.style.display='none';
+    clearTimeout(tipTimer);
+    if(!iniciado){iniciado=true;wInicio();}
   };
 
-  // Msg do usuário (balão direito)
-  const u = document.createElement('div');
-  u.style.cssText = 'align-self:flex-end;max-width:88%;background:#dcf8c6;border-radius:8px 8px 0 8px;padding:10px 14px;font-size:.8rem;color:#111;box-shadow:0 1px 3px rgba(0,0,0,.1);animation:msgSlide .3s ease both;';
-  u.innerHTML = labels[n] + '<div style="font-size:.58rem;color:#999;text-align:right;margin-top:4px;">Agora ✓</div>';
-  msgs.appendChild(u);
-  msgs.scrollTop = msgs.scrollHeight;
-
-  // Typing
-  setTimeout(() => {
-    const t = document.createElement('div');
-    t.className = 'wpp-typing';
-    t.innerHTML = '<span></span><span></span><span></span>';
-    msgs.appendChild(t);
-    msgs.scrollTop = msgs.scrollHeight;
-
-    setTimeout(() => {
-      msgs.removeChild(t);
-
-      const respostas = {
-        1: 'Entendi! Termômetro amarelando é urgência máxima. 🚨<br><br>Pelo Consultor Platinum você identifica as mediações abertas e recebe o protocolo de contenção imediato.<br><br>Vou te conectar com nosso time agora! 👇',
-        2: 'ACOS acima de 25% está literalmente drenando seu lucro. 📉<br><br>O Consultor audita suas campanhas e identifica quais estão com ACOS >50% para cortar imediatamente.<br><br>Clique abaixo e resolva isso hoje! 👇',
-        3: 'Buy Box perdida = vendas indo para o concorrente. 🥊<br><br>O diagnóstico em tempo real aponta se o problema é Full, preço, reputação ou prazo de envio — e entrega o ajuste exato.<br><br>Bora resolver? 👇',
-        4: 'Ótimo! Temos 3 planos a partir de <strong>R$97/mês</strong> com garantia de 7 dias. 💎<br><br>Nosso time vai te explicar tudo e encontrar o plano ideal para o seu tamanho de operação. 👇'
-      };
-
-      addMsgBot(msgs, respostas[n]);
-
-      // CTA button para WhatsApp real
-      setTimeout(() => {
-        const cta = document.createElement('div');
-        cta.style.cssText = 'padding:0 0 8px;';
-        cta.innerHTML = `
-          <a href="${WPP_BASE}?text=${WPP_MSGS[n]}"
-             target="_blank" rel="noopener"
-             style="display:flex;align-items:center;justify-content:center;gap:10px;
-                    background:#25D366;color:#fff;border-radius:8px;
-                    padding:14px;font-size:.82rem;font-weight:700;
-                    text-decoration:none;transition:all .2s;font-family:'Sora',sans-serif;">
-            <svg viewBox="0 0 24 24" fill="#fff" width="18" height="18"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
-            Falar com o Consultor agora
-          </a>`;
-        msgs.appendChild(cta);
-        msgs.scrollTop = msgs.scrollHeight;
-      }, 400);
-
-    }, 1400);
-  }, 600);
-}
-
-// ─── NAV SCROLL ──────────────────────────────────────
-window.addEventListener('scroll', () => {
-  const nav = document.getElementById('mainNav');
-  nav.classList.toggle('scrolled', window.scrollY > 60);
-}, { passive: true });
-
-// ─── MOBILE MENU ─────────────────────────────────────
-document.getElementById('mobileMenuBtn').addEventListener('click', () => {
-  document.getElementById('navLinks').classList.toggle('mobile-open');
-});
-
-// ─── FAQ ─────────────────────────────────────────────
-function toggleFaq(el) {
-  const item = el.closest('.faq-item');
-  const isOpen = item.classList.contains('open');
-  document.querySelectorAll('.faq-item.open').forEach(i => i.classList.remove('open'));
-  if (!isOpen) item.classList.add('open');
-}
-
-// ─── SCROLL REVEAL ───────────────────────────────────
-if ('IntersectionObserver' in window) {
-  const obs = new IntersectionObserver(entries => {
-    entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
-  }, { threshold: 0.08 });
-  document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
-} else {
-  document.querySelectorAll('.reveal').forEach(el => el.classList.add('visible'));
-}
-
-// ─── AUTO-OPEN CHAT após 8s ──────────────────────────
-setTimeout(() => {
-  if (!chatOpen) {
-    // Mostra tooltip label
-    const label = document.createElement('div');
-    label.className = 'wpp-label';
-    label.textContent = '💬 Fale com um consultor';
-    document.querySelector('.wpp-widget').insertBefore(label, document.querySelector('.wpp-btn'));
-    setTimeout(() => { if (label.parentNode) label.parentNode.removeChild(label); }, 4000);
-  }
-}, 8000);
-
-// ─── FLOATING PARTICLES ──────────────────────────────
-(function() {
-  const canvas = document.getElementById('floatCanvas');
-  if (!canvas) return;
-
-  // Partículas douradas
-  const pColors = [
-    'rgba(255,215,0,VAR)',
-    'rgba(255,193,7,VAR)',
-    'rgba(245,158,11,VAR)',
-    'rgba(255,255,255,VAR)'
-  ];
-
-  for (let i = 0; i < 28; i++) {
-    const p = document.createElement('div');
-    p.className = 'fp';
-    const size = Math.random() * 4 + 1.5;
-    const left = Math.random() * 100;
-    const duration = Math.random() * 18 + 12;
-    const delay   = Math.random() * 20;
-    const color   = pColors[Math.floor(Math.random() * pColors.length)];
-    const opacity = (Math.random() * 0.25 + 0.08).toFixed(2);
-    p.style.cssText = `
-      left:${left}%;
-      bottom:-10px;
-      width:${size}px;
-      height:${size}px;
-      background:${color.replace('VAR', opacity)};
-      animation-duration:${duration}s;
-      animation-delay:-${delay}s;
-    `;
-    canvas.appendChild(p);
-  }
-
-  // Losangos flutuantes
-  const diamondPositions = [
-    { top:'12%', left:'3%',  size:18, dur:9,  del:0   },
-    { top:'28%', right:'4%', size:12, dur:13, del:2   },
-    { top:'55%', left:'7%',  size:24, dur:11, del:4   },
-    { top:'70%', right:'8%', size:16, dur:15, del:1   },
-    { top:'42%', left:'92%', size:10, dur:10, del:3   },
-    { top:'85%', left:'15%', size:20, dur:12, del:5   },
-    { top:'8%',  right:'18%',size:14, dur:17, del:6   },
-    { top:'90%', right:'22%',size:8,  dur:8,  del:2.5 },
-  ];
-
-  diamondPositions.forEach(d => {
-    const el = document.createElement('div');
-    el.className = 'fd';
-    const s = Object.assign({
-      position:'absolute',
-      width: d.size+'px',
-      height: d.size+'px',
-      border: '1px solid rgba(255,215,0,0.2)',
-      transform: 'rotate(45deg)',
-      animationDuration: d.dur+'s',
-      animationDelay: '-'+d.del+'s',
-      background: Math.random() > .6 ? 'rgba(255,215,0,0.04)' : 'transparent'
-    }, d.top    ? {top:d.top}    : {},
-       d.left   ? {left:d.left}  : {},
-       d.right  ? {right:d.right}: {}
-    );
-    Object.assign(el.style, s);
-    canvas.appendChild(el);
-  });
-
-  // Linhas de acento
-  const lineData = [
-    { top:'35%', left:'0',    width:'120px', angle:'-8deg',  opacity:.12 },
-    { top:'65%', right:'0',   width:'90px',  angle:'12deg',  opacity:.1  },
-    { top:'50%', left:'0',    width:'60px',  angle:'-4deg',  opacity:.08 },
-    { top:'20%', right:'0',   width:'150px', angle:'6deg',   opacity:.09 },
-  ];
-
-  lineData.forEach(l => {
-    const el = document.createElement('div');
-    el.className = 'fl';
-    const s = {
-      position:'absolute',
-      height: '1px',
-      background: 'linear-gradient(90deg, transparent, rgba(255,215,0,0.6), transparent)',
-      width: l.width,
-      transform: `rotate(${l.angle})`,
-      animationDuration: (8 + Math.random()*6)+'s',
-      animationDelay: '-'+(Math.random()*5)+'s',
-    };
-    if (l.top)    s.top    = l.top;
-    if (l.left)   s.left   = l.left;
-    if (l.right)  s.right  = l.right;
-    Object.assign(el.style, s);
-    canvas.appendChild(el);
-  });
-})();
-document.querySelectorAll('.pain-card').forEach((c, i) => {
-  c.style.transitionDelay = `${(i % 3) * 0.08}s`;
-});
-document.querySelectorAll('.diff-card').forEach((c, i) => {
-  c.style.transitionDelay = `${i * 0.1}s`;
-});
-document.querySelectorAll('.proof-card').forEach((c, i) => {
-  c.style.transitionDelay = `${i * 0.1}s`;
-});
-</script>
-
-
-<!-- ═══ JS SIMULAÇÃO INTERATIVA (portado da landing) ═══ -->
-<script>
-
-  // ═══════════════════════════════════
-  // DEMO INTERATIVA
-  // ═══════════════════════════════════
-  const demoRespostas = {
-    'O que é mais urgente na minha conta agora?': {
-      texto: 'Sua conta tem <b>2 urgências críticas</b> para hoje:\n\n<span class="dhl">🔴 1. Mediações</span> — Você tem 3 reclamações sem resposta há +24h. O ML penaliza em 48h automaticamente. Isso pode derrubar seu termômetro para o vermelho.\n\n<span class="dhl">🔴 2. ACOS de 34%</span> — Você está gastando R$34 para cada R$100 vendido em Ads. Sua margem está negativa. Precisa cortar o lance hoje mesmo.',
-      sol: null, flash: 'dc1'
-    },
-    'Por que meu ACOS está tão alto?': {
-      texto: 'Seu ACOS de <span class="dhl">34%</span> está bem acima do ideal de 10%.\n\nDiagnóstico: você tem campanhas rodando em <b>produtos com margem insuficiente</b>. Os 3 piores estão com ACOS acima de 50% — veja o plano no card ao lado 👈',
-      sol: { titulo: '🎯 Como baixar seu ACOS agora', itens: ['Reduza o lance máximo em 25% em todas as campanhas','Pause os produtos com ACOS >50% identificados no painel','Concentre o budget nos 2 produtos com ACOS <15%'] },
-      flash: 'dc2'
-    },
-    'Por que perdi a Buy Box?': {
-      texto: 'Sua Buy Box caiu para <span class="dhl">61%</span>. O ideal é acima de 80%.\n\nO problema: seu concorrente principal <b>ativou o Full ML</b> e agora entrega no dia seguinte. Mesmo com preço igual, ele leva a venda pelo tempo de entrega.',
-      sol: { titulo: '🥊 Como recuperar a Buy Box', itens: ['Ative o Full nos seus 5 produtos mais vendidos','Se não puder fazer Full, use Flex na sua cidade','Nos demais, baixe R$2 no preço para compensar'] },
-      flash: null
-    },
-    'Meu termômetro está em risco de cair?': {
-      texto: 'Sim, está em <span class="dhl">zona amarela</span>. Sua taxa de reclamações está em 2.4% — o limite é 2%.\n\nAs <b>3 mediações abertas</b> são o sinal de risco mais crítico agora. Cada uma sem resposta aumenta o risco de penalização do termômetro. Veja o protocolo no card 👈',
-      sol: { titulo: '🌡️ Protocolo de proteção', itens: ['Responda as 3 mediações abertas antes das 18h hoje','Ofereça solução direta: reenvio ou reembolso imediato','Não deixe nenhuma mediação sem resposta por +24h'] },
-      flash: 'dc1'
-    },
-    'Como resolver as mediações abertas e proteger meu termômetro?': {
-      texto: 'Para resolver as mediações e proteger o termômetro, siga este protocolo:\n\n1. Entre no app do ML agora mesmo\n2. Para cada mediação: não peça mais informações — ofereça <b>solução direta</b>\n3. Reenvio ou reembolso resolve 90% dos casos sem escalada\n\nIsso para o sangramento no termômetro nas próximas horas.',
-      sol: { titulo: '✅ Protocolo mediação', itens: ['Abra o ML agora e filtre por "Reclamações"','Responda cada uma com oferta de solução imediata','Registre o acordo no chat da mediação para o ML ver'] },
-      flash: 'dc1'
-    },
-    'Como baixar meu ACOS de 34% e parar de desperdiçar dinheiro em ads?': {
-      texto: 'ACOS de 34% significa que você <b>está perdendo dinheiro</b> em ads. Passo a passo:\n\n1. Acesse o Gerenciador de Ads do ML\n2. Ordene por ACOS decrescente\n3. Pause tudo acima de 50%\n4. Reduza lances do restante em 25%\n\nEm 7 dias você já verá o ACOS caindo. O painel vai monitorar pra você.',
-      sol: { titulo: '📉 Corte de ACOS — 3 passos', itens: ['Pause campanhas com ACOS >50% agora','Reduza lance máximo em 25% no restante','Reinvista o budget nos 2 produtos que convertem'] },
-      flash: 'dc2'
-    },
-    'Como evitar atrasos de envio no futuro e proteger meu SLA?': {
-      texto: 'Para nunca mais atrasar um envio:\n\n1. <b>Configure alertas no ML</b> para novos pedidos pagos\n2. Defina uma rotina: todo dia às 9h, abra o Mercado Livre e processe os pedidos do dia anterior\n3. O sistema aqui vai te avisar quando o prazo está chegando\n\nOs 2 pedidos de hoje: imprima a etiqueta agora antes que vença.',
-      sol: { titulo: '📦 Rotina anti-atraso', itens: ['Ative notificações push do ML no celular','Processe pedidos todo dia às 9h — crie o hábito','O Consultor vai te alertar antes do prazo vencer'] },
-      flash: 'dc3'
-    }
+  window.wFechar=function(){
+    document.getElementById('wppWin').classList.remove('open');
   };
 
-  function demoGetResposta(msg) {
-    if (demoRespostas[msg]) return demoRespostas[msg];
-    const m = msg.toLowerCase();
-    if (m.includes('termômetro') || m.includes('mediação') || m.includes('reputação') || m.includes('mediações'))
-      return demoRespostas['Meu termômetro está em risco de cair?'];
-    if (m.includes('acos') || m.includes('ads') || m.includes('campanha') || m.includes('anúncio'))
-      return demoRespostas['Por que meu ACOS está tão alto?'];
-    if (m.includes('buy box') || m.includes('buybox') || m.includes('concorrente') || m.includes('full'))
-      return demoRespostas['Por que perdi a Buy Box?'];
-    if (m.includes('urgente') || m.includes('urgência') || m.includes('primeiro') || m.includes('começar'))
-      return demoRespostas['O que é mais urgente na minha conta agora?'];
-    return {
-      texto: `Entendi sua pergunta sobre <b>"${msg}"</b>.\n\nCom base na análise da sua conta, as <span class="dhl">2 urgências críticas</span> do painel precisam ser resolvidas primeiro. Quer que eu detalhe o termômetro ou o ACOS?`,
-      sol: null, flash: null
-    };
+  function hr(){return new Date().toLocaleTimeString('pt-BR',{hour:'2-digit',minute:'2-digit'});}
+
+  function wBot(html,delay){
+    delay=delay||0;
+    return new Promise(r=>{
+      setTimeout(()=>{
+        document.getElementById('wTyp').style.display='flex';
+        setTimeout(()=>{
+          document.getElementById('wTyp').style.display='none';
+          const bd=document.getElementById('wppBd');
+          const d=document.createElement('div');
+          d.className='wm wm-b';
+          d.innerHTML=html+'<div class="wm-t">'+hr()+'</div>';
+          bd.insertBefore(d,document.getElementById('wTyp'));
+          bd.scrollTop=bd.scrollHeight;
+          r();
+        },850);
+      },delay);
+    });
   }
 
-  function demoEnviar() {
-    const inp = document.getElementById('demoInput');
-    if(!inp) return;
-    const msg = inp.value.trim();
-    if (!msg) return;
-    inp.value = '';
-    demoPerg(msg);
+  function wUser(txt){
+    const bd=document.getElementById('wppBd');
+    const d=document.createElement('div');
+    d.className='wm wm-u';
+    d.innerHTML=txt+'<div class="wm-t">'+hr()+' ✓✓</div>';
+    bd.insertBefore(d,document.getElementById('wTyp'));
+    bd.scrollTop=bd.scrollHeight;
   }
 
-  function demoPerg(msg) {
-    const chat = document.getElementById('demoChatMsgs');
-    const btn  = document.getElementById('demoBtnSend');
-    btn.disabled = true;
-
-    // Mensagem do usuário
-    const u = document.createElement('div');
-    u.className = 'dmsg dmsg-usr';
-    u.innerHTML = `<div class="dmsg-bubble">${msg}</div><div class="dmsg-time">Agora</div>`;
-    chat.appendChild(u);
-    chat.scrollTop = chat.scrollHeight;
-
-    // Typing
-    const t = document.createElement('div');
-    t.className = 'dmsg dmsg-ia typing-ind';
-    t.innerHTML = `<div class="typing-bub"><div class="tdot"></div><div class="tdot"></div><div class="tdot"></div></div>`;
-    chat.appendChild(t);
-    chat.scrollTop = chat.scrollHeight;
-
-    const delay = 900 + Math.random() * 600;
-    setTimeout(() => {
-      chat.removeChild(t);
-      const resp = demoGetResposta(msg);
-      const textoFmt = resp.texto.replace(/\n\n/g,'<br><br>').replace(/\n/g,'<br>');
-
-      let solHTML = '';
-      if (resp.sol) {
-        solHTML = `<div class="inline-sol">
-          <div class="inline-sol-title">${resp.sol.titulo}</div>
-          ${resp.sol.itens.map(i=>`<div class="inline-sol-item"><span>→</span><span>${i}</span></div>`).join('')}
-          <button class="btn-painel" onclick="demoScrollPainel()">📊 Ver no painel ao lado →</button>
-        </div>`;
-      }
-
-      const ia = document.createElement('div');
-      ia.className = 'dmsg dmsg-ia';
-      ia.innerHTML = `<div class="dmsg-bubble">${textoFmt}${solHTML}</div><div class="dmsg-time">Agora</div>`;
-      chat.appendChild(ia);
-      chat.scrollTop = chat.scrollHeight;
-
-      if (resp.flash) {
-        const card = document.getElementById(resp.flash);
-        if (card) {
-          card.classList.add('highlighted');
-          card.scrollIntoView({ behavior:'smooth', block:'nearest' });
-          setTimeout(() => card.classList.remove('highlighted'), 3000);
-        }
-      }
-      btn.disabled = false;
-    }, delay);
+  function wOpts(ops,delay){
+    delay=delay||0;
+    return new Promise(r=>{
+      setTimeout(()=>{
+        const bd=document.getElementById('wppBd');
+        const wrap=document.createElement('div');
+        wrap.className='wopts';
+        ops.forEach(function(op){
+          const b=document.createElement('button');
+          b.className='wopt';
+          b.innerHTML='<span class="wi">'+op.i+'</span>'+op.l;
+          b.onclick=function(){wrap.remove();wUser(op.l);setTimeout(op.a,300);};
+          wrap.appendChild(b);
+        });
+        bd.insertBefore(wrap,document.getElementById('wTyp'));
+        bd.scrollTop=bd.scrollHeight;
+        r();
+      },delay);
+    });
   }
 
-  function demoMarcar(el) {
-    if(!el) return;
-    el.classList.toggle('done');
-    const n = el.querySelector('.demo-acao-n');
-    const all = el.parentElement ? el.parentElement.querySelectorAll('.demo-acao') : [];
-    if(n) n.textContent = el.classList.contains('done') ? '✓' : (Array.from(all).indexOf(el)+1);
+  function wCard(nome,preco,per,features,ctaLabel,url){
+    return '<div class="wcard"><div class="wcard-n">'+nome+'</div><div class="wcard-p">R$ '+preco+'<span>/'+per+'</span></div><ul class="wcard-f">'+features.map(function(f){return'<li>'+f+'</li>';}).join('')+'</ul></div><button class="wcta" onclick="wCheckout(\''+url+'\',\''+nome+'\')">⚡ '+ctaLabel+'</button>';
   }
 
-  function demoScrollPainel() {
-    const el = document.getElementById('demoCards');
-    if(el) el.scrollTo({ top: 0, behavior: 'smooth' });
+  window.wCheckout=function(url,plano){
+    wUser('Quero assinar o '+plano+'!');
+    setTimeout(async function(){
+      await wBot('Ótima escolha! 🎉 Abrindo a página de cadastro agora...');
+      setTimeout(function(){window.open(url,'_blank');},800);
+    },300);
+  };
+
+  function wMenu(){
+    return wOpts([
+      {i:'🤔',l:'O que é o Consultor Platinum?',a:fOquee},
+      {i:'🌡️',l:'Quais alertas a IA monitora?',a:fAlertas},
+      {i:'💰',l:'Ver planos e preços',a:fPlanos},
+      {i:'🔒',l:'Minha conta fica segura?',a:fSeguranca},
+      {i:'🛡️',l:'Tem garantia de reembolso?',a:fGarantia},
+      {i:'💬',l:'Falar com um humano',a:fHumano},
+    ],200);
   }
 
-  // Mensagem automática após 2.5s
-  setTimeout(() => {
-    const chat = document.getElementById('demoChatMsgs');
-    if (!chat) return;
-    const t = document.createElement('div');
-    t.className = 'dmsg dmsg-ia typing-ind';
-    t.innerHTML = `<div class="typing-bub"><div class="tdot"></div><div class="tdot"></div><div class="tdot"></div></div>`;
-    chat.appendChild(t);
-    chat.scrollTop = chat.scrollHeight;
-    setTimeout(() => {
-      chat.removeChild(t);
-      const ia = document.createElement('div');
-      ia.className = 'dmsg dmsg-ia';
-      ia.innerHTML = `<div class="dmsg-bubble">Vou direto ao ponto: seu <b>termômetro está amarelando</b>. Você tem <span class="dhl">3 mediações sem resposta</span> — se não agir hoje, o ML decide contra você automaticamente.<br><br>Clique em <b>"Como resolver as mediações"</b> abaixo do card para ver o protocolo completo. 👆</div><div class="dmsg-time">Agora</div>`;
-      chat.appendChild(ia);
-      chat.scrollTop = chat.scrollHeight;
-      // Flash no card 1
-      const c1 = document.getElementById('dc1');
-      if (c1) { c1.classList.add('highlighted'); setTimeout(()=>c1.classList.remove('highlighted'),3000); }
-    }, 1400);
-  }, 2500);
-
-  // ═══════════════════════════════════
-  // Scroll reveal (with fallback for unsupported browsers)
-  if ('IntersectionObserver' in window) {
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach(e => {
-        if (e.isIntersecting) {
-          e.target.classList.add('visible');
-        }
-      });
-    }, { threshold: 0.08 });
-    document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
-  } else {
-    // Fallback: show all reveal elements immediately
-    document.querySelectorAll('.reveal').forEach(el => el.classList.add('visible'));
+  async function wInicio(){
+    await wBot('Olá! 👋 Sou o assistente do <b>Consultor Platinum ML</b>.');
+    await wBot('Estou aqui para te ajudar a entender como nossa IA pode <b>proteger e aumentar suas vendas</b> no Mercado Livre. 🚀',200);
+    await wBot('O que você gostaria de saber?',400);
+    await wMenu();
   }
 
-  // Stagger dor cards
-  document.querySelectorAll('.dor-card').forEach((card, i) => {
-    card.style.transitionDelay = `${(i % 3) * 0.08}s`;
-  });
-
-  // Float CTA: show after hero scroll
-  const floatCTA = document.querySelector('.float-cta');
-  if(floatCTA) {
-    window.addEventListener('scroll', () => {
-      floatCTA.style.display = window.scrollY > 600 ? 'block' : '';
-    }, { passive: true });
+  async function fOquee(){
+    await wBot('O <b>Consultor Platinum ML</b> é uma IA que trabalha 24h por dia monitorando sua conta no Mercado Livre. 🤖');
+    await wBot('Enquanto você dorme, ela monitora:<br>• Termômetro e reputação<br>• Buy Box perdida<br>• ACOS dos seus anúncios<br>• Mediações abrindo<br>• Estoque crítico<br>• Reembolsos não pagos',300);
+    await wBot('Quando detecta um problema, te avisa <b>antes de virar prejuízo</b> — e já mostra o que fazer. 💡',600);
+    await wOpts([
+      {i:'💰',l:'Quanto custa?',a:fPlanos},
+      {i:'🌡️',l:'Ver todos os alertas',a:fAlertas},
+      {i:'🔒',l:'É seguro conectar minha conta?',a:fSeguranca},
+      {i:'↩️',l:'Voltar ao menu',a:wMenu},
+    ],800);
   }
 
-
-function enviarContato(e){
-  e.preventDefault();
-  var nome = document.getElementById('cfNome').value.trim();
-  var wpp  = document.getElementById('cfWpp').value.trim();
-  var email= document.getElementById('cfEmail').value.trim();
-  var msg  = document.getElementById('cfMsg').value.trim();
-  // Encaminha via WhatsApp da marca (substituir WPP_NUMBER no deploy)
-  var texto = encodeURIComponent('Novo contato pelo site:%0aNome: '+nome+'%0aWhatsApp: '+wpp+'%0aE-mail: '+email+'%0aMensagem: '+(msg||'-'));
-  try { localStorage.setItem('cp_lead', JSON.stringify({nome:nome,wpp:wpp,email:email,msg:msg,data:Date.now()})); } catch(_){}
-  document.getElementById('cfOk').classList.add('show');
-  document.getElementById('contatoForm').reset();
-  // Abre o WhatsApp da empresa com o lead preenchido
-  window.open((typeof WPP_BASE!=='undefined'?WPP_BASE:'https://wa.me/5541985369390')+'?text='+texto, '_blank');
-}
-</script>
-<script>
-/* ═══ FUNDO IA — rede neural animada no hero ═══ */
-(function(){
-  var prefersReduced = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-  var cv = document.getElementById('heroNet');
-  if(!cv || prefersReduced) return;
-  var hero = cv.parentElement;
-  var ctx = cv.getContext('2d');
-  var dpr = Math.min(window.devicePixelRatio || 1, 2);
-  var w = 0, h = 0, nodes = [], raf = null;
-  var GOLD = 'rgba(255,215,0,', LIGHT = 'rgba(216,222,233,';
-
-  function resize(){
-    w = hero.clientWidth; h = hero.clientHeight;
-    cv.width = Math.floor(w * dpr); cv.height = Math.floor(h * dpr);
-    cv.style.width = w + 'px'; cv.style.height = h + 'px';
-    ctx.setTransform(dpr,0,0,dpr,0,0);
-    var target = Math.min(130, Math.max(36, Math.floor(w * h / 12000)));
-    nodes = [];
-    for (var i = 0; i < target; i++){
-      nodes.push({
-        x: Math.random()*w, y: Math.random()*h,
-        vx: (Math.random()-.5)*0.35, vy: (Math.random()-.5)*0.35,
-        gold: Math.random() < 0.28
-      });
-    }
+  async function fAlertas(){
+    await wBot('Nossa IA monitora <b>25 tipos de alertas</b> em 4 categorias: 🎯');
+    await wBot('<b>🔴 Críticos</b><br>1. Conta em risco de suspensão<br>2. Mediação vencendo em breve<br>3. Buy Box perdida<br>4. ACOS acima da margem (Ads no prejuízo)<br>5. Produto campeão sem estoque',300);
+    await wBot('<b>🟠 Financeiros</b><br>6. Produto vendendo com prejuízo<br>7. Reembolsos não creditados<br>8. Tarifas cruzando breakeven<br>9. Risco de descapitalização<br>10. Estoque Full prestes a gerar tarifa',600);
+    await wBot('<b>🔵 Operacionais</b><br>11. Pedidos atrasando hoje<br>12. SLA de envio piorando<br>13. Anúncios sem venda há 30 dias<br>14. Perguntas sem resposta<br>15. SEO fraco nos títulos',900);
+    await wBot('<b>🚀 Exclusivos Platinum</b><br>16. Dinheiro escondido para recuperar<br>17. Scanner de suspensão preventivo<br>18. Simulador de impacto do Full<br>19. Canibalização entre anúncios<br>20. Ranking por margem real',1200);
+    await wOpts([
+      {i:'💰',l:'Ver planos e preços',a:fPlanos},
+      {i:'🆓',l:'Tem garantia?',a:fGarantia},
+      {i:'↩️',l:'Voltar ao menu',a:wMenu},
+    ],1500);
   }
 
-  function step(){
-    ctx.clearRect(0,0,w,h);
-    for (var i=0;i<nodes.length;i++){
-      var n = nodes[i];
-      n.x += n.vx; n.y += n.vy;
-      if (n.x < 0 || n.x > w) n.vx *= -1;
-      if (n.y < 0 || n.y > h) n.vy *= -1;
-    }
-    // linhas
-    for (var a=0;a<nodes.length;a++){
-      for (var b=a+1;b<nodes.length;b++){
-        var dx = nodes[a].x - nodes[b].x, dy = nodes[a].y - nodes[b].y;
-        var d = Math.sqrt(dx*dx + dy*dy);
-        if (d < 140){
-          var al = (1 - d/140) * 0.18;
-          ctx.strokeStyle = (nodes[a].gold || nodes[b].gold ? GOLD : LIGHT) + al + ')';
-          ctx.lineWidth = 1;
-          ctx.beginPath();
-          ctx.moveTo(nodes[a].x, nodes[a].y);
-          ctx.lineTo(nodes[b].x, nodes[b].y);
-          ctx.stroke();
-        }
-      }
-    }
-    // nós
-    for (var k=0;k<nodes.length;k++){
-      var nn = nodes[k];
-      ctx.fillStyle = (nn.gold ? GOLD + '0.85)' : LIGHT + '0.6)');
-      ctx.beginPath();
-      ctx.arc(nn.x, nn.y, nn.gold ? 2.2 : 1.6, 0, Math.PI*2);
-      ctx.fill();
-    }
-    raf = requestAnimationFrame(step);
+  async function fPlanos(){
+    await wBot('Temos 3 planos. Escolha o seu: 👇');
+    await new Promise(function(r){setTimeout(function(){
+      var bd=document.getElementById('wppBd');
+      var d=document.createElement('div');
+      d.className='wm wm-b';
+      d.innerHTML=wCard('🥉 Starter','97','mês',['IA Consultora 24/7 (50 perguntas/mês)','7 alertas em tempo real','Monitor de termômetro e Buy Box','Relatório PDF estratégico','Alertas no WhatsApp'],'Começar com Starter',C_S)+'<div class="wm-t">'+hr()+'</div>';
+      bd.insertBefore(d,document.getElementById('wTyp'));
+      bd.scrollTop=bd.scrollHeight;r();
+    },400);});
+    await new Promise(function(r){setTimeout(function(){
+      var bd=document.getElementById('wppBd');
+      var d=document.createElement('div');
+      d.className='wm wm-b';
+      d.innerHTML='<div style="background:#dcf8c6;border:1px solid #25D366;border-radius:6px;padding:3px 9px;font-size:11px;font-weight:700;color:#075E54;display:inline-block;margin-bottom:6px;font-family:-apple-system,sans-serif;">⭐ MAIS POPULAR</div>'+wCard('🥇 Platinum','197','mês',['IA ilimitada sem restrições','25 alertas completos','Auditoria de ACOS e margem por SKU','Calculadora de precificação','Simples Nacional integrado'],'Quero o Platinum',C_P)+'<div class="wm-t">'+hr()+'</div>';
+      bd.insertBefore(d,document.getElementById('wTyp'));
+      bd.scrollTop=bd.scrollHeight;r();
+    },900);});
+    await new Promise(function(r){setTimeout(function(){
+      var bd=document.getElementById('wppBd');
+      var d=document.createElement('div');
+      d.className='wm wm-b';
+      d.innerHTML=wCard('💎 Enterprise','497','mês',['Multi-conta (até 5 CNPJs)','Auditoria de reembolsos ocultos','Fluxo de caixa preditivo','Suporte prioritário + automações'],'Ver o Enterprise',C_E)+'<div class="wm-t">'+hr()+'</div>';
+      bd.insertBefore(d,document.getElementById('wTyp'));
+      bd.scrollTop=bd.scrollHeight;r();
+    },1400);});
+    await wOpts([
+      {i:'🤔',l:'Qual plano é certo pra mim?',a:fQualPlano},
+      {i:'🛡️',l:'Tem garantia de reembolso?',a:fGarantia},
+      {i:'💬',l:'Falar com um especialista',a:fHumano},
+    ],1800);
   }
 
-  function start(){ if(!raf) step(); }
-  function stop(){ if(raf){ cancelAnimationFrame(raf); raf = null; } }
+  async function fQualPlano(){
+    await wBot('Me conta: qual é seu faturamento mensal no ML? 📊');
+    await wOpts([
+      {i:'🌱',l:'Até R$ 30 mil/mês',a:async function(){
+        await wBot('Para seu momento, o <b>Starter (R$97/mês)</b> já entrega tudo que precisa. 💪');
+        await wBot('Com ele você protege a reputação, monitora Buy Box e tem a IA 24/7. Quando crescer, migra para o Platinum sem perder nada.');
+        await wOpts([{i:'⚡',l:'Assinar o Starter agora',a:function(){wCheckout(C_S,'Starter');}},{i:'↩️',l:'Ver todos os planos',a:fPlanos}]);
+      }},
+      {i:'🚀',l:'Entre R$ 30k e R$ 200k/mês',a:async function(){
+        await wBot('No seu volume, o <b>Platinum (R$197/mês)</b> é o mais indicado. 🎯');
+        await wBot('A auditoria de ACOS e margem real por SKU costumam recuperar mais do que o valor da assinatura nos primeiros 30 dias.');
+        await wOpts([{i:'⚡',l:'Assinar o Platinum agora',a:function(){wCheckout(C_P,'Platinum');}},{i:'↩️',l:'Ver todos os planos',a:fPlanos}]);
+      }},
+      {i:'💎',l:'Acima de R$ 200k/mês',a:async function(){
+        await wBot('Para sua operação, o <b>Enterprise (R$497/mês)</b> é o ideal. 💰');
+        await wBot('Em contas nesse volume, nossa auditoria de reembolsos costuma encontrar entre R$3.000 e R$10.000 em valores retidos nos primeiros 7 dias.');
+        await wOpts([{i:'⚡',l:'Quero o Enterprise',a:function(){wCheckout(C_E,'Enterprise');}},{i:'💬',l:'Falar com especialista',a:fHumano}]);
+      }},
+    ],300);
+  }
 
-  resize();
-  start();
-  var rt;
-  window.addEventListener('resize', function(){ clearTimeout(rt); rt = setTimeout(resize, 200); });
-  // pausa quando a aba não está visível (economia)
-  document.addEventListener('visibilitychange', function(){ document.hidden ? stop() : start(); });
+  async function fSeguranca(){
+    await wBot('Ótima pergunta — segurança é prioridade. 🔐');
+    await wBot('Usamos o <b>OAuth oficial do Mercado Livre</b> — o mesmo sistema de todos os parceiros autorizados. <b>Nunca pedimos sua senha.</b>');
+    await wBot('O que acessamos:<br>✅ Leitura de vendas e métricas<br>✅ Alertas sobre sua conta<br>❌ Nunca movimentamos dinheiro<br>❌ Nunca alteramos preços<br>❌ Nunca vendemos seus dados',300);
+    await wBot('Você revoga o acesso quando quiser em <b>Minha Conta → Aplicativos</b> no ML. Um clique e desativado. 🔒',600);
+    await wOpts([{i:'💰',l:'Ver planos e preços',a:fPlanos},{i:'🛡️',l:'Tem garantia?',a:fGarantia},{i:'↩️',l:'Voltar ao menu',a:wMenu}],900);
+  }
+
+  async function fGarantia(){
+    await wBot('Sim! <b>Garantia de 7 dias</b> com reembolso total. 🛡️');
+    await wBot('Se nos primeiros 7 dias você não ficar satisfeito por qualquer motivo, devolvemos 100% do valor. Sem perguntas, sem burocracia.');
+    await wBot('Pode assinar com tranquilidade — o risco é todo nosso. 💯',300);
+    await wOpts([{i:'⚡',l:'Quero assinar agora!',a:fPlanos},{i:'🤔',l:'Qual plano é certo pra mim?',a:fQualPlano},{i:'↩️',l:'Voltar ao menu',a:wMenu}],600);
+  }
+
+  async function fHumano(){
+    await wBot('Certo! Vou te conectar com um consultor agora. 👤');
+    var bd=document.getElementById('wppBd');
+    var d=document.createElement('div');
+    d.className='wm wm-b';
+    var txt=encodeURIComponent('Olá! Vim do site e tenho dúvidas sobre o Consultor Platinum ML. Pode me ajudar?');
+    d.innerHTML='<button class="wcta" onclick="window.open(\'https://wa.me/'+WN+'?text='+txt+'\',\'_blank\')">💬 Falar com consultor no WhatsApp</button><div class="wm-t">'+hr()+'</div>';
+    bd.insertBefore(d,document.getElementById('wTyp'));
+    bd.scrollTop=bd.scrollHeight;
+    await wOpts([{i:'↩️',l:'Voltar ao menu',a:wMenu}],400);
+  }
+
+  window.wEnviar=function(){
+    var inp=document.getElementById('wppIn');
+    var txt=inp.value.trim();
+    if(!txt)return;
+    inp.value='';
+    wUser(txt);
+    var t=txt.toLowerCase();
+    setTimeout(async function(){
+      if(/pre[çc]o|custo|quanto|valor|plano/i.test(t)) await fPlanos();
+      else if(/segur|senha|dados|oauth/i.test(t)) await fSeguranca();
+      else if(/alerta|monitora|o que faz|funciona/i.test(t)) await fAlertas();
+      else if(/garantia|devolu|reembolso/i.test(t)) await fGarantia();
+      else if(/human|atend|consultor|pessoa|falar/i.test(t)) await fHumano();
+      else if(/starter|97/i.test(t)) wCheckout(C_S,'Starter');
+      else if(/platinum|197/i.test(t)) wCheckout(C_P,'Platinum');
+      else if(/enterprise|497/i.test(t)) wCheckout(C_E,'Enterprise');
+      else{ await wBot('Entendi! 😊 Escolha uma opção para eu te ajudar melhor:'); await wMenu(); }
+    },400);
+  };
 })();
 </script>
+<!-- ══ FIM CHATBOT ══ -->
+
 </body>
 </html>
