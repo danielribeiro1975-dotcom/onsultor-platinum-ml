@@ -2,7 +2,18 @@
 [build]
   publish = "."
   functions = "netlify/functions"
+# Forçar HTTPS
+[[redirects]]
+  from = "http://consultorplatinum.com.br/*"
+  to = "https://consultorplatinum.com.br/:splat"
+  status = 301
+  force = true
 
+[[redirects]]
+  from = "http://www.consultorplatinum.com.br/*"
+  to = "https://www.consultorplatinum.com.br/:splat"
+  status = 301
+  force = true
 # Redirects — app e páginas protegidas
 [[redirects]]
   from = "/painel"
